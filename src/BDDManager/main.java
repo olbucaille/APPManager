@@ -1,18 +1,21 @@
 package BDDManager;
 
+import Model.User;
+
 public class main {
 
 	public static void main(String[] args) {
 		LDAPObject obj= new LDAPObject();
 		LDAPaccess acc = new LDAPaccess();
 		try {
-			obj = acc.LDAPget("obucaill", "ob8090!");
+			obj = acc.LDAPget("obucaill", "!");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		System.out.println(obj.toString());
+		
+		User user = new User(obj.login,obj.password,obj.nom,obj.nomFamille,obj.prenom,obj.getType(),obj.getNumber(),obj.getMail());
+		System.out.println(user.toString());
 	}
 
 }

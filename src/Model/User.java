@@ -13,9 +13,20 @@ public class User extends LDAPObject {
 		super( login,  password,  nom,  nomFamille,  prenom,  type, numero, mail);
 	}
 	
+	
+
 	public void setPicture (Media p)
 	{
 		picture = p;
 	}
+
+	@Override
+	public String toString() {
+		return "User [picture=" + picture + ", nom=" + nom + ", nomFamille="
+				+ nomFamille + ", prenom=" + prenom + ", login=" + login
+				+ ", password=" + password + ", mail=" + mail + "]";
+	}
+	
+	
 	
 }
