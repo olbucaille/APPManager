@@ -6,13 +6,13 @@ public class main {
 		LDAPObject obj= new LDAPObject();
 		LDAPaccess acc = new LDAPaccess();
 		try {
-			obj = acc.LDAPget("olbucaille", "ob8090!");
+			obj = acc.LDAPget("obucaill", "ob8090!");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
-		obj.toString();
+		System.out.println(obj.toString());
 	}
 
 }
