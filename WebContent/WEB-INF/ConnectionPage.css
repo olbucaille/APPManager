@@ -1,0 +1,36 @@
+@CHARSET "UTF-8";
+
+
+body {background-color: #b8b8c3;
+      font-size:100%;}
+      
+h1 {font-size:300%;
+text-align:center; margin:0 auto;
+position: relative;
+    left: -200px;}
+    
+#message {outline-style: solid;
+outline-width:3px;}
+
+h2 {font-size:200%;}
+#elec_info {outline-style: solid;
+outline-width:3px;}
+
+h3 {font-size:200%;}
+#comp_info {outline-style: solid;
+outline-width:3px;}
+
+
+.info {
+    float: left;
+    width: 500px;
+    height: 900px;
+    margin: 50px;}
+    
+.login{
+	
+}
+.whole{
+	margin:0px auto;
+	
+}

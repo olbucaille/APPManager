@@ -1,26 +1,40 @@
 <!DOCTYPE html>
+
 <html>
 <head>
 <meta charset="US-ASCII">
 <title>Login</title>
+<link rel="stylesheet" type="text/css" href="ConnectionPage.css">
 </head>
 <body>
-<h1>APP Manager</h1>
-<p id = message> Message </p>
-<h2>Electronic APP</h2>
-<p id = elec_info> ELEC </p>
-<h3>Computing APP</h3>
-<p id = comp_info> COMP </p>
 
-<img id = ISEP >
-<p id = copyright> 
-<img id = copyright_img>
-</p>
+<div class = "login">
+<input type="button" value="FR" id="FR" />
+<input type="button" value="EN" id="EN" />
 
 <label for="user">User Name :</label>
 <input type="text" name="user" id="user" value=""/>
 <label for="PW">Password :</label>
 <input type="text" name="PW" id="PW" value=""/>
-<input type="button" value="submit" id="submit" onclick="callServlet()" />
+<input type="button" value="submit" id="submit"  /></div>
+
+<div class = "whole">
+<h1>APP Manager</h1>
+<p id = "message"> Message </p>
+<div class = "info" > 
+<h2>Electronic APP</h2>
+<p id = "elec_info"> ELEC </p> </div>
+
+<div class = "info">
+<h3>Computing APP</h3>
+<p id = "comp_info"> COMP </p> </div>
+
+<img id = "ISEP" >
+<p id = "copyright"> 
+<img id = "copyright_img">
+</p>
+
+
+</div>
 </body>
 </html>
