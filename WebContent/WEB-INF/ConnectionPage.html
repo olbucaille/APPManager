@@ -16,11 +16,12 @@
 <p id = copyright> 
 <img id = copyright_img>
 </p>
-
+<form method="POST" action="http://localhost:8081/APPManager/SControllerUser">
 <label for="user">User Name :</label>
-<input type="text" name="user" id="user" value=""/>
+<input type="text" name="login" id="login" value=""/>
 <label for="PW">Password :</label>
-<input type="text" name="PW" id="PW" value=""/>
-<input type="button" value="submit" id="submit" onclick="callServlet()" />
+<input type="text" name="pass" id="pass" value=""/>
+<input type="submit" value="submit" id="submit"  />
+</form>
 </body>
 </html>

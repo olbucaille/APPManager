@@ -14,8 +14,9 @@ public class main {
 			e.printStackTrace();
 		}
 		
-		User user = new User(obj.login,obj.password,obj.nom,obj.nomFamille,obj.prenom,obj.getType(),obj.getNumber(),obj.getMail());
-		System.out.println(user.toString());
+		//User user = new User(obj.login,obj.password,obj.nom,obj.nomFamille,obj.prenom,obj.getType(),obj.getNumber(),obj.getMail());
+		//System.out.println(user.toString());
 	}
 
 }
+
