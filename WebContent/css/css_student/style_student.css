@@ -21,8 +21,8 @@ ul.nav {
 	display: block;
 	width: 200px;
 	position: relative;
-	top: 100px;
-	left: 100px;
+	top: 50px;
+	left: 50px;
 	padding: 60px 0 60px 0;
 	background: url(../../images/shad2.png) no-repeat;
 	-webkit-background-size: 50% 100%;
@@ -37,9 +37,9 @@ ul.nav #navbox_tab a{
 	background: #cbcbcb url(../../images/border.png) no-repeat;
 	color: #174867;
 	padding: 7px 15px 7px 15px;
-	-webkit-border-top-right-radius: 10px;
- 	-webkit-border-bottom-right-radius: 10px;
-	width: 100px;
+	-webkit-border-top-right-radius: 5px;
+ 	-webkit-border-bottom-right-radius: 5px;
+	width: 120px;
 	display: block;
 	text-decoration: none;
 	-webkit-box-shadow: 2px 2px 4px #888;
@@ -49,9 +49,9 @@ ul.nav #navbox_title {
 	background: #174867 url(../../images/border.png) no-repeat;
 	color: #cbcbcb;
 	padding: 10px 15px 10px 30px;
-	-webkit-border-top-right-radius: 10px;
- 	-webkit-border-bottom-right-radius: 10px;
-	width: 100px;
+	-webkit-border-top-right-radius: 5px;
+ 	-webkit-border-bottom-right-radius: 5px;
+	width: 120px;
 	display: block;
 	text-decoration: none;
 	-webkit-box-shadow: 2px 2px 4px #888;
