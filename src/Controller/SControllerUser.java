@@ -2,6 +2,7 @@ package Controller;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import BDDManager.AccesBD;
 import Model.StringProvider;
 import Model.User;
 
@@ -45,6 +47,15 @@ public class SControllerUser extends HttpServlet {
 			session.setAttribute( StringProvider.getNumber(), user.getNumber());
 			session.setAttribute(StringProvider.getPrenom(), user.getNom());
 		}
+		
+		//test accès BDD, à laisser ??
+		try {
+			AccesBD.getInstance();
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		redirection(request, response, "/Test.jsp");
 	}
 
