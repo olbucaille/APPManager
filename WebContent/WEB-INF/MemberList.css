@@ -20,13 +20,13 @@ text-align:center;
 }      
       
 #group_p{
-	outline-style: solid;
+outline-style: solid;
 outline-width:3px;      
 width: 160px;
-height: 50px;
-text-align:center;	
-}      
-      
+height: 50px; 
+text-align:center;	 
+}       
+       
 .whole{
 	    float: left;
     width: 200px;

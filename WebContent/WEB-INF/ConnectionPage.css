@@ -34,14 +34,14 @@ background-color:white;}
     height: 900px;
     margin: 50px;}
     
-.login{
+.login{  
 	float:right;
 	background-color:white;
 }
 
-.whole{
+.whole{  
 	text-align:center;
-    margin-left:auto; 
+    margin-left:auto;  
     margin-right:auto;
 	
 }
