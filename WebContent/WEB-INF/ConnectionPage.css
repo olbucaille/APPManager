@@ -1,6 +1,5 @@
 @CHARSET "UTF-8";
 
-
 body {background-color: #b8b8c3;
       font-size:100%;}
       
@@ -31,6 +30,8 @@ outline-width:3px;}
 	
 }
 .whole{
-	margin:0px auto;
+	text-align:center;
+    margin-left:auto; 
+    margin-right:auto;
 	
 }
