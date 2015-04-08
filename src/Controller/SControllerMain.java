@@ -1,31 +1,27 @@
 package Controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
-import BDDManager.AccesBD;
 import Model.StringProvider;
-import Model.User;
 
 /**
- * Servlet implementation class SControllerUser
+ * Servlet implementation class SControllerMain
+ * is a dispatcher for all requests it forward to the correct specialized servlet of the controller module
  */
-@WebServlet("/SControllerUser")
-public class SControllerUser extends HttpServlet {
+@WebServlet("/SControllerMain")
+public class SControllerMain extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SControllerUser() {
+    public SControllerMain() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -34,37 +30,29 @@ public class SControllerUser extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
-		String login = request.getParameter("login");
-		String pass = request.getParameter("pass");
-		
-		User user =User.isGranted(login, pass);
-		if(user != null)
-		{
-			HttpSession session = request.getSession();
-			session.setAttribute( StringProvider.getNOM(), user.getNomFamille());
-			session.setAttribute(StringProvider.getTYPE(), user.getType());
-			session.setAttribute( StringProvider.getNUMBER(), user.getNumber());
-			session.setAttribute(StringProvider.getPRENOM(), user.getNom());
-		}
-		
-		//test accès BDD, à laisser ??
-		try {
-			AccesBD.getInstance();
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		redirection(request, response, "/Test.jsp");
+		doPost(request,response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	doGet(request,response);
+	
+		String RequestString = StringProvider.getWELCOME();
+		RequestString =(String) request.getParameter("request");
+		
+		switch (RequestString) {
+        case StringProvider.getWELCOME():
+            
+            break;
+       
+        default:
+            redirection(request, response, "/index.");
+            
+    }
+		
 	}
+	
 	
 	protected void redirection(HttpServletRequest request, HttpServletResponse response, String page) 
 	{

@@ -6,23 +6,28 @@ public class StringProvider {
 	private static String PRENOM = "PRENOM";
 	private static String TYPE = "TYPE";
 	private static String NUMBER = "NUMBER";
+	private static String WELCOME = "WELCOME";
 	
-	
-	public static String getNom() {
+	public static String getNOM() {
 		return NOM;
 	}
-	
-	public static String getPrenom() {
+	public static String getPRENOM() {
 		return PRENOM;
 	}
-	
-	public static String getType() {
+	public static String getTYPE() {
 		return TYPE;
 	}
-	
-	public static String getNumber() {
+	public static String getNUMBER() {
 		return NUMBER;
 	}
+	public static String getWELCOME() {
+		return WELCOME;
+	}
+	
+	
+
+	
+	
 	
 	
 	
