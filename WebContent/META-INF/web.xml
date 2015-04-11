@@ -18,4 +18,14 @@
     <url-pattern>/ServletUser</url-pattern>
   </servlet-mapping>
 
+
+	<servlet>
+    <servlet-name>SControllerMain</servlet-name>
+    <servlet-class>Controller.SControllerMain</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SControllerMain</servlet-name>
+    <url-pattern>/Main</url-pattern>
+  </servlet-mapping>
+	
 </web-app>

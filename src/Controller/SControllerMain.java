@@ -39,15 +39,18 @@ public class SControllerMain extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		String RequestString = StringProvider.getWELCOME();
-		RequestString =(String) request.getParameter("request");
+		RequestString =(String) request.getParameter("action");
 		
 		switch (RequestString) {
-        case StringProvider.getWELCOME():
-            
+        case "welcome":
+        	  redirection(request, response, "/index."); // ne marche pas, donner l'adresse correcte de page d'acceuil
             break;
+        case "AjoutCompetenceTuteur":
+      	 new SControllerCompetencies().doGet(request, response);
+          break;
        
         default:
-            redirection(request, response, "/index.");
+            redirection(request, response, "/index."); // ne marche pas, donner l'adresse correcte de page d'acceuil
             
     }
 		

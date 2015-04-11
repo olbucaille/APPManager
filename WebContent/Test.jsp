@@ -8,5 +8,9 @@
 </head>
 <body>
 <%=session.getAttribute("NOM")%>
+
+
+
+<a href="/APPManager/SControllerMain?action=AjoutCompetenceTuteur"> clic ici </a>
 </body>
 </html>

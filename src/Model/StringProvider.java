@@ -2,11 +2,11 @@ package Model;
 
 public class StringProvider {
 
-	private static String NOM = "NOM";
-	private static String PRENOM = "PRENOM";
-	private static String TYPE = "TYPE";
-	private static String NUMBER = "NUMBER";
-	private static String WELCOME = "WELCOME";
+	private static final String NOM = "NOM";
+	private static final String PRENOM = "PRENOM";
+	private static final String TYPE = "TYPE";
+	private static final String NUMBER = "NUMBER";
+	private static final String WELCOME = "WELCOME";
 	
 	public static String getNOM() {
 		return NOM;
