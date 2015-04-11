@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 
+import Model.Competencies;
 import Model.StringProvider;
 import Model.User;
 
@@ -40,12 +41,14 @@ public class SControllerCompetencies extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	
+	System.out.println("enter control cmp");
+		
 		String RequestString =(String) request.getParameter("action");
-		if(RequestString.equals("AjoutCompetenceTuteur"))
+		System.out.println(RequestString);
+		if(RequestString.equals("CompetenciesManagmentPage"))
 		{
 			HttpSession s = request.getSession();
-			String Type = (String) s.getAttribute(StringProvider.getNUMBER());
+			String Type = (String) s.getAttribute(StringProvider.getNumber());
 			System.out.println(Type);
 			Map<String, Boolean> map = User.checkPrivileges(Type);
 			if(map.get("IsModuleManager"))
@@ -63,6 +66,25 @@ public class SControllerCompetencies extends HttpServlet {
 			else
 			redirection(request, response, "./test.jsp");
 				
+		}
+		else  if(RequestString.equals("addcompetencies"))
+		{
+			//!!!!!!!!!!!!ici pas de control d'identitée
+			//+ verifier que la compétence n'existe pas ::
+			
+			String name = (String)request.getParameterValues(StringProvider.getCompName())[0];
+			String isneeded  = (String)request.getParameterValues("IsNeeded")[0];
+			String mothercomp = (String)request.getParameterValues(StringProvider.getCompMothercomp())[0];
+			
+			if(isneeded == null)
+				isneeded = "false";
+				else
+					isneeded = "true";
+			
+			System.out.println(name+isneeded+mothercomp);
+			Competencies c = new Competencies(null,name,null,Boolean.parseBoolean(isneeded),mothercomp);
+			System.out.println(c.toString());
+			Competencies.AddCompetency(c);
 		}
 	}
 	protected void redirection(HttpServletRequest request, HttpServletResponse response, String page) 

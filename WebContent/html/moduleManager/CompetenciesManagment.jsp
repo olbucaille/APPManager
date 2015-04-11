@@ -8,7 +8,7 @@
 </head>
 <body>
 
-<form action="noname" method="POST" >
+<form action="/APPManager/SControllerMain" method="POST" >
 
 
 	<label for="motherCompetence">Under the competence</label>
@@ -26,7 +26,8 @@
 	<label for="IsNeeded">Is needed to validate any module</label>
 	<input type="checkbox" name="IsNeeded" value="yes"/> yes <br><br/>
 
-   <input type="submit" name="submit" />
+   <input type="submit" name="action" value="addcompetencies" name="submit" />
+   
 
 </form> 
 </body>

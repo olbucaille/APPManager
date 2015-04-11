@@ -60,7 +60,7 @@ public class User extends LDAPObject {
 		ResultSet rs = null;
 		Map<String,Boolean> map = new HashMap<String, Boolean>();
 		try {
-			AccesBD.getInstance().executeQuery("SELECT IsStudent, IsTutor, IsModuleManager,IsAdmin FROM USER WHERE IdUtilisateur = "+id);
+			rs = AccesBD.getInstance().executeQuery("SELECT IsStudent, IsTutor, IsModuleManager,IsAdmin FROM USER WHERE IdUtilisateur = "+id);
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

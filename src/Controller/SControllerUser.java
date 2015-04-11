@@ -42,10 +42,10 @@ public class SControllerUser extends HttpServlet {
 		if(user != null)
 		{
 			HttpSession session = request.getSession();
-			session.setAttribute( StringProvider.getNOM(), user.getNomFamille());
-			session.setAttribute(StringProvider.getTYPE(), user.getType());
-			session.setAttribute( StringProvider.getNUMBER(), user.getNumber());
-			session.setAttribute(StringProvider.getPRENOM(), user.getNom());
+			session.setAttribute( StringProvider.getNom(), user.getNomFamille());
+			session.setAttribute(StringProvider.getType(), user.getType());
+			session.setAttribute( StringProvider.getNumber(), user.getNumber());
+			session.setAttribute(StringProvider.getPrenom(), user.getNom());
 		}
 		
 		//test accès BDD, à laisser ??
