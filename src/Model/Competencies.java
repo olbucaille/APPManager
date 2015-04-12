@@ -1,6 +1,9 @@
 package Model;
 
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 import BDDManager.AccesBD;
 
@@ -31,6 +34,35 @@ public class Competencies {
 	
 	
 	
+	
+	public String getIdComp() {
+		return IdComp;
+	}
+
+
+
+
+	public void setIdComp(String idComp) {
+		IdComp = idComp;
+	}
+
+
+
+
+	public String getName() {
+		return Name;
+	}
+
+
+
+
+	public void setName(String name) {
+		Name = name;
+	}
+
+
+
+
 	public static  void AddCompetency(Competencies cp)
 	{
 		try {
@@ -42,7 +74,32 @@ public class Competencies {
 			e.printStackTrace();
 		}
 
-		System.out.println("finadd");
+		//System.out.println("finadd");
+	}
+	
+	public static List<Competencies> GetCompetenciesWithoutMother()
+	{
+		ArrayList<Competencies> array= new ArrayList<Competencies>();
+		ResultSet rs = null ;
+		try {
+			String req = "SELECT idComp,Name FROM competencies WHERE idMother = \"none\" OR idMother = null; ";
+			System.out.println(req);
+			rs = AccesBD.getInstance().executeQuery(req);
+		
+		
+		if(rs!= null)
+		{
+			while(rs.next()){
+				array.add( new Competencies(String.valueOf(rs.getInt("idComp")), rs.getString("Name"), null, null, null));
+				
+			}
+		}
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return array;
+
 	}
 
 	

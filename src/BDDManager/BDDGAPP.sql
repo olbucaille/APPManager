@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- GÃ©nÃ©rÃ© le: Dim 05 Avril 2015 Ã  14:09
+-- Généré le: Dim 12 Avril 2015 à 16:27
 -- Version du serveur: 5.6.12-log
 -- Version de PHP: 5.4.16
 
@@ -17,10 +17,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de donnÃ©es: `BDDGAPP`
+-- Base de données: `bddgapp`
 --
-CREATE DATABASE IF NOT EXISTS `BDDGAPP` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `BDDGAPP`;
+CREATE DATABASE IF NOT EXISTS `bddgapp` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `bddgapp`;
 
 -- --------------------------------------------------------
 
@@ -34,6 +34,46 @@ CREATE TABLE IF NOT EXISTS `appsession` (
   `StartDate` date NOT NULL,
   `EndDate` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `app_competencies`
+--
+
+CREATE TABLE IF NOT EXISTS `app_competencies` (
+  `IdAPP` varchar(15) NOT NULL,
+  `idCompetencies` varchar(15) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `competencies`
+--
+
+CREATE TABLE IF NOT EXISTS `competencies` (
+  `IdComp` int(15) NOT NULL AUTO_INCREMENT,
+  `Name` varchar(50) NOT NULL,
+  `Description` varchar(500) NOT NULL,
+  `IsNecessary` varchar(5) NOT NULL,
+  `idMother` varchar(15) DEFAULT NULL,
+  PRIMARY KEY (`IdComp`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=39 ;
+
+--
+-- Contenu de la table `competencies`
+--
+
+INSERT INTO `competencies` (`IdComp`, `Name`, `Description`, `IsNecessary`, `idMother`) VALUES
+(31, 'test45', 'null', 'false', 'none'),
+(32, 'test45', 'null', 'false', 'none'),
+(33, 'test45', 'null', 'false', 'none'),
+(34, 'esy', 'null', 'false', '33'),
+(35, 'eflkh', 'null', 'false', 'none'),
+(36, 'eflkh', 'null', 'false', 'none'),
+(37, 'eflkh', 'null', 'false', 'none'),
+(38, 'eflkh', 'null', 'false', 'none');
 
 -- --------------------------------------------------------
 

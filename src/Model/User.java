@@ -55,6 +55,7 @@ public class User extends LDAPObject {
 		return user;
 	}
 	
+	//non testé
 	public static Map<String,Boolean> checkPrivileges(String id)
 	{
 		ResultSet rs = null;

@@ -1,8 +1,12 @@
 package Controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,52 +45,92 @@ public class SControllerCompetencies extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	System.out.println("enter control cmp");
+	//System.out.println("enter control cmp");
 		
 		String RequestString =(String) request.getParameter("action");
 		System.out.println(RequestString);
 		if(RequestString.equals("CompetenciesManagmentPage"))
 		{
-			HttpSession s = request.getSession();
-			String Type = (String) s.getAttribute(StringProvider.getNumber());
-			System.out.println(Type);
-			Map<String, Boolean> map = User.checkPrivileges(Type);
-			if(map.get("IsModuleManager"))
-			{
-				//get all competencies,
-				//get all competencies relative to module of the module manager via app session
-				//forward to competencies management to display
-				
-				
-				
-				//note : need to implement quite quick the affectation by the admin, module manager and tutor in order to get a proper BDD
-				//note 2 : need to quick link together the functionals chains !!! ( forward the pages, connexion,...) it is curently quite a mess
-				//		to implement a proper test environnement...
-			}
-			else
-			redirection(request, response, "./test.jsp");
-				
+			doDisplayPageCompetenciesManagment(request,response);
 		}
 		else  if(RequestString.equals("addcompetencies"))
 		{
-			//!!!!!!!!!!!!ici pas de control d'identitée
-			//+ verifier que la compétence n'existe pas ::
-			
-			String name = (String)request.getParameterValues(StringProvider.getCompName())[0];
-			String isneeded  = (String)request.getParameterValues("IsNeeded")[0];
-			String mothercomp = (String)request.getParameterValues(StringProvider.getCompMothercomp())[0];
-			
-			if(isneeded == null)
-				isneeded = "false";
-				else
-					isneeded = "true";
-			
-			System.out.println(name+isneeded+mothercomp);
-			Competencies c = new Competencies(null,name,null,Boolean.parseBoolean(isneeded),mothercomp);
-			System.out.println(c.toString());
-			Competencies.AddCompetency(c);
+			doAddCompetencies(request,response);
 		}
 	}
+	private void doAddCompetencies(HttpServletRequest request,
+			HttpServletResponse response) {
+		//!!!!!!!!!!!!ici pas de control d'identitée
+		//+ verifier que la compétence n'existe pas ::
+		String isneeded =null;
+		String name = (String)request.getParameterValues(StringProvider.getCompName())[0];
+		try{
+		 isneeded  = (String)request.getParameterValues("IsNeeded")[0];
+		}
+		catch(NullPointerException e)
+		{
+			isneeded = null;
+		}
+		String mothercomp = (String)request.getParameterValues(StringProvider.getCompMothercomp())[0];
+		
+		if(isneeded == null)
+			isneeded = "false";
+			else
+				isneeded = "true";
+		
+		System.out.println(name+isneeded+mothercomp);
+		Competencies c = new Competencies(null,name,null,Boolean.parseBoolean(isneeded),mothercomp);
+		System.out.println(c.toString());
+		Competencies.AddCompetency(c);
+		doDisplayPageCompetenciesManagment(request, response);
+		
+	}
+
+	private void doDisplayPageCompetenciesManagment(HttpServletRequest request,
+			HttpServletResponse response) {
+
+		HttpSession s = request.getSession();
+		String Type = (String) s.getAttribute(StringProvider.getNumber());
+		System.out.println(Type);
+		Map<String, Boolean> map = User.checkPrivileges(Type);
+	//	if(map.get("IsModuleManager"))
+	//	{
+			//get all competencies,
+		//OKAY	//get all competencies relative to module of the module manager via app session
+			//get all competencies without mother for list 
+			//forward to competencies management to display
+			
+			List<Competencies> array = Competencies.GetCompetenciesWithoutMother();
+			System.out.println(array.get(0).toString());
+			request.setAttribute("compToListChoice", array);
+			try {
+				init();
+			} catch (ServletException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+			try {
+				getServletContext().getRequestDispatcher("/html/moduleManager/CompetenciesManagment.jsp").forward(request, response);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (ServletException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			
+			//note : need to implementestt quite quick the affectation by the admin, module manager and tutor in order to get a proper BDD
+			//note 2 : need to quick link together the functionals chains !!! ( forward the pages, connexion,...) it is curently quite a mess
+			//		to implement a proper test environnement...
+	//	}
+	//	else
+	//	redirection(request, response, "./test.jsp");
+	
+		
+	}
+
 	protected void redirection(HttpServletRequest request, HttpServletResponse response, String page) 
 	{
 		try{
