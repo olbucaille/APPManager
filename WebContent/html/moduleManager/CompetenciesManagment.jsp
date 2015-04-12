@@ -10,6 +10,40 @@
 </head>
 <body>
 
+
+<%
+List<Competencies> listWM = (List) request.getAttribute("compToDisplay");
+List<Competencies> list = (List) request.getAttribute("compToListChoice");
+
+
+ %>
+
+<ol>
+<%if(list!=null)
+	{
+		int i = 0;
+		for( i=0; i<list.size();i++)	
+		{
+			out.println("<li><span>"+list.get(i).getName()+"</span></li>");
+			out.println("<ol>");
+			if(listWM!=null)
+			{
+				for( int j=0; j<listWM.size();j++)	
+				{		
+					if(listWM.get(j).getIdMother().trim().equals(String.valueOf(list.get(i).getIdComp())))
+					{
+						out.println("<li>"+listWM.get(j).getName()+"</li>");						
+					}
+				}
+			}
+			out.println("</ol>");
+		}
+
+	}
+	else 
+	out.print("problem");%>
+</ol>
+
 <form action="/APPManager/SControllerCompetencies" method="POST" >
 
 
@@ -17,11 +51,12 @@
     <select name="motherCompetence" size="1">
     	<option selected>none
  <%
-   List<Competencies> list = (List) request.getAttribute("compToListChoice");
+   
+			
 	if(list!=null)
 	{
 		int i = 0;
-		for( i=0; i<list.size()-1;i++)	
+		for( i=0; i<list.size();i++)	
 			out.println("<option value=\""+list.get(i).getIdComp()+"\">"+list.get(i).getName());		    
 	}%>
    

@@ -100,17 +100,16 @@ public class SControllerCompetencies extends HttpServlet {
 			//get all competencies without mother for list 
 			//forward to competencies management to display
 			
-			List<Competencies> array = Competencies.GetCompetenciesWithoutMother();
-			System.out.println(array.get(0).toString());
-			request.setAttribute("compToListChoice", array);
-			try {
-				init();
-			} catch (ServletException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
+			List<Competencies> arrayCompWithoutMother = Competencies.GetCompetenciesWithoutMother();
+			List<Competencies> arrayCompWithMother = Competencies.GetCompetenciesWithMother();
+			
+			request.setAttribute("compToListChoice", arrayCompWithoutMother);
+			request.setAttribute("compToDisplay", arrayCompWithMother);
+			
 			
 			try {
+				init();
+			
 				getServletContext().getRequestDispatcher("/html/moduleManager/CompetenciesManagment.jsp").forward(request, response);
 			} catch (IOException e) {
 				// TODO Auto-generated catch block

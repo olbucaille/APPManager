@@ -40,27 +40,13 @@ public class Competencies {
 	}
 
 
-
-
-	public void setIdComp(String idComp) {
-		IdComp = idComp;
-	}
-
-
-
-
 	public String getName() {
 		return Name;
 	}
 
-
-
-
-	public void setName(String name) {
-		Name = name;
+	public String getIdMother() {
+		return IdMother;
 	}
-
-
 
 
 	public static  void AddCompetency(Competencies cp)
@@ -102,11 +88,43 @@ public class Competencies {
 
 	}
 
+	public static List<Competencies> GetCompetenciesWithMother() {
+		ArrayList<Competencies> array= new ArrayList<Competencies>();
+		ResultSet rs = null ;
+		try {
+			
+			String req = "SELECT idComp,Name,idMother FROM competencies WHERE idMother != \"none\" OR idMother != null; ";
+			System.out.println(req);
+			rs = AccesBD.getInstance().executeQuery(req);
+		
+		
+		if(rs!= null)
+		{
+			while(rs.next()){
+				array.add( new Competencies(String.valueOf(rs.getInt("idComp")), rs.getString("Name"), null, null,rs.getString("idMother") ));
+				System.out.println(new Competencies(String.valueOf(rs.getInt("idComp")), rs.getString("Name"), null, null,rs.getString("idMother")).toString());
+			}
+		}
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return array;
+	}
+
 	
+
+
+
 	@Override
 	public String toString() {
 		return "Competencies [IdComp=" + IdComp + ", Name=" + Name + ", Desc="
 				+ Desc + ", Isnecessary=" + Isnecessary + ", IdMother="
 				+ IdMother + "]";
 	}
+
+
+
+
 }
