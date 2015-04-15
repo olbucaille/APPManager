@@ -1,5 +1,13 @@
 package Model;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.Map;
+
+import com.sun.crypto.provider.RSACipher;
+
+import BDDManager.AccesBD;
 import BDDManager.LDAPObject;
 import BDDManager.LDAPaccess;
 
@@ -31,18 +39,45 @@ public class User extends LDAPObject {
 	//ask to LDAP if user is connected if yes, it return the user, otherwise it return NULL
 	public static User isGranted(String id, String pass)
 	{
-		LDAPObject obj= new LDAPObject();
-		LDAPaccess acc = new LDAPaccess();
-		try {
+		//POUR REAL // LDAPObject obj= new LDAPObject();
+		//POUR REAL //LDAPaccess acc = new LDAPaccess();
+		/*try {
 			obj = acc.LDAPget(id, pass);
 		} catch (Exception e) {
 			return null;
-		}
+		}*///POUR REAL
 		
-		User user = new User(obj.login,obj.password,obj.nom,obj.nomFamille,obj.prenom,obj.getType(),obj.getNumber(),obj.getMail());
+	//POUR REAL //User user = new User(obj.login,obj.password,obj.nom,obj.nomFamille,obj.prenom,obj.getType(),obj.getNumber(),obj.getMail());
+		//POUR TEST
+		User user = new User("toto","toto","tata","titi","tutu","professeur","4242","toto.tutu@isep.fr");
+		
 		System.out.println(user.toString());
 		return user;
 	}
 	
-	
+	//non testé
+	public static Map<String,Boolean> checkPrivileges(String id)
+	{
+		ResultSet rs = null;
+		Map<String,Boolean> map = new HashMap<String, Boolean>();
+		try {
+			rs = AccesBD.getInstance().executeQuery("SELECT IsStudent, IsTutor, IsModuleManager,IsAdmin FROM USER WHERE IdUtilisateur = "+id);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			map.put("IsStudent", rs.getBoolean("IsStudent"));
+			map.put("IsTutor", rs.getBoolean("IsTutor"));
+			map.put("IsModuleManager", rs.getBoolean("IsModuleManager"));
+			map.put("IsAdmin", rs.getBoolean("IsAdmin"));
+
+		} catch (SQLException e) {
+			map.put("IsStudent", false);
+			map.put("IsTutor", false);
+			map.put("IsModuleManager", false);
+			map.put("IsAdmin", false);
+		}
+		return map;
+	}
 }
