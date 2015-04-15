@@ -2,25 +2,59 @@
     "http://www.w3.org/TR/html4/strict.dtd">
 <html>
 <link rel="stylesheet" type="text/css" href="../../css/css_student/style_student.css">
+    <script src="../../js/d3.v3.min.js"></script>
+	<script src="../../js/RadarChart.js"></script>
 <head>
 </head>
-	<body>	
+	<body >	
+	<div class="content_body">
+	
+	<div class="left">
 		<div class="navbox">
 			<ul class="nav">
 				<li id="navbox_title"> Rouge Feu</li>
-				<li id="navbox_tab"><a href="MyGroup.html">thibault</a></li>
-				<li id="navbox_tab"><a href="MyGroup.html">olivier</a></li>
-				<li id="navbox_tab"><a href="MyGroup.html">arnaud</a></li>
+				<li id="navbox_tab"><a id = "nav_ref" href="MyGroup.html">thibault</a></li>
+				<li id="navbox_tab"><a id = "nav_ref" href="MyGroup.html">olivier</a></li>
+				<li id="navbox_tab"><a id = "nav_ref" href="MyGroup.html">arnaud</a></li>
 				<li id="navbox_title">Tuteurs</li>
-				<li id="navbox_tab"><a href="#">manceny</a></li>
-				<li id="navbox_tab"><a href="#">chiky</a></li>
-				<li id="navbox_tab"><a href="#">zkazi</a></li>
+				<li id="navbox_tab"><a id = "nav_ref" href="#">manceny</a></li>
+				<li id="navbox_tab"><a id = "nav_ref" href="#">chiky</a></li>
+				<li id="navbox_tab"><a id = "nav_ref" href="#">zkazi</a></li>
 				<li id="navbox_title">Module Manager</li>
-				<li id="navbox_tab"><a href="#">manceny</a></li>
+				<li id="navbox_tab"><a id = "nav_ref" href="#">manceny</a></li>
 			</ul>
-		</div>			
+		</div>	
+	</div >
+	<div class="centerAndRight">
+		<div class="center">
+			<div id="body">
+			  	<div id="chart"></div>
+			    <script type="text/javascript" src="../../js/script.js"></script>
+		    </div>
+		</div>
+		<div class="right">
+		<div id="notification">
+			    	<h1>Notification</h1>
+			    	<h3>Name : tata </h3>
+			    	<h3>lastname : toto</h3>
+			    	<h3>email : toto@gmail.com </h3>
+			    </div>
+			    <br>
+			    <div id="profile">
+			    	<h1>Profile </h1>
+			    	<h3>Name : tata </h3>
+			    	<h3>lastname : toto</h3>
+			    	<h3>email : toto@gmail.com </h3>
+			    	
+			    </div>
+		</div>
+	</div>
+				
 	<div >
 	http://bl.ocks.org/nbremer/6506614
+	http://www.smashingmagazine.com/2011/09/23/create-an-animated-bar-graph-with-html-css-and-jquery/
+	https://google-developers.appspot.com/chart/interactive/docs/gallery
+	</div>
 	</div>
 	</body>
 </html>
