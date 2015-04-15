@@ -1,10 +1,13 @@
 @CHARSET "UTF-8";
 
 body {
-      font-size:100%;}
+	position: relative;
+	margin: 0 auto;
+    font-size:100%;}
       
 h1 {font-size:300%;
-text-align:center; margin:0 auto;
+text-align:center; 
+margin:0 auto;
 position: relative;
     left: -200px;}
     
