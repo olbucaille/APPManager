@@ -3,6 +3,7 @@ package Controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -55,8 +56,20 @@ public class SControllerUser extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		//!!!! il faudrai mettre en place le process qui renseigne au moins les gens étant élève comme Isstudent et gens professeur comme etant IsTutor
+		Map<String, Boolean> map = User.checkPrivileges(user.getNumber());
+		if(map.get("IsAdmin"))
+			response.sendRedirect( "/../WebContent/html/Admin/Settings.jsp");
+		else if(map.get("IsModuleManager"))
+			response.sendRedirect("/APPManager/SControllerCompetencies?action=CompetenciesManagmentPage");
+		else if(map.get("IsTutor"))
+				response.sendRedirect("/APPManager/html/teacher/Profile.html");
+		else if(map.get("IsStudent"))
+			response.sendRedirect("/APPManager/html/student/Profile.html");
+		else
+			response.sendRedirect("/APPManager/index.jsp");
+			
 		
-		redirection(request, response, "/Test.jsp");
 	}
 
 	/**
