@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<link rel="stylesheet" type="text/css" href="../../css/css_student/style_student.css">
+<head>
+</head>
+	<body>	
+		<div>
+			<div class="left">
+				<h1>Evaluation Liste</h1>
+				<div id="evaluation_list">
+				<h3>Evaluation Liste2</h3>
+				<h3>Evaluation Liste2</h3>
+				<h3>Evaluation Liste2</h3>
+				<h3>Evaluation Liste2</h3>
+				
+				</div>
+			</div>
+			<div class="centerAndRight">
+				<div id="evaluation_student">
+				<form method="post" action="/TP1/bean.jsp">
+					<label for ="lastname"> Last name </label>
+					<br/><Input type="text" name="lastname"/> 
+					    <br/><label for ="first"> First name </label>
+					    <br/><Input type="text" name="firstname"/>
+					    <br/><label for ="birth"> birth </label>
+					    <br/><Input type="date" name="birth"> 
+					    <br/>
+					    <input type="radio" name="sexe" value="masculin"checked> masculin<br>
+						<input type="radio" name="sexe" value="feminin" > feminin<br>
+					
+					    <br/><Input type="submit">
+					    
+					</form>
+				
+				</div>
+				<div id="evaluation_comment">
+				<form method="post" action="#">
+					<label for ="comment"> Write a comment </label>
+					<br/><TEXTAREA rows="3" name="comment"></TEXTAREA>				
+				    <br/><Input type="submit">    
+				</form>
+				
+				
+				</div>
+			
+			</div>
+		
+		</div>
+	</body>
+</html>

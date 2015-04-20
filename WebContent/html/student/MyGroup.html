@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<script src="../../js/Menu_tab.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="../../css/css_student/style_student.css">
+<head>
+</head>
+	<body>
+	<div class="left">
+		<ul>
+			<li><a href="#">Livrable 1</a></li>
+			<li><a href="#">Livrable 2</a></li>
+			<li><a href="#">Livrable 3</a></li>
+		</ul>
+	</div >
+	<div class="centerAndRight">
+		
+		<div id="tabs">
+		<ul>
+		    <li><a href="#" rel="1.html" class="selected"  onclick="loadit(this)">ADD FILES</a></li>
+			<li><a href="#" rel="2.html" onClick="loadit(this)">VIEW</a></li>
+		</ul>
+		<iframe id="container"></iframe>
+		</div>
+		<form method="post" action="/TP1/bean.jsp">
+			<label for ="lastname"> Last name </label>
+			<br/><Input type="file" name="lastname"/> 
+		    <br/><label for ="first"> First name </label>
+		    <br/><Input type="text" name="firstname"/>
+		    <br/><label for ="birth"> birth </label>
+		    <br/><Input type="date" name="birth"> 
+		    <br/><input type="radio" name="sexe" value="masculin"checked> masculin<br>
+			<input type="radio" name="sexe" value="feminin" > feminin<br>		
+		    <br/><Input type="submit">
+		</form>
+	</div>	
+	</body>
+</html>
