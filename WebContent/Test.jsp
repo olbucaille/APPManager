@@ -11,6 +11,6 @@
 
 
 
-<a href="/APPManager/SControllerMain?action=AjoutCompetenceTuteur"> clic ici </a>
+<a href="/APPManager/SControllerCompetencies?action=CompetenciesManagmentPage"> clic ici </a>
 </body>
 </html>

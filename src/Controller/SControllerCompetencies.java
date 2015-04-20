@@ -93,8 +93,8 @@ public class SControllerCompetencies extends HttpServlet {
 		String Type = (String) s.getAttribute(StringProvider.getNumber());
 		System.out.println(Type);
 		Map<String, Boolean> map = User.checkPrivileges(Type);
-	//	if(map.get("IsModuleManager"))
-	//	{
+		if(map.get("IsModuleManager"))
+		{
 			//get all competencies,
 		//OKAY	//get all competencies relative to module of the module manager via app session
 			//get all competencies without mother for list 
@@ -108,7 +108,7 @@ public class SControllerCompetencies extends HttpServlet {
 			
 			
 			try {
-				init();
+		//		init();
 			
 				getServletContext().getRequestDispatcher("/html/moduleManager/CompetenciesManagment.jsp").forward(request, response);
 			} catch (IOException e) {
@@ -123,9 +123,9 @@ public class SControllerCompetencies extends HttpServlet {
 			//note : need to implementestt quite quick the affectation by the admin, module manager and tutor in order to get a proper BDD
 			//note 2 : need to quick link together the functionals chains !!! ( forward the pages, connexion,...) it is curently quite a mess
 			//		to implement a proper test environnement...
-	//	}
-	//	else
-	//	redirection(request, response, "./test.jsp");
+		}
+		else
+		redirection(request, response, "./test.jsp");
 	
 		
 	}

@@ -55,22 +55,26 @@ public class User extends LDAPObject {
 		return user;
 	}
 	
-	//non testé
+	// exeptions non testé
 	public static Map<String,Boolean> checkPrivileges(String id)
 	{
 		ResultSet rs = null;
 		Map<String,Boolean> map = new HashMap<String, Boolean>();
 		try {
-			rs = AccesBD.getInstance().executeQuery("SELECT IsStudent, IsTutor, IsModuleManager,IsAdmin FROM USER WHERE IdUtilisateur = "+id);
+			rs = AccesBD.getInstance().executeQuery("SELECT IsStudent, IsTutor, IsModuleManager,IsAdmin FROM USER WHERE IdUtilisateur = \""+id+"\"");
+		//	System.out.println(("SELECT IsStudent, IsTutor, IsModuleManager,IsAdmin FROM USER WHERE IdUtilisateur = \""+id+"\""));
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		try {
-			map.put("IsStudent", rs.getBoolean("IsStudent"));
-			map.put("IsTutor", rs.getBoolean("IsTutor"));
-			map.put("IsModuleManager", rs.getBoolean("IsModuleManager"));
-			map.put("IsAdmin", rs.getBoolean("IsAdmin"));
+			rs.next();
+
+			map.put("IsStudent", (rs.getInt(1)==1)?true:false);
+			map.put("IsTutor", (rs.getInt(2)==1)?true:false);
+			map.put("IsModuleManager", (rs.getInt(3)==1)?true:false);
+			map.put("IsAdmin", (rs.getInt(4)==1)?true:false);
 
 		} catch (SQLException e) {
 			map.put("IsStudent", false);
@@ -78,6 +82,7 @@ public class User extends LDAPObject {
 			map.put("IsModuleManager", false);
 			map.put("IsAdmin", false);
 		}
-		return map;
+return map;
+
 	}
 }
