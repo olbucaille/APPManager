@@ -8,10 +8,25 @@ public class StringProvider {
 	private static final String NUMBER = "NUMBER";
 	private static final String WELCOME = "WELCOME";
 	
-	private static final String COMP_NAME = "Name";
+	private static final String COMP_NAME = "Name"; 
 	private static final String COMP_NEEDED = "IsNeeded";
 	private static final String COMP_MOTHERCOMP="motherCompetence";
 	
+	private static final String APP_APPType ="APPType";
+	private static final String APP_StartDate="StartDate";
+	private static final String APP_EndDate="EndDate";
+	
+	
+	
+	public static String getAppApptype() {
+		return APP_APPType;
+	}
+	public static String getAppStartdate() {
+		return APP_StartDate;
+	}
+	public static String getAppEnddate() {
+		return APP_EndDate;
+	}
 	public static String getNom() {
 		return NOM;
 	}

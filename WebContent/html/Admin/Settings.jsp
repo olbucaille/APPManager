@@ -30,7 +30,7 @@
 	<br /><br />
 	
 	<label for="EndDate">End Date : </label>
-	 <input type="text" name="StartDate" class="datepicker">
+	 <input type="text" name="EndDate" class="datepicker">
 	<br /><br />
 	
     <input type="submit" name="action" value="addcompetencies" name="submit" />

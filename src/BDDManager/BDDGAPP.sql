@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Ven 24 Avril 2015 à 17:55
+-- Généré le: Ven 24 Avril 2015 à 20:58
 -- Version du serveur: 5.6.12-log
 -- Version de PHP: 5.4.16
 
@@ -29,11 +29,20 @@ USE `bddgapp`;
 --
 
 CREATE TABLE IF NOT EXISTS `appsession` (
-  `IdAPP` varchar(15) NOT NULL,
+  `IdAPP` int(15) NOT NULL AUTO_INCREMENT,
   `Type` varchar(50) NOT NULL,
-  `StartDate` date NOT NULL,
-  `EndDate` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `StartDate` varchar(20) NOT NULL,
+  `EndDate` varchar(20) NOT NULL,
+  PRIMARY KEY (`IdAPP`),
+  UNIQUE KEY `IdAPP` (`IdAPP`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Contenu de la table `appsession`
+--
+
+INSERT INTO `appsession` (`IdAPP`, `Type`, `StartDate`, `EndDate`) VALUES
+(1, 'testAPP', '26/12/1993', '26/12/1015');
 
 -- --------------------------------------------------------
 
