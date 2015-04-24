@@ -59,7 +59,7 @@ public class SControllerUser extends HttpServlet {
 		//!!!! il faudrai mettre en place le process qui renseigne au moins les gens étant élève comme Isstudent et gens professeur comme etant IsTutor
 		Map<String, Boolean> map = User.checkPrivileges(user.getNumber());
 		if(map.get("IsAdmin"))
-			response.sendRedirect( "/../WebContent/html/Admin/Settings.jsp");
+			response.sendRedirect( "/APPManager/html/Admin/Settings.jsp");
 		else if(map.get("IsModuleManager"))
 			response.sendRedirect("/APPManager/SControllerCompetencies?action=CompetenciesManagmentPage");
 		else if(map.get("IsTutor"))

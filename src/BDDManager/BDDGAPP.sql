@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Dim 12 Avril 2015 à 16:27
+-- Généré le: Ven 24 Avril 2015 à 17:55
 -- Version du serveur: 5.6.12-log
 -- Version de PHP: 5.4.16
 
@@ -59,21 +59,23 @@ CREATE TABLE IF NOT EXISTS `competencies` (
   `IsNecessary` varchar(5) NOT NULL,
   `idMother` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`IdComp`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=39 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=44 ;
 
 --
 -- Contenu de la table `competencies`
 --
 
 INSERT INTO `competencies` (`IdComp`, `Name`, `Description`, `IsNecessary`, `idMother`) VALUES
-(31, 'test45', 'null', 'false', 'none'),
 (32, 'test45', 'null', 'false', 'none'),
 (33, 'test45', 'null', 'false', 'none'),
 (34, 'esy', 'null', 'false', '33'),
 (35, 'eflkh', 'null', 'false', 'none'),
-(36, 'eflkh', 'null', 'false', 'none'),
-(37, 'eflkh', 'null', 'false', 'none'),
-(38, 'eflkh', 'null', 'false', 'none');
+(38, 'eflkh', 'null', 'false', 'none'),
+(39, 'trololo', 'null', 'false', '32'),
+(40, 'trololo2', 'null', 'false', '32'),
+(41, 'rty', 'null', 'false', 'none'),
+(42, 'titi', 'null', 'true', '41'),
+(43, 'testpres', 'null', 'true', '41');
 
 -- --------------------------------------------------------
 
@@ -139,6 +141,13 @@ CREATE TABLE IF NOT EXISTS `user` (
   `IsModuleManager` tinyint(1) NOT NULL,
   `IsAdmin` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `user`
+--
+
+INSERT INTO `user` (`IdUtilisateur`, `Nom`, `Prenom`, `Email`, `Actif`, `IsStudent`, `IsTutor`, `IsModuleManager`, `IsAdmin`) VALUES
+('4242', 'Admin', 'Admin', '', 1, 1, 1, 1, 0);
 
 -- --------------------------------------------------------
 

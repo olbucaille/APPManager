@@ -2,7 +2,7 @@
 @import url("http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css");
 * {
   margin: 0;
-  padding: 0;
+
 }
 
 *, *:before, *:after {
@@ -62,6 +62,11 @@ body {
   color: #eee;
   border-bottom: 1px solid #222;
   background: #2a2a2a;
+}
+
+ul.nav 
+{
+	  padding: 0;
 }
 
 .nav li a {
