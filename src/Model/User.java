@@ -23,6 +23,7 @@ public class User extends LDAPObject {
 	}
 	
 	
+	
 
 	public void setPicture (Media p)
 	{
@@ -34,6 +35,23 @@ public class User extends LDAPObject {
 		return "User [picture=" + picture + ", nom=" + nom + ", nomFamille="
 				+ nomFamille + ", prenom=" + prenom + ", login=" + login
 				+ ", password=" + password + ", mail=" + mail + "]";
+	}
+	
+	public static void AddUser(User user,  boolean student, boolean tutor )
+	{
+		try {
+			
+			if(student)
+			AccesBD.getInstance().executeUpdate("INSERT INTO User VALUES (\""+user.getNumber()+"\", \""+user.getNom()+"\", \""+user.getPrenom()+"\", \""+user.getMail()+"\", 1,1,0,0,0)");
+			else if(tutor)
+				AccesBD.getInstance().executeUpdate("INSERT INTO User VALUES (\""+user.getNumber()+"\", \""+user.getNom()+"\", \""+user.getPrenom()+"\", \""+user.getMail()+"\", 1,0,1,0,0)");
+			else
+				AccesBD.getInstance().executeUpdate("INSERT INTO User VALUES (\""+user.getNumber()+"\", \""+user.getNom()+"\", \""+user.getPrenom()+"\", \""+user.getMail()+"\", 1,0,0,0,0)");
+			
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	//ask to LDAP if user is connected if yes, it return the user, otherwise it return NULL

@@ -49,14 +49,14 @@ public class SControllerUser extends HttpServlet {
 			session.setAttribute(StringProvider.getPrenom(), user.getNom());
 		}
 		
-		//test accès BDD, à laisser ??
-		try {
-			AccesBD.getInstance();
-		} catch (ClassNotFoundException | SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
 		//!!!! il faudrai mettre en place le process qui renseigne au moins les gens étant élève comme Isstudent et gens professeur comme etant IsTutor
+		// --->> FAIT NON TESTE, VOIR CI DESSOUS
+		if(user.getType().equals("eleve"))
+			User.AddUser(user, true,false);
+		else if(user.getType().equals("professeur"))
+			User.AddUser(user, false, true);
+		
+		//"algo de redirection en fonction du type
 		Map<String, Boolean> map = User.checkPrivileges(user.getNumber());
 		if(map.get("IsAdmin"))
 			response.sendRedirect( "/APPManager/html/Admin/Settings.jsp");

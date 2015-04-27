@@ -1,21 +1,12 @@
+<%@page import="java.util.List"%>
+<%@page import="Model.Competencies"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
-  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-   <script>
-  $(function() {
-    $( "#datepicker" ).datepicker();
-  });
-  </script>
-<title>Settings</title>
-</head>
-<body>
+    
+<jsp:include page="/html/Layout.html"></jsp:include>
 
-<!-- Ajout d'app note, SControllerAPP non créé -->
+
+<div>
 <form action="/APPManager/SControllerAPP" method="POST" >
 
 
@@ -38,6 +29,21 @@
 
 
 </form> 
+</div>
 
-</body>
-</html>
+
+<!-- rajouter une colonne liste des eleves
+	--------------------------------profs
+	----------------------------des app courants
+	on selectionne les eleves, profs, l'app et cela les ajoute dans la table user-app
+	avant tout ça lorsque l'on se connecte on doit verifier si il existe dans la base locale et sinon l'ajouter -->
+	<br/><br />
+<SELECT NAME="toppings" MULTIPLE SIZE=5>
+<OPTION VALUE="mushrooms">mushrooms
+<OPTION VALUE="greenpeppers">green peppers
+<OPTION VALUE="onions">onions
+<OPTION VALUE="tomatoes">tomatoes
+<OPTION VALUE="olives">olives
+</SELECT>
+
+<jsp:include page="/html/Layout-foot.html"></jsp:include>

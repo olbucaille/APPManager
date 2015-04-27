@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Lun 27 Avril 2015 à 13:16
+-- Généré le: Lun 27 Avril 2015 à 14:23
 -- Version du serveur: 5.6.12-log
 -- Version de PHP: 5.4.16
 
@@ -150,7 +150,9 @@ CREATE TABLE IF NOT EXISTS `user` (
   `IsStudent` tinyint(1) NOT NULL,
   `IsTutor` tinyint(1) NOT NULL,
   `IsModuleManager` tinyint(1) NOT NULL,
-  `IsAdmin` tinyint(1) NOT NULL
+  `IsAdmin` tinyint(1) NOT NULL,
+  PRIMARY KEY (`IdUtilisateur`),
+  UNIQUE KEY `IdUtilisateur` (`IdUtilisateur`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
