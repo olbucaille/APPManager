@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Ven 24 Avril 2015 à 20:58
+-- Généré le: Lun 27 Avril 2015 à 13:16
 -- Version du serveur: 5.6.12-log
 -- Version de PHP: 5.4.16
 
@@ -66,25 +66,27 @@ CREATE TABLE IF NOT EXISTS `competencies` (
   `Name` varchar(50) NOT NULL,
   `Description` varchar(500) NOT NULL,
   `IsNecessary` varchar(5) NOT NULL,
+  `Category` varchar(25) NOT NULL,
   `idMother` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`IdComp`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=44 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=45 ;
 
 --
 -- Contenu de la table `competencies`
 --
 
-INSERT INTO `competencies` (`IdComp`, `Name`, `Description`, `IsNecessary`, `idMother`) VALUES
-(32, 'test45', 'null', 'false', 'none'),
-(33, 'test45', 'null', 'false', 'none'),
-(34, 'esy', 'null', 'false', '33'),
-(35, 'eflkh', 'null', 'false', 'none'),
-(38, 'eflkh', 'null', 'false', 'none'),
-(39, 'trololo', 'null', 'false', '32'),
-(40, 'trololo2', 'null', 'false', '32'),
-(41, 'rty', 'null', 'false', 'none'),
-(42, 'titi', 'null', 'true', '41'),
-(43, 'testpres', 'null', 'true', '41');
+INSERT INTO `competencies` (`IdComp`, `Name`, `Description`, `IsNecessary`, `Category`, `idMother`) VALUES
+(32, 'test45', 'null', 'false', '', 'none'),
+(33, 'test45', 'null', 'false', '', 'none'),
+(34, 'esy', 'null', 'false', '', '33'),
+(35, 'eflkh', 'null', 'false', '', 'none'),
+(38, 'eflkh', 'null', 'false', '', 'none'),
+(39, 'trololo', 'null', 'false', '', '32'),
+(40, 'trololo2', 'null', 'false', '', '32'),
+(41, 'rty', 'null', 'false', '', 'none'),
+(42, 'titi', 'null', 'true', '', '41'),
+(43, 'testpres', 'null', 'true', '', '41'),
+(44, 'testCategory', 'null', 'true', 'Project managment', '32');
 
 -- --------------------------------------------------------
 

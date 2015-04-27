@@ -72,6 +72,7 @@ public class SControllerCompetencies extends HttpServlet {
 			isneeded = null;
 		}
 		String mothercomp = (String)request.getParameterValues(StringProvider.getCompMothercomp())[0];
+		String category = (String)request.getParameterValues(StringProvider.getCompCategory())[0];
 		
 		if(isneeded == null)
 			isneeded = "false";
@@ -79,7 +80,7 @@ public class SControllerCompetencies extends HttpServlet {
 				isneeded = "true";
 		
 		System.out.println(name+isneeded+mothercomp);
-		Competencies c = new Competencies(null,name,null,Boolean.parseBoolean(isneeded),mothercomp);
+		Competencies c = new Competencies(null,name,null,Boolean.parseBoolean(isneeded),category,mothercomp);
 		System.out.println(c.toString());
 		Competencies.AddCompetency(c);
 		doDisplayPageCompetenciesManagment(request, response);

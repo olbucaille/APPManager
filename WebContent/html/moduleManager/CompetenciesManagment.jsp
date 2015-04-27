@@ -43,8 +43,20 @@ List<Competencies> list = (List) request.getAttribute("compToListChoice");
 	out.print("problem");%>
 </ol>
 
+<br/>
 <form action="/APPManager/SControllerCompetencies" method="POST" >
 
+
+<label for="Category">Under the category</label>    
+    <select name="Category" size="1">
+    	<option selected> Team Work
+		<option >Communication
+		<option >Project managment
+		<option >Design/Implementation
+		<option >Profesionnal skills 		  
+    </select> <br /><br />
+    
+    
 
 	<label for="motherCompetence">Under the competence</label>
     <select name="motherCompetence" size="1">
@@ -61,9 +73,7 @@ List<Competencies> list = (List) request.getAttribute("compToListChoice");
    
    
     </select>
-    
-    
-    
+
     
     <br /> <br />
     

@@ -20,21 +20,44 @@ public class Competencies {
 	private String Desc;
 	private Boolean Isnecessary;
 	private String IdMother;
+	private String Category;
 	
 	public Competencies(String idComp, String name, String desc,
-			Boolean isnecessary, String idMother) {
+			Boolean isnecessary, String Category, String idMother) {
 
 
 		IdComp = idComp;
 		Name = name;
 		Desc = desc;
 		Isnecessary = isnecessary;
+		this.Category = Category;
 		IdMother = idMother;
 	}
 	
 	
 	
 	
+	public String getDesc() {
+		return Desc;
+	}
+
+
+
+
+	public Boolean getIsnecessary() {
+		return Isnecessary;
+	}
+
+
+
+
+	public String getCategory() {
+		return Category;
+	}
+
+
+
+
 	public String getIdComp() {
 		return IdComp;
 	}
@@ -52,7 +75,7 @@ public class Competencies {
 	public static  void AddCompetency(Competencies cp)
 	{
 		try {
-			String req = "INSERT INTO competencies(Name, Description, Isnecessary, IdMother) VALUES (\""+cp.Name+"\", \""+cp.Desc+"\", \""+cp.Isnecessary+"\", \""+cp.IdMother+"\")";
+			String req = "INSERT INTO competencies(Name, Description, Isnecessary, Category,IdMother) VALUES (\""+cp.Name+"\", \""+cp.Desc+"\", \""+cp.Isnecessary+"\",\""+cp.Category+"\", \""+cp.IdMother+"\")";
 			System.out.println(req);
 			AccesBD.getInstance().executeUpdate(req);
 		} catch (ClassNotFoundException | SQLException e) {
@@ -76,7 +99,7 @@ public class Competencies {
 		if(rs!= null)
 		{
 			while(rs.next()){
-				array.add( new Competencies(String.valueOf(rs.getInt("idComp")), rs.getString("Name"), null, null, null));
+				array.add( new Competencies(String.valueOf(rs.getInt("idComp")), rs.getString("Name"), null, null, null, null));
 				
 			}
 		}
@@ -101,8 +124,8 @@ public class Competencies {
 		if(rs!= null)
 		{
 			while(rs.next()){
-				array.add( new Competencies(String.valueOf(rs.getInt("idComp")), rs.getString("Name"), null, null,rs.getString("idMother") ));
-				System.out.println(new Competencies(String.valueOf(rs.getInt("idComp")), rs.getString("Name"), null, null,rs.getString("idMother")).toString());
+				array.add( new Competencies(String.valueOf(rs.getInt("idComp")), rs.getString("Name"), null, null,null,rs.getString("idMother") ));
+				System.out.println(new Competencies(String.valueOf(rs.getInt("idComp")), rs.getString("Name"), null, null,null,rs.getString("idMother")).toString());
 			}
 		}
 		} catch (ClassNotFoundException | SQLException e) {
