@@ -1,5 +1,6 @@
 package Model;
 
+//fourni des constantes de dev, permet de ne pas faire de fautes de frappes
 public class StringProvider {
 
 	private static final String NOM = "NOM";

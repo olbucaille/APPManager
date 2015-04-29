@@ -10,7 +10,7 @@ import com.sun.crypto.provider.RSACipher;
 import BDDManager.AccesBD;
 import BDDManager.LDAPObject;
 import BDDManager.LDAPaccess;
-
+//model de user, héritage de LDAP avec un media (phto) et des methodes) 
 public class User extends LDAPObject {
 
 	
@@ -37,6 +37,7 @@ public class User extends LDAPObject {
 				+ ", password=" + password + ", mail=" + mail + "]";
 	}
 	
+	//ajoute user en fonction de son attibut eleve ou tueteur
 	public static void AddUser(User user,  boolean student, boolean tutor )
 	{
 		try {

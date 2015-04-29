@@ -21,6 +21,7 @@ import Model.User;
 
 /**
  * Servlet implementation class SControllerCompetencies
+ * sert à gerer tous ce qui à rapport à l'objet competencies ( voir en BDD)
  */
 @WebServlet("/SControllerCompetencies")
 public class SControllerCompetencies extends HttpServlet {
@@ -43,6 +44,7 @@ public class SControllerCompetencies extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * coordone les appels en fonction de la requete
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	//System.out.println("enter control cmp");
@@ -58,6 +60,8 @@ public class SControllerCompetencies extends HttpServlet {
 			doAddCompetencies(request,response);
 		}
 	}
+	//ajoute une compétence
+	//existe une verifiavtion des champs
 	private void doAddCompetencies(HttpServletRequest request,
 			HttpServletResponse response) {
 		//!!!!!!!!!!!!ici pas de control d'identitée
@@ -87,6 +91,8 @@ public class SControllerCompetencies extends HttpServlet {
 		
 	}
 
+	//affiche la page des compétences ( donc chargement via bdd avant)
+	//note : est appelée lorsque l'on ajoute une compétence
 	private void doDisplayPageCompetenciesManagment(HttpServletRequest request,
 			HttpServletResponse response) {
 
@@ -131,6 +137,7 @@ public class SControllerCompetencies extends HttpServlet {
 		
 	}
 
+	//methode générique de redirection
 	protected void redirection(HttpServletRequest request, HttpServletResponse response, String page) 
 	{
 		try{

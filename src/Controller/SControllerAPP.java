@@ -13,6 +13,7 @@ import Model.StringProvider;
 
 /**
  * Servlet implementation class SControllerAPP
+ * sert à gerer tous ce qui à rapport à l'objet APP ( voir en BDD)
  */
 @WebServlet("/SControllerAPP")
 public class SControllerAPP extends HttpServlet {
@@ -36,8 +37,10 @@ public class SControllerAPP extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	//Insert un APP en bdd et remontre les app en cours
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+		//pas de verification des champs !!
 		String type = (String)request.getParameterValues(StringProvider.getAppApptype())[0];
 		String Sdate = (String)request.getParameterValues(StringProvider.getAppStartdate())[0];
 		String Edate= (String)request.getParameterValues(StringProvider.getAppEnddate())[0];
@@ -46,6 +49,7 @@ public class SControllerAPP extends HttpServlet {
 		doShowSettings(request,response);
 	}
 
+	//redirige simplement vers les settings
 	private void doShowSettings(HttpServletRequest request ,HttpServletResponse response) {
 			try {
 				response.sendRedirect("/APPManager/html/Admin/Settings.jsp");

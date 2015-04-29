@@ -18,6 +18,8 @@ import Model.User;
 
 /**
  * Servlet implementation class SControllerUser
+ * 
+ * sert à gerer tous ce qui à rapport à l'objet User ( voir en BDD)
  */
 @WebServlet("/SControllerUser")
 public class SControllerUser extends HttpServlet {
@@ -33,6 +35,9 @@ public class SControllerUser extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * ajoute un utilsisateur, à terme, l'enregistre dans la bdd si premiere connexion avec un statut de base modifié par la suite 
+	 * par l'admin
+	 * est ensuite redirigé dsur la page qui lui convient ( eleve, tuteur (et bon groupe chargé si besoin),....)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();

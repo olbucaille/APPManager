@@ -8,20 +8,24 @@ import java.util.List;
 import BDDManager.AccesBD;
 
 import com.sun.org.apache.xpath.internal.operations.Bool;
-
+//modele des compétences
 public class Competencies {
 	
-	
-
-
-
+	//identifiant de la compétence
 	private String IdComp;
+	//nom de la compétence (court)
 	private String Name;
+	//desciption de la competence
 	private String Desc;
+	//bool si il est necessaire de la valider pour avoir le module
 	private Boolean Isnecessary;
+	//identifiant de la compétence "mère"
 	private String IdMother;
+	//catégorie ou famille
 	private String Category;
 	
+	
+	//contructeur
 	public Competencies(String idComp, String name, String desc,
 			Boolean isnecessary, String Category, String idMother) {
 
@@ -71,7 +75,7 @@ public class Competencies {
 		return IdMother;
 	}
 
-
+//ajout de compétence, simple requte
 	public static  void AddCompetency(Competencies cp)
 	{
 		try {
@@ -86,6 +90,7 @@ public class Competencies {
 		//System.out.println("finadd");
 	}
 	
+	//ressort toutes compétence de "niveau 1" cad sans mere
 	public static List<Competencies> GetCompetenciesWithoutMother()
 	{
 		ArrayList<Competencies> array= new ArrayList<Competencies>();
@@ -111,6 +116,7 @@ public class Competencies {
 
 	}
 
+	//ressort toutes les ocmpétences de niv2 cad avec mere
 	public static List<Competencies> GetCompetenciesWithMother() {
 		ArrayList<Competencies> array= new ArrayList<Competencies>();
 		ResultSet rs = null ;

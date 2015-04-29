@@ -8,17 +8,24 @@ import java.sql.Statement;
 
 
 
-
+/*
+ * permet d'acceder à la BDD avec des méthodes bas niveau 
+ */
 public class AccesBD 
 {
+	//singleton donc instance privée
 	private static AccesBD Instance;
+	//elmts de BDD 
 	private Connection  con;
 	private Statement stm;
+	
 	private AccesBD() throws ClassNotFoundException, SQLException
 	{
 		connexion();
 		
 	}
+	
+	//à utiliser pour se servir de la classe
 	public static AccesBD getInstance() throws ClassNotFoundException, SQLException
 	{
 		if (Instance == null )
@@ -26,7 +33,7 @@ public class AccesBD
 		return Instance;
 	}
 	
-	
+	//retourne une connexion, c'est ici qu'il faut changer ou l'adresse ou les mdp
 	private void connexion() throws ClassNotFoundException, SQLException
     {
         String url = "jdbc:mysql://localhost/BDDGAPP";
@@ -34,6 +41,7 @@ public class AccesBD
          con = DriverManager.getConnection(url,"root","");            
     }
 	
+	//à utiliser lorsque l'on veut faire un select
 	public ResultSet executeQuery(String requete) throws SQLException
 	{
 		if(con != null)
@@ -43,7 +51,7 @@ public class AccesBD
 		}
 		return null;
 	}
-	
+	//....lorsque l'on veut faire une modif en bdd
 	public void executeUpdate(String requete) throws SQLException
 	{
 		if(con != null)
