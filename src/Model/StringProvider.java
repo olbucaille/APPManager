@@ -18,8 +18,20 @@ public class StringProvider {
 	private static final String APP_StartDate="StartDate";
 	private static final String APP_EndDate="EndDate";
 	
+
+	private static final String TEAM_TEAMNAME="TeamName";
+	private static final String TEAM_APPOFTEAM="APPOfTheTeam";
 	
 	
+	
+	
+	
+	public static String getTeamTeamname() {
+		return TEAM_TEAMNAME;
+	}
+	public static String getTeamAppofteam() {
+		return TEAM_APPOFTEAM;
+	}
 	public static String getCompCategory() {
 		return COMP_CATEGORY;
 	}

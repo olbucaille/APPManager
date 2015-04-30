@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Lun 27 Avril 2015 à 14:23
+-- Généré le: Jeu 30 Avril 2015 à 19:03
 -- Version du serveur: 5.6.12-log
 -- Version de PHP: 5.4.16
 
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `appsession` (
   `EndDate` varchar(20) NOT NULL,
   PRIMARY KEY (`IdAPP`),
   UNIQUE KEY `IdAPP` (`IdAPP`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Contenu de la table `appsession`
@@ -107,10 +107,19 @@ CREATE TABLE IF NOT EXISTS `media` (
 --
 
 CREATE TABLE IF NOT EXISTS `team` (
-  `IdTeam` varchar(15) NOT NULL,
+  `IdTeam` int(11) NOT NULL AUTO_INCREMENT,
+  `IdAPP` varchar(15) NOT NULL,
   `Name` varchar(50) NOT NULL,
-  `CreationDate` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `CreationDate` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`IdTeam`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Contenu de la table `team`
+--
+
+INSERT INTO `team` (`IdTeam`, `IdAPP`, `Name`, `CreationDate`) VALUES
+(1, '1', 'Team1', NULL);
 
 -- --------------------------------------------------------
 
@@ -160,7 +169,11 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`IdUtilisateur`, `Nom`, `Prenom`, `Email`, `Actif`, `IsStudent`, `IsTutor`, `IsModuleManager`, `IsAdmin`) VALUES
-('4242', 'Admin', 'Admin', '', 1, 1, 1, 1, 0);
+('4240', 'tata', 'tutu', 'toto.tutu@isep.fr', 1, 0, 1, 0, 0),
+('4241', 'tata', 'tutu', 'toto.tutu@isep.fr', 1, 0, 1, 0, 0),
+('4242', 'tata', 'tutu', 'toto.tutu@isep.fr', 1, 1, 0, 0, 0),
+('4243', 'tata', 'tutu', 'toto.tutu@isep.fr', 1, 1, 0, 0, 0),
+('4245', 'tata', 'tutu', 'toto.tutu@isep.fr', 1, 0, 1, 0, 0);
 
 -- --------------------------------------------------------
 

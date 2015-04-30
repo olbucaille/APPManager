@@ -28,4 +28,14 @@
     <url-pattern>/Main</url-pattern>
   </servlet-mapping>
 	
+	<servlet>
+    <servlet-name>SControllerTeam</servlet-name>
+    <servlet-class>Controller.SControllerTeam</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SControllerTeam</servlet-name>
+    <url-pattern>/SControllerTeam</url-pattern>
+  </servlet-mapping>
+
+
 </web-app>

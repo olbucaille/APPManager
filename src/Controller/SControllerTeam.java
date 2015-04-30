@@ -12,19 +12,19 @@ import javax.servlet.http.HttpSession;
 
 import Model.APP;
 import Model.StringProvider;
+import Model.Team;
 
 /**
- * Servlet implementation class SControllerAPP
- * sert à gerer tous ce qui à rapport à l'objet APP ( voir en BDD)
+ * Servlet implementation class SControllerTeam
  */
-@WebServlet("/SControllerAPP")
-public class SControllerAPP extends HttpServlet {
+@WebServlet("/SControllerTeam")
+public class SControllerTeam extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SControllerAPP() {
+    public SControllerTeam() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,23 +39,17 @@ public class SControllerAPP extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
-	//Insert un APP en bdd et remontre les app en cours
+	//Insert une Team en bdd et redirige vers Settings
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		
-		String RequestString =(String) request.getParameter("action");
-		System.out.println(RequestString);
-		if(RequestString!=null &&RequestString.equals("add APP session"))
-		{
 			//pas de verification des champs !!
 		
-			String type = (String)request.getParameterValues(StringProvider.getAppApptype())[0];
-			String Sdate = (String)request.getParameterValues(StringProvider.getAppStartdate())[0];
-			String Edate= (String)request.getParameterValues(StringProvider.getAppEnddate())[0];
-			System.out.println(type+Sdate+Edate);
-			APP.InsertAAPP(type, Sdate, Edate);
+			String TeamName = (String)request.getParameterValues(StringProvider.getTeamTeamname())[0];
+			String IdAPP = (String)request.getParameterValues(StringProvider.getTeamAppofteam())[0];
+			Team.InsertATeam(IdAPP,TeamName);
 			
-		}
+		
 		doShowSettings(request,response);
 	}
 
