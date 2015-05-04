@@ -2,6 +2,8 @@ package BDDManager;
 
 import Model.User;
 
+//classe de test 
+//ne pas utiliser en temps normal
 public class main {
 
 	public static void main(String[] args) {
