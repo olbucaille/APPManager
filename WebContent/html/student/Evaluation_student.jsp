@@ -13,7 +13,7 @@
 <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-<script src="../../js/evaluation.js" type="text/javascript"></script>
+
 <head>
 </head>
 	<body>	
@@ -49,7 +49,8 @@
 			    <div class="progress">
 			      <div class="progress-bar"></div>
 			    </div>
-			  
+			  <input class= "fill"  data-idx='2' type="range" min="0" max="5" value="1" step="1"  />
+        			
 				<% List<Competencies> strList = new ArrayList<Competencies>();
 //Competencies(String idComp, String name, String desc,Boolean isnecessary, String Category, String idMother)
 		    	Competencies comp1 = new Competencies("comp1", "java", "toto",true, "programmation", "toto");
@@ -107,8 +108,8 @@
 		        	%><tr>
 			    	    	<td> <h5> <%= competence.getName()%></h5></td> <% 	
         			
-        			%><td><div class="slider">
-        			<div class="progress-bar" id="progress-bar"></div></td>
+        			%><td><input class= "range" type="range" min="0" max="5" value="1" step="1" />
+				 </td>
   			    	</tr>
   			    	
   			    	<% 
@@ -120,7 +121,7 @@
 			    
 			    </tbody>
 		    	</table>	
-			    	
+			   	
 			    	
 				<form id="form1" name="form1" method="post" action enctype="text/plain" alt="">
 				<p>
@@ -143,5 +144,8 @@
 			</div>
 		
 		</div>
+		<script src="../../js/evaluation.js" type="text/javascript"></script>
 	</body>
+	
 </html>
+
