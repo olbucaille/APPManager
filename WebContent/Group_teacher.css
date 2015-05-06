@@ -83,7 +83,7 @@
   line-height: 2;
   position: absolute;               
   top: 15%;
-  left : 70%;
+  left : 90%;
   width: 200px;
   -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
      -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
@@ -124,7 +124,7 @@
 
 /*ul Styles*/
 .work-item ul {
-  background: #fecd66;
+  background: #eee;
   font-size: 20px;
   line-height: 30px;
   height: 0px;
@@ -159,5 +159,85 @@
 }
 
 .work-item li:hover {
-  background: #eee;
+  background: #fecd66;
+}
+
+/*For table*/
+table {
+	  position: absolute;               
+	  top: 5%;
+	  left : 43%;
+    border-collapse: collapse;
+    width: 60%;
+    background: #fff;
+}
+td, th {
+    padding: 0.75em 1.5em;
+    text-align: left;
+}
+	td.err {
+		background-color: #006599;
+		color: #fff;
+		font-size: 0.75em;
+		text-align: center;
+		line-height: 1;
+	}
+th {
+    background-color: #31bc86;
+    font-weight: bold;
+    color: #fff;
+    white-space: nowrap;
+}
+tbody th {
+	background-color: #006599;
+}
+tbody tr:nth-child(2n-1) {
+    background-color: #f5f5f5;
+    transition: all .125s ease-in-out;
+}
+tbody tr:hover {
+    background-color: #fecd66;
+}
+
+/*For button*/
+button {
+  display: inline-block;
+  margin: 0 10px 0 0;
+  padding: 5px 15px;
+  font-size: 10px;
+  line-height: 1.8;
+  appearance: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+button:focus {
+  outline: none
+}
+
+button {
+  color: #fff;
+  background-color: #006599;
+  border: none;
+}
+
+button:hover,
+button.hover {
+  background-color: #fecd66;
+}
+
+button:active,
+button.active {
+  background-color: #fecd66;
+}
+
+section.At button{
+	position: absolute;               
+	  top: 8%;
+	  left : 72%;
+}
+section.Re button{
+	position: absolute;               
+	  top: 8%;
+	  left : 80%;
 }
