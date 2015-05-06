@@ -9,9 +9,7 @@
 <%
 List<Competencies> listWM = (List) request.getAttribute("compToDisplay");
 List<Competencies> list = (List) request.getAttribute("compToListChoice");
-
-
- %>
+%>
  
  
  <h1>Competencies Managment</h1>
