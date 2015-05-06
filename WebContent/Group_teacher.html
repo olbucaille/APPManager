@@ -23,39 +23,74 @@
 			</h4>
 		</div>
 	</nav>
-	<table class="table">
-		<tr class="title">
-			<th>Name (Job Title)</th>
-			<th>Session 1</th>
-			<th>Session 2</th>
-			<th>Session 3</th>
-			<th>Session 4</th>
-		</tr>
-
-		<tr>
-			<td>Student</td>
-			<td>status</td>
-			<td>status</td>
-			<td>status</td>
-			<td>status</td>
-		</tr>
-		<tr>
-			<td>Student</td>
-			<td>status</td>
-			<td>status</td>
-			<td>status</td>
-			<td>status</td>
-		</tr>
-		<tr>
-			<td>Student</td>
-			<td>status</td>
-			<td>status</td>
-			<td>status</td>
-			<td>status</td>
-		</tr>
+	<table class="Atd">
+		<tbody id=Atd-tbody style="display: block">
+			<tr class="title">
+				<th>Name (Job Title)</th>
+				<th>Session 1</th>
+				<th>Session 2</th>
+				<th>Session 3</th>
+				<th>Session 4</th>
+			</tr>
+			<tr>
+				<td>Student</td>
+				<td>status</td>
+				<td>status</td>
+				<td>status</td>
+				<td>status</td>
+			</tr>
+			<tr>
+				<td>Student</td>
+				<td>status</td>
+				<td>status</td>
+				<td>status</td>
+				<td>status</td>
+			</tr>
+			<tr>
+				<td>Student</td>
+				<td>status</td>
+				<td>status</td>
+				<td>status</td>
+				<td>status</td>
+			</tr>
+		</tbody>
 
 	</table>
 
+	<table class="Rem">
+		<tbody id=Rem-tbody style="display: none">
+			<tr class="title">
+				<th>Name (Job Title)</th>
+				<th>Session</th>
+				<th>Session</th>
+				<th>Session</th>
+				<th>Session</th>
+			</tr>
+			<tr>
+				<td>Student 1</td>
+				<td>status</td>
+				<td>status</td>
+				<td>status</td>
+				<td>status</td>
+			</tr>
+			<tr>
+				<td>Student 2</td>
+				<td>status</td>
+				<td>status</td>
+				<td>status</td>
+				<td>status</td>
+			</tr>
+			<tr>
+				<td>Student 3</td>
+				<td>status</td>
+				<td>status</td>
+				<td>status</td>
+				<td>status</td>
+			</tr>
+		</tbody>
+
+
+	</table>
 
 	<nav class="work">
 		<div class="work-item">
@@ -99,11 +134,21 @@
 			</ul>
 		</div>
 	</nav>
+
+	<script>
+function f1(){document.getElementById("Atd-tbody").style.display = 'block';
+document.getElementById("Rem-tbody").style.display = 'none';}
+
+function f2(){document.getElementById("Rem-tbody").style.display = 'block';
+document.getElementById("Atd-tbody").style.display = 'none';}
+
+</script>
+
 	<section class="At">
-		<button>Attendance</button>
+		<button onclick="f1()">Attendance</button>
 	</section>
 	<section class="Re">
-		<button>Remark</button>
+		<button onclick="f2()">Remark</button>
 	</section>
 </body>
 </html>
