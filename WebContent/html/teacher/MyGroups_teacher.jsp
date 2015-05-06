@@ -37,7 +37,7 @@
 <nav class="work">
 	<div class="work-item">
 		<h4>
-			<a href="#">Deliverable 1 </a>
+			<a href="#">Deliverable 28/05/2015</a>
 		</h4>
 		<ul>
 			<li><a href="#">Item 1</a></li>
@@ -49,7 +49,7 @@
 	</div>
 	<div class="work-item">
 		<h4>
-			<a href="#">Deliverable 2 </a>
+			<a href="#">Deliverable 02/05/2015</a>
 		</h4>
 		<ul>
 			<li><a href="#">Item 1</a></li>
@@ -61,7 +61,7 @@
 	</div>
 	<div class="work-item">
 		<h4>
-			<a href="#">Deliverable 3 </a>
+			<a href="#">Deliverable 13/06/2015</a>
 		</h4>
 		<ul>
 			<li><a href="#">Item 1</a></li>
@@ -73,7 +73,7 @@
 	</div>
 	<div class="work-item">
 		<h4>
-			<a href="#">Deliverable 4 </a>
+			<a href="#">Deliverable 23/06/2015</a>
 		</h4>
 		<ul>
 			<li><a href="#">Item 1</a></li>
@@ -85,7 +85,7 @@
 	</div>
 	<div class="work-item">
 		<h4>
-			<a href="#">Deliverable 5 </a>
+			<a href="#">Deliverable 27/06/2015</a>
 		</h4>
 		<ul>
 			<li><a href="#">Item 1</a></li>
@@ -97,7 +97,7 @@
 	</div>
 	<div class="work-item">
 		<h4>
-			<a href="#">Deliverable 6 </a>
+			<a href="#">Deliverable 04/07/2015</a>
 		</h4>
 		<ul>
 			<li><a href="#">Item 1</a></li>
