@@ -9,7 +9,7 @@
 List<APP> list = (List) request.getAttribute("ListOfAllAPP");
 
 %>
-<div>
+<div style="width:395px; float:right; margin-right: 1px;margin-top: 5px;">
 <form action="/APPManager/SControllerAPP" method="POST" >
 
 
@@ -33,11 +33,11 @@ List<APP> list = (List) request.getAttribute("ListOfAllAPP");
 
 </form> 
 </div>
+<br />
+<p>-----------------------------------------------------------------</p>
 
 
-
-
-<div>
+<div style="width:395px; float:right; margin-right: 1px;margin-top: 5px;">
 <form action="/APPManager/SControllerTeam" method="POST" >
 
 

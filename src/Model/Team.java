@@ -25,7 +25,7 @@ public class Team {
 		}
 
 
-
+ 
 
 
 		//permet d'ajouter une session avec les attributs de base 
