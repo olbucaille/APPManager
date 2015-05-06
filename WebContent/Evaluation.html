@@ -7,9 +7,10 @@
 </head>
 <body>
 
-<h1>My teams</h1>
 
-<nav class="STD">    
+
+<nav class="STD">
+     <h1>My teams</h1>    
 		    <div class="STD-item">
 		      <h4><a href="#">Team </a></h4>
 		      <ul>
@@ -43,20 +44,63 @@
 
 		      </ul>
 		    </div>
-
 		    </nav>
 
 
-<h1>Evaluation of 05/12/2015</h1>
 
-<textarea rows="20" cols="60"> </textarea>
 
-<p>Free comment</p>
+<div class= "form">
 
-<textarea rows="10" cols="50"> </textarea>
+  <h1>Evaluation of 05/12/2015</h1>
+  
+  <form action="/example/html/form_action.asp" method="get">
+   <fieldset> 
+     <label for="comment">Comment</label>
+     <textarea rows="20" cols="60"> </textarea>
+     <label for="freecomment">Free comment</label>
+     <textarea rows="10" cols="50"> </textarea>
+     <input type="submit" value="Submit" >
+   </fieldset>
+  </form>
 
-<h1>List of Evaluations</h1>
-<nav class="EV">    
+</div>
+
+
+  <form action="index.html" class="contact">
+    <h1>Evaluation of 05/12/2015</h1>
+    <fieldset class="contact-inner">
+      <p class="contact-input">
+        <input type="text" name="name" placeholder="Your Name…" autofocus>
+      </p>
+
+      <p class="contact-input">
+        <label for="select" class="select">
+          <select name="subject" id="select">
+            <option value="" selected>Choose Subject…</option>
+            <option value="1">I have a suggestion</option>
+            <option value="1">I found a bug</option>
+            <option value="1">Other</option>
+          </select>
+        </label>
+      </p>
+
+      <p class="contact-input">
+        <textarea name="message" placeholder="Your Message…"></textarea>
+      </p>
+
+      <p class="contact-submit">
+        <input type="submit" value="Send Message">
+      </p>
+    </fieldset>
+  </form>
+
+
+
+
+
+
+<nav class="EV"> 
+     <h1>List of Evaluations</h1>   
 		    <div class="EV-item">
 		      <h4><a href="#">Evaluation </a></h4>
 		      <h4><a href="#">Evaluation </a></h4>

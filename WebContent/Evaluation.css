@@ -62,7 +62,7 @@
   line-height: 2;
   position: absolute;               
   top: 15%;
-  left : 10%;
+  left : 5%;
   width: 200px;
   -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
      -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
@@ -140,3 +140,5 @@
 .STD-item li:hover {
   background: #fecd66;
 }
+
+
