@@ -1,0 +1,81 @@
+.work {
+  font-size: 10x;
+  line-height: 2;
+  position: absolute;               
+  top: 20%;
+  left : 85%;
+  width: 250px;
+  -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+     -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+          box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.work-item {
+  width: 250px; 
+}
+
+/*Menu Header Styles*/
+.work-item h4 {
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+  border-top: 1px solid rgba(255,255,255,0.2);
+  font-size: 15px;
+  font-weight: 500;
+  padding: 7px 12px;
+  
+  /*Gradient*/
+  background: #006599; /* Old browsers */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006599', endColorstr='#006599',GradientType=0 ); /* IE6-9 */
+}
+
+.work-item h4:hover {  
+  background: #006599; /* Old browsers */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006599', endColorstr='#006599',GradientType=0 ); /* IE6-9 */
+
+}
+
+.work-item h4 a {
+  color: white;
+  display: block;
+  text-decoration: none;
+  width: 150px;
+}
+
+/*ul Styles*/
+.work-item ul {
+  background: #eee;
+  font-size: 15px;
+  line-height: 30px;
+  height: 0px;
+  list-style-type: none;
+  overflow: hidden;
+  padding: 0px;
+  
+  /*Animation*/
+  -webkit-transition: height 0.75s ease;
+     -moz-transition: height 0.75s ease;
+       -o-transition: height 0.75s ease;
+      -ms-transition: height 0.75s ease;
+          transition: height 0.75s ease;
+}
+
+
+.work-item:hover ul {
+  height: 154px;
+}
+
+.work-item ul a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #006599;
+  display: block;
+  width: 150px;
+}
+
+/*li Styles*/
+.work-item li {
+  border-bottom: 1px solid #eee;
+}
+
+.work-item li:hover {
+  background: #fecd66;
+}

@@ -45,8 +45,13 @@ ul.leftmenu #leftmenubox_title {
 	margin: 5px 0 0 0;
 }
 
+ul.leftmenu #leftmenubox_title #leftmenu_title {
+	text-decoration: none;
+	color: #eee;
+}
+
 ul.leftmenu #leftmenubox_tab #leftmenu_ref:hover {
-	background: #ebebeb url(../images/border.png) no-repeat;
+	background: #fecd66 url(../images/border.png) no-repeat;
 	color: #67a5cd;
 	padding: 7px 15px 7px 30px;
 }
