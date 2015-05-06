@@ -1,5 +1,6 @@
 package Model;
 
+//pas utilisé pour l'instant (un attibut dans user"
 public class Media {
 	
 	private String IdMedia;

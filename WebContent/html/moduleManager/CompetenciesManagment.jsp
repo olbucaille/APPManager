@@ -2,13 +2,8 @@
 <%@page import="Model.Competencies"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Competencies Managment</title>
-</head>
-<body>
+    
+<jsp:include page="/html/Layout.html"></jsp:include>
 
 
 <%
@@ -17,6 +12,10 @@ List<Competencies> list = (List) request.getAttribute("compToListChoice");
 
 
  %>
+ 
+ 
+ <h1>Competencies Managment</h1>
+ 
 
 <ol>
 <%if(list!=null)
@@ -24,15 +23,15 @@ List<Competencies> list = (List) request.getAttribute("compToListChoice");
 		int i = 0;
 		for( i=0; i<list.size();i++)	
 		{
-			out.println("<li><span>"+list.get(i).getName()+"</span></li>");
-			out.println("<ol>");
+			out.println("<li class=\"liste\"><span>"+list.get(i).getName()+"</span></li>");
+			out.println("<ol class=\"liste\">");
 			if(listWM!=null)
 			{
 				for( int j=0; j<listWM.size();j++)	
 				{		
 					if(listWM.get(j).getIdMother().trim().equals(String.valueOf(list.get(i).getIdComp())))
 					{
-						out.println("<li>"+listWM.get(j).getName()+"</li>");						
+						out.println("<li class=\"liste\">"+listWM.get(j).getName()+"</li>");						
 					}
 				}
 			}
@@ -44,8 +43,20 @@ List<Competencies> list = (List) request.getAttribute("compToListChoice");
 	out.print("problem");%>
 </ol>
 
+<br/>
 <form action="/APPManager/SControllerCompetencies" method="POST" >
 
+
+<label for="Category">Under the category</label>    
+    <select name="Category" size="1">
+    	<option selected> Team Work
+		<option >Communication
+		<option >Project managment
+		<option >Design/Implementation
+		<option >Profesionnal skills 		  
+    </select> <br /><br />
+    
+    
 
 	<label for="motherCompetence">Under the competence</label>
     <select name="motherCompetence" size="1">
@@ -62,9 +73,7 @@ List<Competencies> list = (List) request.getAttribute("compToListChoice");
    
    
     </select>
-    
-    
-    
+
     
     <br /> <br />
     
@@ -78,7 +87,5 @@ List<Competencies> list = (List) request.getAttribute("compToListChoice");
    <input type="submit" name="action" value="addcompetencies" name="submit" />
    
 
-
 </form> 
-</body>
-</html>
+<jsp:include page="/html/Layout-foot.html"></jsp:include>

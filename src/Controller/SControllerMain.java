@@ -13,6 +13,7 @@ import Model.StringProvider;
 /**
  * Servlet implementation class SControllerMain
  * is a dispatcher for all requests it forward to the correct specialized servlet of the controller module
+ * !!!!!!!!!!!!!!!!!!!!!!!!!!Classe de moins en moins utiliser, encore utile, ou à supp ? 
  */
 @WebServlet("/SControllerMain")
 public class SControllerMain extends HttpServlet {

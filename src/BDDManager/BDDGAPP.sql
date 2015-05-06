@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Dim 12 Avril 2015 à 16:27
+-- Généré le: Jeu 30 Avril 2015 à 19:03
 -- Version du serveur: 5.6.12-log
 -- Version de PHP: 5.4.16
 
@@ -29,11 +29,20 @@ USE `bddgapp`;
 --
 
 CREATE TABLE IF NOT EXISTS `appsession` (
-  `IdAPP` varchar(15) NOT NULL,
+  `IdAPP` int(15) NOT NULL AUTO_INCREMENT,
   `Type` varchar(50) NOT NULL,
-  `StartDate` date NOT NULL,
-  `EndDate` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `StartDate` varchar(20) NOT NULL,
+  `EndDate` varchar(20) NOT NULL,
+  PRIMARY KEY (`IdAPP`),
+  UNIQUE KEY `IdAPP` (`IdAPP`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Contenu de la table `appsession`
+--
+
+INSERT INTO `appsession` (`IdAPP`, `Type`, `StartDate`, `EndDate`) VALUES
+(1, 'testAPP', '26/12/1993', '26/12/1015');
 
 -- --------------------------------------------------------
 
@@ -57,23 +66,27 @@ CREATE TABLE IF NOT EXISTS `competencies` (
   `Name` varchar(50) NOT NULL,
   `Description` varchar(500) NOT NULL,
   `IsNecessary` varchar(5) NOT NULL,
+  `Category` varchar(25) NOT NULL,
   `idMother` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`IdComp`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=39 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=45 ;
 
 --
 -- Contenu de la table `competencies`
 --
 
-INSERT INTO `competencies` (`IdComp`, `Name`, `Description`, `IsNecessary`, `idMother`) VALUES
-(31, 'test45', 'null', 'false', 'none'),
-(32, 'test45', 'null', 'false', 'none'),
-(33, 'test45', 'null', 'false', 'none'),
-(34, 'esy', 'null', 'false', '33'),
-(35, 'eflkh', 'null', 'false', 'none'),
-(36, 'eflkh', 'null', 'false', 'none'),
-(37, 'eflkh', 'null', 'false', 'none'),
-(38, 'eflkh', 'null', 'false', 'none');
+INSERT INTO `competencies` (`IdComp`, `Name`, `Description`, `IsNecessary`, `Category`, `idMother`) VALUES
+(32, 'test45', 'null', 'false', '', 'none'),
+(33, 'test45', 'null', 'false', '', 'none'),
+(34, 'esy', 'null', 'false', '', '33'),
+(35, 'eflkh', 'null', 'false', '', 'none'),
+(38, 'eflkh', 'null', 'false', '', 'none'),
+(39, 'trololo', 'null', 'false', '', '32'),
+(40, 'trololo2', 'null', 'false', '', '32'),
+(41, 'rty', 'null', 'false', '', 'none'),
+(42, 'titi', 'null', 'true', '', '41'),
+(43, 'testpres', 'null', 'true', '', '41'),
+(44, 'testCategory', 'null', 'true', 'Project managment', '32');
 
 -- --------------------------------------------------------
 
@@ -94,10 +107,19 @@ CREATE TABLE IF NOT EXISTS `media` (
 --
 
 CREATE TABLE IF NOT EXISTS `team` (
-  `IdTeam` varchar(15) NOT NULL,
+  `IdTeam` int(11) NOT NULL AUTO_INCREMENT,
+  `IdAPP` varchar(15) NOT NULL,
   `Name` varchar(50) NOT NULL,
-  `CreationDate` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `CreationDate` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`IdTeam`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Contenu de la table `team`
+--
+
+INSERT INTO `team` (`IdTeam`, `IdAPP`, `Name`, `CreationDate`) VALUES
+(1, '1', 'Team1', NULL);
 
 -- --------------------------------------------------------
 
@@ -137,8 +159,21 @@ CREATE TABLE IF NOT EXISTS `user` (
   `IsStudent` tinyint(1) NOT NULL,
   `IsTutor` tinyint(1) NOT NULL,
   `IsModuleManager` tinyint(1) NOT NULL,
-  `IsAdmin` tinyint(1) NOT NULL
+  `IsAdmin` tinyint(1) NOT NULL,
+  PRIMARY KEY (`IdUtilisateur`),
+  UNIQUE KEY `IdUtilisateur` (`IdUtilisateur`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `user`
+--
+
+INSERT INTO `user` (`IdUtilisateur`, `Nom`, `Prenom`, `Email`, `Actif`, `IsStudent`, `IsTutor`, `IsModuleManager`, `IsAdmin`) VALUES
+('4240', 'tata', 'tutu', 'toto.tutu@isep.fr', 1, 0, 1, 0, 0),
+('4241', 'tata', 'tutu', 'toto.tutu@isep.fr', 1, 0, 1, 0, 0),
+('4242', 'tata', 'tutu', 'toto.tutu@isep.fr', 1, 1, 0, 0, 0),
+('4243', 'tata', 'tutu', 'toto.tutu@isep.fr', 1, 1, 0, 0, 0),
+('4245', 'tata', 'tutu', 'toto.tutu@isep.fr', 1, 0, 1, 0, 0);
 
 -- --------------------------------------------------------
 
