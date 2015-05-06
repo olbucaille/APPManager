@@ -1,0 +1,243 @@
+@CHARSET "US-ASCII";
+
+* {
+  margin: 0px;
+}
+
+/* For titles */
+.myteam_title{
+  position: absolute;               
+  top: 5%;
+  left : 5%;
+  color : #006599;
+}
+
+.team_title{
+  position: absolute;               
+  top: 5%;
+  left : 43%;
+  color : #006599;
+}
+
+/* For team */
+.team {
+  font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 20px;
+  line-height: 2;
+  position: absolute;               
+  top: 15%;
+  left : 5%;
+  width: 200px;
+  -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+     -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+          box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.team-item {
+  background: #fecd66;
+  width: 200px; 
+}
+
+/*Menu Header Styles*/
+.team-item h4 {
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+  border-top: 1px solid rgba(255,255,255,0.2);
+  color: #fecd66;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 7px 12px;
+  
+  /*Gradient*/
+  background: #006599; /* Old browsers */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006599', endColorstr='#006599',GradientType=0 ); /* IE6-9 */
+}
+
+.team-item h4:hover {  
+  background: #006599; /* Old browsers */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006599', endColorstr='#006599',GradientType=0 ); /* IE6-9 */
+
+}
+
+.team-item h4 a {
+  color: white;
+  display: block;
+  text-decoration: none;
+  width: 200px;
+}
+
+.team h4:hover {
+  background : #fecd66;
+}
+
+/* For table */
+.table{
+	position: absolute;               
+  top: 15%;
+  left : 27%;
+}
+
+/* For work */
+.work {
+  font-family: Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 20px;
+  line-height: 2;
+  position: absolute;               
+  top: 15%;
+  left : 90%;
+  width: 200px;
+  -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+     -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+          box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.work-item {
+  background: #fecd66;
+  width: 200px; 
+}
+
+/*Menu Header Styles*/
+.work-item h4 {
+  border-bottom: 1px solid rgba(0,0,0,0.3);
+  border-top: 1px solid rgba(255,255,255,0.2);
+  color: #fecd66;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 7px 12px;
+  
+  /*Gradient*/
+  background: #006599; /* Old browsers */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006599', endColorstr='#006599',GradientType=0 ); /* IE6-9 */
+}
+
+.work-item h4:hover {  
+  background: #006599; /* Old browsers */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#006599', endColorstr='#006599',GradientType=0 ); /* IE6-9 */
+
+}
+
+.work-item h4 a {
+  color: white;
+  display: block;
+  text-decoration: none;
+  width: 200px;
+}
+
+/*ul Styles*/
+.work-item ul {
+  background: #eee;
+  font-size: 20px;
+  line-height: 30px;
+  height: 0px;
+  list-style-type: none;
+  overflow: hidden;
+  padding: 0px;
+  
+  /*Animation*/
+  -webkit-transition: height 1s ease;
+     -moz-transition: height 1s ease;
+       -o-transition: height 1s ease;
+      -ms-transition: height 1s ease;
+          transition: height 1s ease;
+}
+
+
+.work-item:hover ul {
+  height: 90px;
+}
+
+.work-item ul a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #006599;
+  display: block;
+  width: 200px;
+}
+
+/*li Styles*/
+.work-item li {
+  border-bottom: 1px solid #eee;
+}
+
+.work-item li:hover {
+  background: #fecd66;
+}
+
+/*For table*/
+table {
+	  position: absolute;               
+	  top: 5%;
+	  left : 43%;
+    border-collapse: collapse;
+    width: 60%;
+    background: #fff;
+}
+td, th {
+    padding: 0.75em 1.5em;
+    text-align: left;
+}
+	td.err {
+		background-color: #006599;
+		color: #fff;
+		font-size: 0.75em;
+		text-align: center;
+		line-height: 1;
+	}
+th {
+    background-color: #31bc86;
+    font-weight: bold;
+    color: #fff;
+    white-space: nowrap;
+}
+tbody th {
+	background-color: #006599;
+}
+tbody tr:nth-child(2n-1) {
+    background-color: #f5f5f5;
+    transition: all .125s ease-in-out;
+}
+tbody tr:hover {
+    background-color: #fecd66;
+}
+
+/*For button*/
+button {
+  display: inline-block;
+  margin: 0 10px 0 0;
+  padding: 5px 15px;
+  font-size: 10px;
+  line-height: 1.8;
+  appearance: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+button:focus {
+  outline: none
+}
+
+button {
+  color: #fff;
+  background-color: #006599;
+  border: none;
+}
+
+button:hover,
+button.hover {
+  background-color: #fecd66;
+}
+
+button:active,
+button.active {
+  background-color: #fecd66;
+}
+
+section.At button{
+	position: absolute;               
+	  top: 8%;
+	  left : 72%;
+}
+section.Re button{
+	position: absolute;               
+	  top: 8%;
+	  left : 80%;
+}
