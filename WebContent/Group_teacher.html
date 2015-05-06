@@ -7,31 +7,32 @@
 </head>
 <body>
 
+
+<h1 class = "myteam_title">My Teams</h1>
+
 	<h1 class="myteam_title">My Teams</h1>
 	<h1 class="team_title">Team</h1>
 
-	<nav class="team">
-		<div class="team-item">
-			<h4>
-				<a href="#">Team </a>
-			</h4>
-			<h4>
-				<a href="#">Team </a>
-			</h4>
-			<h4>
-				<a href="#">Team </a>
-			</h4>
-		</div>
-	</nav>
-	<table class="Atd">
-		<tbody id=Atd-tbody style="display: block">
-			<tr class="title">
-				<th>Name (Job Title)</th>
-				<th>Session 1</th>
-				<th>Session 2</th>
-				<th>Session 3</th>
-				<th>Session 4</th>
-			</tr>
+<nav class="team">    
+		    <div class="team-item">
+		      <h4><a href="#"  onclick = "fA()">Team </a></h4>
+		      <h4><a href="#"  onclick = "fB()">Team </a></h4>
+		      <h4><a href="#"  onclick = "fC()">Team </a></h4>
+		    </div>
+		    </nav>
+		    
+<div id = "T1" style="display:block">
+<h1 class = "team_title">Team 1</h1>
+<table class= "Atd">
+  <tbody  id = Atd-tbody style="display:block"> 
+  <tr class ="title">
+    <th>Name (Job Title)</th>
+    <th>Session 1</th>
+    <th>Session 2</th>
+    <th>Session 3</th>
+    <th>Session 4</th>
+  </tr>
+
 			<tr>
 				<td>Student</td>
 				<td>status</td>
@@ -57,40 +58,203 @@
 
 	</table>
 
-	<table class="Rem">
-		<tbody id=Rem-tbody style="display: none">
-			<tr class="title">
-				<th>Name (Job Title)</th>
-				<th>Session</th>
-				<th>Session</th>
-				<th>Session</th>
-				<th>Session</th>
-			</tr>
-			<tr>
-				<td>Student 1</td>
-				<td>status</td>
-				<td>status</td>
-				<td>status</td>
-				<td>status</td>
-			</tr>
-			<tr>
-				<td>Student 2</td>
-				<td>status</td>
-				<td>status</td>
-				<td>status</td>
-				<td>status</td>
-			</tr>
-			<tr>
-				<td>Student 3</td>
-				<td>status</td>
-				<td>status</td>
-				<td>status</td>
-				<td>status</td>
-			</tr>
-		</tbody>
 
+<table class= "Rem">
+  <tbody  id = Rem-tbody style="display:none">
+  <tr class ="title">
+    <th>Name (Job Title)</th>
+    <th>Session </th>
+    <th>Session </th>
+    <th>Session </th>
+    <th>Session </th>
+  </tr>
+  <tr>
+    <td>Student 1</td>
+    <td>status</td>
+    <td>status</td>
+    <td>status</td>
+    <td>status</td>
+  </tr>
+  <tr>
+    <td>Student 2</td>
+    <td>status</td>
+    <td>status</td>
+    <td>status</td>
+    <td>status</td>
+  </tr>
+  <tr>
+    <td>Student 3</td>
+    <td>status</td>
+    <td>status</td>
+    <td>status</td>
+    <td>status</td>
+  </tr>
+  </tbody>
 
-	</table>
+</table>
+<section class="At">
+    <button onclick = "f1()">Attendance</button>
+</section>
+<section class="Re">
+    <button onclick = "f2()">Remark</button>
+</section> 
+</div>
+
+<div id = "T2" style="display:none">
+<h1 class = "team_title">Team 2</h1>
+<table class= "Atd">
+  <tbody  id = Atd-t2body style="display:block"> 
+  <tr class ="title">
+    <th>Name (Job Title)</th>
+    <th>Session 1</th>
+    <th>Session 2</th>
+    <th>Session 3</th>
+    <th>Session 4</th>
+  </tr>
+
+  <tr>
+    <td>Student</td>
+    <td>status</td>
+    <td>status</td>
+    <td>status</td>
+    <td>status</td>
+  </tr>
+  <tr>
+    <td>Student</td>
+    <td>status</td>
+    <td>status</td>
+    <td>status</td>
+    <td>status</td>
+  </tr>
+  <tr>
+    <td>Student</td>
+    <td>status</td>
+    <td>status</td>
+    <td>status</td>
+    <td>status</td>
+  </tr>
+  </tbody>
+
+</table>
+
+<table class= "Rem">
+  <tbody  id = Rem-t2body style="display:none">
+  <tr class ="title">
+    <th>Name (Job Title)</th>
+    <th>Session </th>
+    <th>Session </th>
+    <th>Session </th>
+    <th>Session </th>
+  </tr>
+  <tr>
+    <td>Student 1</td>
+    <td>status</td>
+    <td>status</td>
+    <td>status</td>
+    <td>status</td>
+  </tr>
+  <tr>
+    <td>Student 2</td>
+    <td>status</td>
+    <td>status</td>
+    <td>status</td>
+    <td>status</td>
+  </tr>
+  <tr>
+    <td>Student 3</td>
+    <td>status</td>
+    <td>status</td>
+    <td>status</td>
+    <td>status</td>
+  </tr>
+  </tbody>
+
+</table>
+<section class="At">
+    <button onclick = "f3()">Attendance</button>
+</section>
+<section class="Re">
+    <button onclick = "f4()">Remark</button>
+</section> 
+</div>
+
+<div id = "T3" style="display:none">
+<h1 class = "team_title">Team 3</h1>
+<table class= "Atd">
+  <tbody  id = Atd-t3body style="display:block"> 
+  <tr class ="title">
+    <th>Name (Job Title)</th>
+    <th>Session 1</th>
+    <th>Session 2</th>
+    <th>Session 3</th>
+    <th>Session 4</th>
+  </tr>
+
+  <tr>
+    <td>Student</td>
+    <td>status</td>
+    <td>status</td>
+    <td>status</td>
+    <td>status</td>
+  </tr>
+  <tr>
+    <td>Student</td>
+    <td>status</td>
+    <td>status</td>
+    <td>status</td>
+    <td>status</td>
+  </tr>
+  <tr>
+    <td>Student</td>
+    <td>status</td>
+    <td>status</td>
+    <td>status</td>
+    <td>status</td>
+  </tr>
+  </tbody>
+
+</table>
+
+<table class= "Rem">
+  <tbody  id = Rem-t3body style="display:none">
+  <tr class ="title">
+    <th>Name (Job Title)</th>
+    <th>Session </th>
+    <th>Session </th>
+    <th>Session </th>
+    <th>Session </th>
+  </tr>
+  <tr>
+    <td>Student 1</td>
+    <td>status</td>
+    <td>status</td>
+    <td>status</td>
+    <td>status</td>
+  </tr>
+  <tr>
+    <td>Student 2</td>
+    <td>status</td>
+    <td>status</td>
+    <td>status</td>
+    <td>status</td>
+  </tr>
+  <tr>
+    <td>Student 3</td>
+    <td>status</td>
+    <td>status</td>
+    <td>status</td>
+    <td>status</td>
+  </tr>
+  </tbody>
+
+</table>
+<section class="At">
+    <button onclick = "f5()">Attendance</button>
+</section>
+<section class="Re">
+    <button onclick = "f6()">Remark</button>
+</section> 
+</div>
 
 	<nav class="work">
 		<div class="work-item">
@@ -135,20 +299,40 @@
 		</div>
 	</nav>
 
-	<script>
+<script>
 function f1(){document.getElementById("Atd-tbody").style.display = 'block';
 document.getElementById("Rem-tbody").style.display = 'none';}
 
 function f2(){document.getElementById("Rem-tbody").style.display = 'block';
 document.getElementById("Atd-tbody").style.display = 'none';}
 
-</script>
+function f3(){document.getElementById("Atd-t2body").style.display = 'block';
+document.getElementById("Rem-t2body").style.display = 'none';}
 
-	<section class="At">
-		<button onclick="f1()">Attendance</button>
-	</section>
-	<section class="Re">
-		<button onclick="f2()">Remark</button>
-	</section>
+function f4(){document.getElementById("Rem-t2body").style.display = 'block';
+document.getElementById("Atd-t2body").style.display = 'none';}
+
+function f5(){document.getElementById("Atd-t3body").style.display = 'block';
+document.getElementById("Rem-t3body").style.display = 'none';}
+
+function f6(){document.getElementById("Rem-t3body").style.display = 'block';
+document.getElementById("Atd-t3body").style.display = 'none';}
+
+function fA(){
+	document.getElementById("T1").style.display = 'block';
+	document.getElementById("T2").style.display = 'none';
+	document.getElementById("T3").style.display = 'none';}
+
+function fB(){
+	document.getElementById("T2").style.display = 'block';
+	document.getElementById("T1").style.display = 'none';
+	document.getElementById("T3").style.display = 'none';}
+
+function fC(){
+	document.getElementById("T3").style.display = 'block';
+	document.getElementById("T1").style.display = 'none';
+	document.getElementById("T2").style.display = 'none';}
+	
+</script>
 </body>
 </html>
