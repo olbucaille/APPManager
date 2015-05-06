@@ -156,19 +156,22 @@
 }
 
 /*For table*/
-.table{
-	position: absolute;               
-  top: 15%;
-  left : 25%;
+.Atd {
+	  position: absolute;               
+	  top: 15%;
+      left : 25%;
+      border-collapse: collapse;
+      width: 60%;
+      background: #fff;
 }
 
-table {
+.Rem {
 	  position: absolute;               
-	  top: 5%;
-	  left : 43%;
-    border-collapse: collapse;
-    width: 60%;
-    background: #fff;
+	  top: 15%;
+      left : 25%;
+      border-collapse: collapse;
+      width: 60%;
+      background: #fff;
 }
 td, th {
     padding: 0.75em 1.5em;
