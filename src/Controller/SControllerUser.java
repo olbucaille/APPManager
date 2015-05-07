@@ -71,7 +71,7 @@ public class SControllerUser extends HttpServlet {
 		else if(map.get("IsModuleManager"))
 			response.sendRedirect("/APPManager/SControllerCompetencies?action=CompetenciesManagmentPage");
 		else if(map.get("IsTutor"))
-				response.sendRedirect("/APPManager/html/teacher/Profile.html");
+				response.sendRedirect("/APPManager/html/teacher/Profile_teacher.jsp");
 		else if(map.get("IsStudent"))
 			response.sendRedirect("/APPManager/html/student/Profile.html");
 		else

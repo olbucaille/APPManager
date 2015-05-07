@@ -15,11 +15,11 @@
     </div>
     <div id="newsletter">
       <p>Login up for the latest news and manage app.</p>
-      <form action="#" method="post">
+     <form method="POST" action="http://localhost:8081/APPManager/SControllerUser">
         <fieldset>
           <legend>Login</legend>
-          <input type="text" value="Name&hellip;"  onfocus="this.value=(this.value=='Name&hellip;')? '' : this.value ;" />
-          <input type="text" value="Password&hellip;"  onfocus="this.value=(this.value=='Email&hellip;')? '' : this.value ;" />
+          <input type="text" name="login" value="Name&hellip;"  onfocus="this.value=(this.value=='Name&hellip;')? '' : this.value ;" />
+          <input type="text" name="pass"value="Password&hellip;"  onfocus="this.value=(this.value=='Email&hellip;')? '' : this.value ;" />
           <input type="submit" name="news_go" id="news_go" value="Login" />
         </fieldset>
       </form>
