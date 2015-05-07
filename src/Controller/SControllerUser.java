@@ -3,6 +3,7 @@ package Controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -17,6 +18,7 @@ import BDDManager.AccesBD;
 import Model.APP;
 import Model.Competencies;
 import Model.StringProvider;
+import Model.Team;
 import Model.User;
 
 /**
@@ -27,14 +29,14 @@ import Model.User;
 @WebServlet("/SControllerUser")
 public class SControllerUser extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public SControllerUser() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
+
+	/**
+	 * @see HttpServlet#HttpServlet()
+	 */
+	public SControllerUser() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -44,9 +46,43 @@ public class SControllerUser extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
+		String action = (String) request.getParameter("action");
+
+
+		if(action.equals("associate"))
+		{
+			String[] arrayUser =request.getParameterValues("liste2");
+			String Team =request.getParameter("TeamOfUser");
+			String APP =request.getParameter("APPOfTheUser");
+			
+			System.out.println(Team);
+			System.out.println(APP);
+			if(arrayUser != null)
+			{
+				for(int i=0;i<arrayUser.length;i++)
+				{
+					//Team.addOrReplaceTeamUser(arrayUser[i],Team);
+					//APP.addOrReplaceAPPUser(arrayUser[i],APP);
+					//User.updatePriviledge(bool,bool,bool,bool);
+					
+				}
+			}
+			
+		//	System.out.println(array[2]);
+		//	System.out.println(request.getParameter("liste2"));
+		}
+		else
+		{
+			doStuffAuth(request,response);
+
+		}
+	}
+
+	private void doStuffAuth(HttpServletRequest request,
+			HttpServletResponse response) throws IOException {
 		String login = request.getParameter("login");
 		String pass = request.getParameter("pass");
-		
+
 		User user =User.isGranted(login, pass);
 		if(user != null)
 		{
@@ -56,14 +92,14 @@ public class SControllerUser extends HttpServlet {
 			session.setAttribute( StringProvider.getNumber(), user.getNumber());
 			session.setAttribute(StringProvider.getPrenom(), user.getNom());
 		}
-		
+
 		//!!!! il faudrai mettre en place le process qui renseigne au moins les gens étant élève comme Isstudent et gens professeur comme etant IsTutor
 		// --->> MARCHE, a ajuster en fonction des strings de type que renvois le LDAP
 		if(user.getType().equals("eleve"))
 			User.AddUser(user, true,false);
 		else if(user.getType().equals("professeur"))
 			User.AddUser(user, false, true);
-		
+
 		//"algo de redirection en fonction du type
 		Map<String, Boolean> map = User.checkPrivileges(user.getNumber());
 		if(map.get("IsAdmin"))
@@ -71,12 +107,11 @@ public class SControllerUser extends HttpServlet {
 		else if(map.get("IsModuleManager"))
 			response.sendRedirect("/APPManager/SControllerCompetencies?action=CompetenciesManagmentPage");
 		else if(map.get("IsTutor"))
-				response.sendRedirect("/APPManager/html/teacher/Profile_teacher.jsp");
+			response.sendRedirect("/APPManager/html/teacher/Profile_teacher.jsp");
 		else if(map.get("IsStudent"))
 			response.sendRedirect("/APPManager/html/student/Profile.html");
 		else
 			response.sendRedirect("/APPManager/index.jsp");
-			
 		
 	}
 
@@ -84,32 +119,41 @@ public class SControllerUser extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-	doGet(request,response);
+		doGet(request,response);
 	}
-	 
-	
+
+
 	protected void redirectAdmin(HttpServletRequest request, HttpServletResponse response)
 	{
 		HttpSession s = request.getSession();
-		
+
 		List<APP> ArrayALLAPP = APP.GetAllAPP();
-			
-			request.setAttribute("ListOfAllAPP", ArrayALLAPP);
-			
-			try {
-		//		init();
-			
-				getServletContext().getRequestDispatcher("/html/Admin/Settings.jsp").forward(request, response);
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (ServletException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+
+		request.setAttribute("ListOfAllAPP", ArrayALLAPP);
 		
+		List<Team> ArrayALLTeam = Team.GetAllTeam();
+
+		request.setAttribute("ListOfAllTeam", ArrayALLTeam);
+
+		List<User> ArrayALLuser = User.GetAllUser();
+
+		request.setAttribute("ListOfAllUser", ArrayALLuser);
+
+		
+		try {
+			//		init();
+
+			getServletContext().getRequestDispatcher("/html/Admin/Settings.jsp").forward(request, response);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ServletException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 	}
-	
+
 	protected void redirection(HttpServletRequest request, HttpServletResponse response, String page) 
 	{
 		try{
@@ -117,13 +161,13 @@ public class SControllerUser extends HttpServlet {
 		}
 		catch(ServletException e)
 		{
-			
+
 		}
 		catch(IOException e)
 		{
-			
+
 		}
-		
+
 	}
 
 }

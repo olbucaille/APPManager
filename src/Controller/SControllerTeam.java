@@ -13,6 +13,7 @@ import javax.servlet.http.HttpSession;
 import Model.APP;
 import Model.StringProvider;
 import Model.Team;
+import Model.User;
 
 /**
  * Servlet implementation class SControllerTeam
@@ -55,25 +56,33 @@ public class SControllerTeam extends HttpServlet {
 
 	//redirige simplement vers les settings
 	private void doShowSettings(HttpServletRequest request ,HttpServletResponse response) {
-			HttpSession s = request.getSession();
-			
-			List<APP> ArrayALLAPP = APP.GetAllAPP();
-				
-				request.setAttribute("ListOfAllAPP", ArrayALLAPP);
-				
-				try {
+		HttpSession s = request.getSession();
+
+		List<APP> ArrayALLAPP = APP.GetAllAPP();
+
+		request.setAttribute("ListOfAllAPP", ArrayALLAPP);
+		
+		List<Team> ArrayALLTeam = Team.GetAllTeam();
+
+		request.setAttribute("ListOfAllTeam", ArrayALLTeam);
+
+		List<User> ArrayALLuser = User.GetAllUser();
+
+		request.setAttribute("ListOfAllUser", ArrayALLuser);
+
+		
+		try {
 			//		init();
-				
-					getServletContext().getRequestDispatcher("/html/Admin/Settings.jsp").forward(request, response);
-				} catch (IOException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} catch (ServletException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			
-	
+
+			getServletContext().getRequestDispatcher("/html/Admin/Settings.jsp").forward(request, response);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ServletException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
 		
 	}
 

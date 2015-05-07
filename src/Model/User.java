@@ -2,6 +2,7 @@ package Model;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -24,6 +25,13 @@ public class User extends LDAPObject {
 	
 	
 	
+
+	public User(String nom, String Prenom, String id, String role) {
+		super( null, null,  nom,  nom,  Prenom,  role, id, null);
+	}
+
+
+
 
 	public void setPicture (Media p)
 	{
@@ -104,4 +112,42 @@ public class User extends LDAPObject {
 return map;
 
 	}
+	
+	//Get list All user ACTIF pour liste "nom, prenom, n°, role"
+		public static ArrayList<User> GetAllUser()
+		{
+			ArrayList<User> array= new ArrayList<User>();
+			ResultSet rs = null ;
+		
+			try {
+				
+				rs = AccesBD.getInstance().executeQuery("SELECT Nom,Prenom,IdUtilisateur FROM user WHERE Actif = '1'");
+				if(rs!= null)
+				{ 
+					while(rs.next()){
+						
+						Map<String,Boolean> map = checkPrivileges(rs.getString("idUtilisateur"));
+						String Role = null ;
+						if(map.get("IsAdmin"))
+							Role = "Admin";
+						else if(map.get("IsModuleManager"))
+								Role = "ModuleManager";
+						else if(map.get("IsTutor"))
+							Role = "Tutor";
+						else if(map.get("IsStudent"))
+							Role = "Student";
+						array.add( new User(rs.getString("Nom"),rs.getString("Prenom"),rs.getString("idUtilisateur"),Role));
+						
+					}
+				}
+				} catch (ClassNotFoundException | SQLException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			//	System.out.println(array.get(0).getName());
+				return array;
+
+		}
+		
+	
 }
