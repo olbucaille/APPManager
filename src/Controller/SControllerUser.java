@@ -49,11 +49,12 @@ public class SControllerUser extends HttpServlet {
 		String action = (String) request.getParameter("action");
 
 
-		if(action.equals("associate"))
+		if(action!= null &&action.equals("associate"))
 		{
 			String[] arrayUser =request.getParameterValues("liste2");
 			String Team =request.getParameter("TeamOfUser");
 			String APP =request.getParameter("APPOfTheUser");
+			String Role = request.getParameter("Role");
 			
 			System.out.println(Team);
 			System.out.println(APP);
@@ -61,9 +62,22 @@ public class SControllerUser extends HttpServlet {
 			{
 				for(int i=0;i<arrayUser.length;i++)
 				{
-					//Team.addOrReplaceTeamUser(arrayUser[i],Team);
-					//APP.addOrReplaceAPPUser(arrayUser[i],APP);
-					//User.updatePriviledge(bool,bool,bool,bool);
+					Team  t= new Team("","");
+					if(Role.equals("Module Manager")) 
+					{
+						APP a = new APP("", "", "", "");
+						a.addOrReplaceAPPUser(arrayUser[i],APP); //pas utile dans les autres cas, on connais par rapport au TEAM
+						User.updatePriviledge(arrayUser[i],false,false,true,false);//si Module manager, alors on update que Module manager, sinon, c'est autres valeures sont écrasées...
+					}
+					
+						t.addOrReplaceTeamUser(arrayUser[i],Team);
+						
+						if(Role.equals("Tutor")) 
+							User.updatePriviledge(arrayUser[i],false,true,false,false);//si Module manager, alors on update que Module manager, sinon, c'est autres valeures sont écrasées...
+						else if(Role.equals("Student")) 
+							User.updatePriviledge(arrayUser[i],true,false,false,false);//si Module manager, alors on update que Module manager, sinon, c'est autres valeures sont écrasées...
+						
+					
 					
 				}
 			}

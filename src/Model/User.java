@@ -148,6 +148,33 @@ return map;
 				return array;
 
 		}
+
+
+
+
+		public static Exception updatePriviledge(String id, boolean IsStudent, boolean IsTutor,
+				boolean IsModuleManager, boolean IsAdmin) {
+			
+			
+				String a =((IsStudent)?"1":"0");
+				String b =((IsTutor)?"1":"0");
+				String c =((IsModuleManager)?"1":"0");
+				String d =((IsAdmin)?"1":"0");
+				
+
+						
+			try {
+				if(IsModuleManager)
+					AccesBD.getInstance().executeUpdate("UPDATE `user` SET`IsModuleManager`=\""+c+"\" WHERE `IdUtilisateur`=\""+id+"\"");
+				else
+					AccesBD.getInstance().executeUpdate("UPDATE `user` SET`IsStudent`=\""+a+"\",`IsTutor`=\""+b+"\",`IsModuleManager`=\""+c+"\",`IsAdmin`=\""+d+"\" WHERE `IdUtilisateur`=\""+id+"\"");
+			} catch (ClassNotFoundException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			return null;
+		}
 		
 	
 }

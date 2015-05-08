@@ -54,6 +54,18 @@ public class Team {
 			}
 		}
 		
+
+		
+		public static void addOrReplaceTeamUser(String IdUser, String IdTeam)
+		{
+			String req = "INSERT INTO team_user(iduser,idteam) VALUES(\""+IdUser+"\", \""+IdTeam+"\")";
+			try {
+				AccesBD.getInstance().executeUpdate(req);
+			} catch (ClassNotFoundException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 		public static List<Team> GetAllTeam()
 		{
 			ArrayList<Team> array= new ArrayList<Team>();
