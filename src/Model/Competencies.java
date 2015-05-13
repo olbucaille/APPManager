@@ -90,6 +90,34 @@ public class Competencies {
 		//System.out.println("finadd");
 	}
 	
+
+	//ressort toutes comp�tence de "niveau 1" cad sans mere
+	public static List<Competencies> GetAllCompetencies()
+	{
+		ArrayList<Competencies> array= new ArrayList<Competencies>();
+		ResultSet rs = null ;
+		try {
+			String req = "SELECT idComp,Name,Description,Category,idMother FROM competencies ; ";
+			System.out.println(req);
+			rs = AccesBD.getInstance().executeQuery(req);
+		
+		
+		if(rs!= null)
+		{
+			while(rs.next()){
+				array.add( new Competencies(String.valueOf(rs.getInt("idComp")), rs.getString("Name"), rs.getString("Description"), null, rs.getString("Category"),rs.getString("IdMother")));
+				System.out.println(new Competencies(String.valueOf(rs.getInt("idComp")), rs.getString("Name"), null, null,null,rs.getString("idMother")).toString());
+			}
+		}
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return array;
+
+	}
+
+	
 	//ressort toutes comp�tence de "niveau 1" cad sans mere
 	public static List<Competencies> GetCompetenciesWithoutMother()
 	{

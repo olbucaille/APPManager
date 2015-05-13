@@ -13,10 +13,12 @@ public class Evaluation {
 	public final int ACQUIS =			3;
 	public final int AU_DELA =			4;
 	
-	private List<MarkByCompetencies> markByCompetenciesList;
+	private static List<MarkByCompetencies> markByCompetenciesList;
+	private static List<String> familyComment;
 	
 	//on passe en paramètre du constructeur la liste des compétences que l'on veut évaluer
 	public Evaluation(List<Competencies> competenciesList){
+		this.markByCompetenciesList= new ArrayList <MarkByCompetencies>();
 		for( Competencies comp : competenciesList){			
 			MarkByCompetencies competenceWithMark = new MarkByCompetencies();			
 			competenceWithMark.setCompetencies(comp);
@@ -24,9 +26,78 @@ public class Evaluation {
 		}
 	}
 	
-	 
+//obtenir la liste des compétences  d'une famille
+	public List<Competencies>  getCompetenciesInFamily(String family) {
+		// TODO Auto-generated method stub
+		List <Competencies> comp_lvl1 = new ArrayList<Competencies>();
+		for( MarkByCompetencies comp : markByCompetenciesList){	
+			if ((comp.getCompetencies().getIdMother()==null) ||(comp.getCompetencies().getIdMother().equalsIgnoreCase("none"))){
+				if (comp.getCompetencies().getCategory().equalsIgnoreCase(family)){					
+					comp_lvl1.add(comp.getCompetencies());						
+				}
+			}
+		}		
+		return  comp_lvl1;
+	}
+	
+//obtenir la liste des sous compétences d'une compétence 
+	public List<Competencies>  getUnderCompetenciesInCompetence(String idMother) {
+		// TODO Auto-generated method stub
+		List <Competencies> comp_lvl2 = new ArrayList<Competencies>();
+		for( MarkByCompetencies comp : markByCompetenciesList){	
+			if ((comp.getCompetencies().getIdMother()!=null)||(comp.getCompetencies().getIdMother().equalsIgnoreCase("none")==false)){
+				if (comp.getCompetencies().getIdMother().equalsIgnoreCase(idMother)){					
+					comp_lvl2.add(comp.getCompetencies());						
+				}
+			}
+		}		
+		return  comp_lvl2;
+	}
+			
+			
+
+//obtenir la liste des familles dans la liste des compétences de l'évaluation
+	public List<String>  getFamilyListInEvaluation() {
+		// TODO Auto-generated method stub
+		List <String> famille = new ArrayList<String>();
+		for( MarkByCompetencies comp : markByCompetenciesList){	
+			
+			if (comp.getCompetencies().getCategory().equals("")==false){
+				if (famille.contains(comp.getCompetencies().getCategory())==false){
+					famille.add(comp.getCompetencies().getCategory());						
+				}
+			}	
+		}
+		
+		return  famille;
+	}
+		
+//obtenir le nombre de famille dans la liste des compétences de l'évaluation
+	public int getNumberOfFamiliesInEvaluation() {
+		// TODO Auto-generated method stub
+		int i =0;
+		List <String> famille = new ArrayList<String>();
+		for( MarkByCompetencies comp : markByCompetenciesList){	
+			
+			if (comp.getCompetencies().getCategory()!=null){
+				if (famille.contains(comp.getCompetencies().getCategory())==false){
+					famille.add(comp.getCompetencies().getCategory());
+					i++;
+				}
+			}	
+		}
+		
+		return i;
+	}
 	
 	
+	public void setMarkToCompetencies(String idCompt,int value){
+		for( MarkByCompetencies comp : markByCompetenciesList){	
+			if (comp.getCompetencies().getIdComp().equalsIgnoreCase(idCompt)){
+				comp.setMark(value);
+			}			
+		}
+	}
 	
 	
 /*
@@ -50,8 +121,7 @@ class MarkByCompetencies{
 	private Competencies competencies ;
 	private int mark ;
 	
-	MarkByCompetencies(){
-		this.competencies= null;
+	MarkByCompetencies(){		
 		this.mark=0;
 	}
 	
