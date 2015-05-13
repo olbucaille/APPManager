@@ -21,7 +21,7 @@ List<Competencies> list = (List) request.getAttribute("compToListChoice");
 		int i = 0;
 		for( i=0; i<list.size();i++)	
 		{
-			out.println("<li class=\"liste\"><span>"+list.get(i).getName()+"</span></li>");
+			out.println("<li class=\"liste\"><span>"+list.get(i).getName()+"</span> <a>supprimer "+listWM.get(i).getIdComp()+"</a></li>");
 			out.println("<ol class=\"liste\">");
 			if(listWM!=null)
 			{
@@ -29,7 +29,7 @@ List<Competencies> list = (List) request.getAttribute("compToListChoice");
 				{		
 					if(listWM.get(j).getIdMother().trim().equals(String.valueOf(list.get(i).getIdComp())))
 					{
-						out.println("<li class=\"liste\">"+listWM.get(j).getName()+"</li>");						
+						out.println("<li class=\"liste\" style=\"margin-right:30px;\">"+listWM.get(j).getName()+" <a href=\"/SControllerCompetencies?action=deleteCompetencie&value="+listWM.get(i).getIdComp()+"><img src=\"/APPManager/images/RedCross.svg\" width=\"10\" height=\"10\"></img></a></li> ");						
 					}
 				}
 			}
