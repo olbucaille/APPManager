@@ -18,14 +18,29 @@ public class StringProvider {
 	private static final String APP_StartDate="StartDate";
 	private static final String APP_EndDate="EndDate";
 	
-
 	private static final String TEAM_TEAMNAME="TeamName";
 	private static final String TEAM_APPOFTEAM="APPOfTheTeam";
 	
+	private static final String IS_ADMIN="IsAdmin";
+	private static final String IS_MODULEMANAGER="IsModuleManager";
+	private static final String IS_TUTOR="IsTutor";
+	private static final String IS_STUDENT="IsStudent";
 	
 	
 	
 	
+	public static String getIsAdmin() {
+		return IS_ADMIN;
+	}
+	public static String getIsModulemanager() {
+		return IS_MODULEMANAGER;
+	}
+	public static String getIsTutor() {
+		return IS_TUTOR;
+	}
+	public static String getIsStudent() {
+		return IS_STUDENT;
+	}
 	public static String getTeamTeamname() {
 		return TEAM_TEAMNAME;
 	}
@@ -68,15 +83,4 @@ public class StringProvider {
 	public static String getCompMothercomp() {
 		return COMP_MOTHERCOMP;
 	}
-	
-	
-	
-	
-
-	
-	
-	
-	
-	
-	
 }

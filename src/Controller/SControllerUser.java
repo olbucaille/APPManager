@@ -102,9 +102,9 @@ public class SControllerUser extends HttpServlet {
 		{
 			HttpSession session = request.getSession();
 			session.setAttribute( StringProvider.getNom(), user.getNomFamille());
-			session.setAttribute(StringProvider.getType(), user.getType());
+			session.setAttribute( StringProvider.getType(), user.getType());
 			session.setAttribute( StringProvider.getNumber(), user.getNumber());
-			session.setAttribute(StringProvider.getPrenom(), user.getNom());
+			session.setAttribute( StringProvider.getPrenom(), user.getNom());
 		}
 
 		//!!!! il faudrai mettre en place le process qui renseigne au moins les gens étant élève comme Isstudent et gens professeur comme etant IsTutor
@@ -116,6 +116,12 @@ public class SControllerUser extends HttpServlet {
 
 		//"algo de redirection en fonction du type
 		Map<String, Boolean> map = User.checkPrivileges(user.getNumber());
+		HttpSession session = request.getSession();
+		session.setAttribute( StringProvider.getIsAdmin(), map.get("IsAdmin"));
+		session.setAttribute( StringProvider.getIsModulemanager(), map.get("IsModuleManager"));
+		session.setAttribute( StringProvider.getIsTutor(), map.get("IsTutor"));
+		session.setAttribute( StringProvider.getIsStudent(), map.get("IsStudent"));
+
 		if(map.get("IsAdmin"))
 			redirectAdmin(request, response);
 		else if(map.get("IsModuleManager"))
