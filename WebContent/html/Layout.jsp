@@ -44,14 +44,14 @@
       			}else if((boolean)session.getAttribute(StringProvider.getIsTutor()))
       			{
       			%>
-      				<li><a href="#"><i class="fa fa-home fa-2x"></i>You are a Tutor</a></li>
-      				<li><a class="active"><i class="fa fa-users fa-2x"></i>My Groups</a></li>
-      				<li><a href="#"><i class="fa fa-star fa-2x"></i>Evaluations</a></li>
-     				<li><a href="#"><i class="fa fa-list fa-2x"></i>Modules' Members</a></li>
-     				<li><a href="#"><i class="fa fa-cog fa-2x"></i>Settings</a>
-      				<li><a href="#"><i class="fa fa-user fa-2x"></i>Profile</a></li>
-      				<li><a href="#"><i class="fa fa-question fa-2x"></i>Help</a></li>
-      				<li><a href="../../index.jsp"><i class="fa fa-power-off fa-2x"></i>Logout</a></li>
+      				<li><a href="#"><i class="fa fa-home fa-lg"></i>You are a Tutor</a></li>
+      				<li><a class="active"><i class="fa fa-users fa-lg"></i>My Groups</a></li>
+      				<li><a href="#"><i class="fa fa-star fa-lg"></i>Evaluations</a></li>
+     				<li><a href="#"><i class="fa fa-list fa-lg"></i>Modules' Members</a></li>
+     				<li><a href="#"><i class="fa fa-cog fa-lg"></i>Settings</a>
+      				<li><a href="#"><i class="fa fa-user fa-lg"></i>Profile</a></li>
+      				<li><a href="#"><i class="fa fa-question fa-lg"></i>Help</a></li>
+      				<li><a href="../../index.jsp"><i class="fa fa-power-off fa-lg"></i>Logout</a></li>
       			<%
       			}else if((boolean)session.getAttribute(StringProvider.getIsStudent()))
       			{
