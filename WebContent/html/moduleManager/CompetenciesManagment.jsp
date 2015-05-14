@@ -3,7 +3,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
-<jsp:include page="/html/Layout.html"></jsp:include>
+<jsp:include page="/html/Layout.jsp"></jsp:include>
 
 
 <%
@@ -86,4 +86,4 @@ List<Competencies> list = (List) request.getAttribute("compToListChoice");
    
 
 </form> 
-<jsp:include page="/html/Layout-foot.html"></jsp:include>
+<jsp:include page="/html/Layout_foot.jsp"></jsp:include>

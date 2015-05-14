@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 
-<jsp:include page="/html/Layout.html"></jsp:include>
+<jsp:include page="/html/Layout.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css" href="../../css/left_menu.css">
 <link rel="stylesheet" type="text/css" href="../../css/css_teacher/groups_teacher.css">
 
@@ -109,4 +109,4 @@
 	</div>
 </nav>
 
-<jsp:include page="/html/Layout-foot.html"></jsp:include>
+<jsp:include page="/html/Layout_foot.jsp"></jsp:include>

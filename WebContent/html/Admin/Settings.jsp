@@ -5,7 +5,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     
-<jsp:include page="/html/Layout.html"></jsp:include>
+<jsp:include page="/html/Layout.jsp"></jsp:include>
 
 <%
 List<APP> list = (List) request.getAttribute("ListOfAllAPP");
@@ -192,4 +192,4 @@ List<User> listUser = (List) request.getAttribute("ListOfAllUser");
 </div>
 	<br/><br />
 
-<jsp:include page="/html/Layout-foot.html"></jsp:include>
+<jsp:include page="/html/Layout_foot.jsp"></jsp:include>

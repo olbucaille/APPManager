@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 
-<jsp:include page="/html/Layout.html"></jsp:include>
+<jsp:include page="/html/Layout.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css" href="../../css/left_menu.css">
 
 <h1>Student's Profile</h1>
@@ -28,4 +28,4 @@
 	</ul>
 </div>
 
-<jsp:include page="/html/Layout-foot.html"></jsp:include>
+<jsp:include page="/html/Layout_foot.jsp"></jsp:include>

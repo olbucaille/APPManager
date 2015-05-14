@@ -20,47 +20,53 @@
     			if((boolean)session.getAttribute(StringProvider.getIsAdmin()))
     			{
     			%>
-      				<li><a>Home</a></li>
-      				<li><a class="active">My Groups</a></li>
-      				<li><a>Evaluations</a></li>
-     				<li><a>Modules' Members</a></li>
-      				<li><a>Profile</a></li>
-      				<li><a>Help</a></li>
-      				<li><a>Logout</a></li>
+      				<li><a href="#"><i class="fa fa-home fa-lg"></i>You are an Admin</a></li>
+      				<li><a href="#" class="active"><i class="fa fa-users fa-2x"></i>My Groups</a></li>
+      				<li><a href="#"><i class="fa fa-star fa-3x"></i>Evaluations</a></li>
+     				<li><a href="#"><i class="fa fa-list"></i>Modules' Members</a></li>
+     				<li><a href="#"><i class="fa fa-cog"></i>Settings</a>
+      				<li><a href="#"><i class="fa fa-user"></i>Profile</a></li>
+      				<li><a href="#"><i class="fa fa-question"></i>Help</a></li>
+      				<li><a href="../../index.jsp"><i class="fa fa-power-off"></i>Logout</a></li>
       			<%
     			}else if((boolean)session.getAttribute(StringProvider.getIsModulemanager()))
     			{
       			%>
-      				<li><a>Home</a></li>
-      				<li><a class="active">My Group</a></li>
-      				<li><a>Evaluations</a></li>
-     				<li><a>Modules' Members</a></li>
-      				<li><a>Profile</a></li>
-      				<li><a>Help</a></li>
-      				<li><a>Logout</a></li>
+      				<li><a href="#"><i class="fa fa-home fa-lg"></i>You are MM</a></li>
+      				<li><a href="#" class="active"><i class="fa fa-users fa-2x"></i>My Group</a></li>
+      				<li><a href="#"><i class="fa fa-star fa-3x"></i>Evaluations</a></li>
+     				<li><a href="#"><i class="fa fa-list"></i>Modules' Members</a></li>
+     				<li><a href="#"><i class="fa fa-cog"></i>Settings</a>
+      				<li><a href="#"><i class="fa fa-user"></i>Profile</a></li>
+      				<li><a href="#"><i class="fa fa-question"></i>Help</a></li>
+      				<li><a href="../../index.jsp"><i class="fa fa-power-off"></i>Logout</a></li>
       			<%
       			}else if((boolean)session.getAttribute(StringProvider.getIsTutor()))
       			{
       			%>
-      				<li><a>Home</a></li>
-      				<li><a class="active">My Groups</a></li>
-      				<li><a>Evaluations</a></li>
-     				<li><a>Modules' Members</a></li>
-     				<li><a>Settings</a>
-      				<li><a>Profile</a></li>
-      				<li><a>Help</a></li>
-      				<li><a>Logout</a></li>
+      				<li><a href="#"><i class="fa fa-home fa-2x"></i>You are a Tutor</a></li>
+      				<li><a class="active"><i class="fa fa-users fa-2x"></i>My Groups</a></li>
+      				<li><a href="#"><i class="fa fa-star fa-2x"></i>Evaluations</a></li>
+     				<li><a href="#"><i class="fa fa-list fa-2x"></i>Modules' Members</a></li>
+     				<li><a href="#"><i class="fa fa-cog fa-2x"></i>Settings</a>
+      				<li><a href="#"><i class="fa fa-user fa-2x"></i>Profile</a></li>
+      				<li><a href="#"><i class="fa fa-question fa-2x"></i>Help</a></li>
+      				<li><a href="../../index.jsp"><i class="fa fa-power-off fa-2x"></i>Logout</a></li>
       			<%
       			}else if((boolean)session.getAttribute(StringProvider.getIsStudent()))
       			{
       			%>
-      				<li><a>Home</a></li>
-      				<li><a class="active">My Groups</a></li>
-      				<li><a>Evaluations</a></li>
-     				<li><a>Modules' Members</a></li>
-     				<li><a>Settings</a>
-      				<li><a>Profile</a></li>
-      				<li><a>Help</a></li>
+      				<li><a href="#"><i class="fa fa-home fa-lg"></i>You are a Student</a></li>
+      				<li><a href="#" class="active"><i class="fa fa-users"></i>My Groups</a></li>
+      				<li><a href="#"><i class="fa fa-star"></i>Evaluations</a></li>
+     				<li><a href="#"><i class="fa fa-list"></i>Modules' Members</a></li>
+      				<li><a href="#"><i class="fa fa-user"></i>Profile</a></li>
+      				<li><a href="#"><i class="fa fa-question"></i>Help</a></li>
+      				<li><a href="../../index.jsp"><i class="fa fa-power-off"></i>Logout</a></li>
+      			<%
+      			}else
+      			{
+      			%>
       				<li><a>Logout</a></li>
       			<%
       			}
