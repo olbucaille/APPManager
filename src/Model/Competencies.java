@@ -1,5 +1,6 @@
 package Model;
 
+import java.io.Serializable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import BDDManager.AccesBD;
 
 import com.sun.org.apache.xpath.internal.operations.Bool;
 //modele des comp�tences
-public class Competencies {
+public class Competencies implements Serializable{
 	
 	//identifiant de la comp�tence
 	private String IdComp;

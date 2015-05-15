@@ -52,34 +52,10 @@
 			    </div>
 			  <input class= "fill"  data-idx='2' type="range" min="0" max="5" value="1" step="1"  />
         			
-				<% List<Competencies> strList = new ArrayList<Competencies>();
-//Competencies(String idComp, String name, String desc,Boolean isnecessary, String Category, String idMother)
-		    	Competencies comp1 = new Competencies("comp1", "java", "toto",true, "programmation", "toto");
-		    	strList.add(comp1);
-		    	Competencies comp2 = new Competencies("comp2", "html", "toto",true, "programmation", "toto");
-		    	strList.add(comp2);
-		    	Competencies comp3 = new Competencies("comp3", "javascript", "toto",true, "programmation", "toto");
-		    	strList.add(comp3);
-		    	Competencies comp4 = new Competencies("comp4", "css", "toto",true, "programmation", "toto");
-		    	strList.add(comp4);
-		    	Competencies comp5 = new Competencies("comp5", "json", "toto",true, "programmation", "toto");
-		    	strList.add(comp5);
-		    		
-		    	Competencies comp10 = new Competencies("comp10", "aider les autres", "toto",true, "travailler en equipe", "toto");
-		    	strList.add(comp10);
-		    	Competencies comp11 = new Competencies("comp11", "communiquer", "toto",true, "travailler en equipe", "toto");
-		    	strList.add(comp11);
-		    	Competencies comp12 = new Competencies("comp12", "ecouter", "toto",true, "travailler en equipe", "toto");
-		    	strList.add(comp12);
-		    	Competencies comp13 = new Competencies("comp13", "se faire écouter", "toto",true, "travailler en equipe", "toto");
-		    	strList.add(comp13);
-		    	
-		    	Competencies comp20 = new Competencies("comp20", "retard", "toto",true, "assiduite", "toto");
-		    	strList.add(comp20);
-		    	Competencies comp21 = new Competencies("comp21", "abscence", "toto",true, "assiduite", "toto");
-		    	strList.add(comp21);
-		    	Competencies comp22 = new Competencies("comp22", "toto", "toto",true, "assiduite", "toto");
-		    	strList.add(comp22);
+        			
+       			<form id="form" name ="form_evaluation" method="post" action="/APPManager/SEvaluation">
+
+				<% 
 		    	List<Competencies> compList= Competencies.GetAllCompetencies();
 
 		    	Evaluation eval1 = new Evaluation(compList);
@@ -107,7 +83,7 @@
 			    		for (Competencies comp_lvl2 : eval1.getUnderCompetenciesInCompetence(idComp)) {	
 			    			//afficher les sous compétences
 			    			%>	<tr>
-		    	   					<td><h4><%=comp_lvl2.getName() %></h4></td>
+		    	   					<td><h5><%=comp_lvl2.getName() %></h5></td>
 		    	   					<td><input name = "<%=comp_lvl2.getIdComp()%>" class= "range" type="range" min="0" max="5"
 		    	   					 value="1" step="1"   oninput="setMark(this.name,this.value)" onchange="setMark(this.name,this.value)"/></td>
 		    	   				</tr>
@@ -123,25 +99,18 @@
 		  			</tbody>
 		    	</table>	
 				<% 
-		    	}		    	
-		    	%>
-			    	
-				<form id="form1" name="form1" method="post" action enctype="text/plain" alt="">
-				<p>
-				<input type="button" id="createID" value="Create Form" onclick="writeform(strList)" />				
-				<br />				
-				</p>				
+		    	}
+		    	%>	
+				<br><input type="submit"  />		
+				<input type="hidden" name="evaluationId" value="${eval1}" />
+				<% 		    	
+		    	String evaluationId = "evaluationId";
+    			request.getSession().setAttribute(evaluationId, eval1);
+    			request.setAttribute("evaluationId", evaluationId);
+    			request.getRequestDispatcher("/WebContent/html/student/Evaluation-Student.jsp").forward(request, response);%>	
 				</form>				
-				<hr>
-				
-				<!-- Just below is the key code in the body for positioning the form-->
-				
-				<p id="paraID">
-				
-				&nbsp;
-				
-				</p>
-				
+	
+		
 				</div>
 		
 			</div>

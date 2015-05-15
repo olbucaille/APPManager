@@ -1,12 +1,13 @@
 package Model;
 
+import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
 import BDDManager.AccesBD;
 
-public class Evaluation {
+public class Evaluation implements Serializable{
 
 	public final int NON_ACQUIS =		1;
 	public final int INTERMEDIARE =		2;
@@ -38,6 +39,18 @@ public class Evaluation {
 			}
 		}		
 		return  comp_lvl1;
+	}
+	
+	
+//obtenir la liste des compétences  d'une famille
+	public List<Competencies>  getCompetenciesInEvaluation() {
+		// TODO Auto-generated method stub
+		List <Competencies> compList = new ArrayList<Competencies>();
+		for( MarkByCompetencies comp : markByCompetenciesList){							
+			compList.add(comp.getCompetencies());						
+			
+		}		
+		return  compList;
 	}
 	
 //obtenir la liste des sous compétences d'une compétence 
@@ -85,18 +98,27 @@ public class Evaluation {
 					i++;
 				}
 			}	
-		}
-		
+		}	
 		return i;
 	}
 	
 	
-	public void setMarkToCompetencies(String idCompt,int value){
+	public void setMarkToCompetencies(String idComp,int value){
 		for( MarkByCompetencies comp : markByCompetenciesList){	
-			if (comp.getCompetencies().getIdComp().equalsIgnoreCase(idCompt)){
+			if (comp.getCompetencies().getIdComp().equalsIgnoreCase(idComp)){
 				comp.setMark(value);
 			}			
 		}
+	}
+	
+	
+	public int getMarkOfCompetencies(String idComp){
+		for( MarkByCompetencies comp : markByCompetenciesList){	
+			if (comp.getCompetencies().getIdComp().equalsIgnoreCase(idComp)){
+				return comp.getMark();
+			}
+		}
+		return -1;
 	}
 	
 	
@@ -116,7 +138,7 @@ public class Evaluation {
 	}*/
 }
 
-class MarkByCompetencies{
+class MarkByCompetencies implements Serializable{
 
 	private Competencies competencies ;
 	private int mark ;
