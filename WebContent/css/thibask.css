@@ -1,0 +1,15 @@
+#div2, #div3 {
+	display: none;
+}
+
+#div1, #div2, #div3 {
+	width: 50%;
+	padding: 10px;
+	margin: 10px 0 0 10px;
+}
+
+#block-general {
+	border: solid red 2px;
+	height: 150px;
+	margin-top: 10px;
+}
