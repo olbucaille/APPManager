@@ -76,7 +76,7 @@ public class User extends LDAPObject {
 		
 	//POUR REAL //User user = new User(obj.login,obj.password,obj.nom,obj.nomFamille,obj.prenom,obj.getType(),obj.getNumber(),obj.getMail());
 		//POUR TEST
-		User user = new User("tototest","toto","tata","titi","tutu","professeur","4247","toto.tutu@isep.fr");
+		User user = new User("tototest","toto","tata","titi","tutu","professeur","4245","toto.tutu@isep.fr");
 		
 		System.out.println(user.toString());
 		return user;
