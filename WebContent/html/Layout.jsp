@@ -17,7 +17,9 @@
     			<div class="title">APP Manager</div>
     			<ul class="nav">
     			<%
-    			if((boolean)session.getAttribute(StringProvider.getIsAdmin()))
+    			
+    				System.out.println(session.getAttribute(StringProvider.getIsAdmin()));
+    			if(String.valueOf(session.getAttribute(StringProvider.getIsAdmin())).equals("true"))
     			{
     			%>
       				<li><a href="#"><i class="fa fa-home fa-lg"></i>You are an Admin</a></li>
@@ -29,7 +31,7 @@
       				<li><a href="#"><i class="fa fa-question"></i>Help</a></li>
       				<li><a href="../../index.jsp"><i class="fa fa-power-off"></i>Logout</a></li>
       			<%
-    			}else if((boolean)session.getAttribute(StringProvider.getIsModulemanager()))
+    			}else if(String.valueOf(session.getAttribute(StringProvider.getIsModulemanager())).equals("true"))
     			{
       			%>
       				<li><a href="#"><i class="fa fa-home fa-lg"></i>You are MM</a></li>
@@ -41,7 +43,7 @@
       				<li><a href="#"><i class="fa fa-question"></i>Help</a></li>
       				<li><a href="../../index.jsp"><i class="fa fa-power-off"></i>Logout</a></li>
       			<%
-      			}else if((boolean)session.getAttribute(StringProvider.getIsTutor()))
+      			}else if(String.valueOf(session.getAttribute(StringProvider.getIsTutor())).equals("true"))
       			{
       			%>
       				<li><a href="#"><i class="fa fa-home fa-lg"></i>You are a Tutor</a></li>
@@ -53,7 +55,7 @@
       				<li><a href="#"><i class="fa fa-question fa-lg"></i>Help</a></li>
       				<li><a href="../../index.jsp"><i class="fa fa-power-off fa-lg"></i>Logout</a></li>
       			<%
-      			}else if((boolean)session.getAttribute(StringProvider.getIsStudent()))
+      			}else if(String.valueOf(session.getAttribute(StringProvider.getIsStudent())).equals("true"))
       			{
       			%>
       				<li><a href="#"><i class="fa fa-home fa-lg"></i>You are a Student</a></li>
@@ -76,4 +78,4 @@
   			<div class="content isOpen">
     			<a class="button"></a>
     			
-  		
+ 
