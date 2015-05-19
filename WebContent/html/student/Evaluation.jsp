@@ -1,11 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-
+ 
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Model.Competencies"%>
 <%@page import="Model.Evaluation"%>
-
+<html>
+<body>
 <form id="form" name ="form_evaluation" method="post" action="/APPManager/SEvaluation">
 
 	<% 
@@ -60,3 +61,5 @@
  			//request.setAttribute("evaluationId", evaluationId);
  			//request.getRequestDispatcher("/WebContent/html/student/Evaluation-Student.jsp").forward(request, response);%>	
 	</form>	
+	</body>
+	</html>
