@@ -3,7 +3,8 @@
 
 <jsp:include page="/html/Layout.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css" href="../../css/left_menu.css">
-<link rel="stylesheet" type="text/css" href="../../css/css_teacher/groups_teacher.css">
+<link rel="stylesheet" type="text/css"
+	href="../../css/css_teacher/groups_teacher.css">
 
 <h1>My Groups</h1>
 
@@ -11,26 +12,42 @@
 	<ul class="leftmenu">
 		<li id="leftmenubox_title"><a id="leftmenu_title" href="#">Team
 				Red Fire</a></li>
-		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Thibault
+		<li id="leftmenubox_tab"><a id="leftmenu_ref"
+			href="/APPManager/html/teacher/ProfileStudent_teacher.jsp">Thibault
 				Larour</a></li>
-		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Olivier
+		<li id="leftmenubox_tab"><a id="leftmenu_ref"
+			href="/APPManager/html/teacher/ProfileStudent_teacher.jsp">Olivier
 				Bucaille</a></li>
-		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Arnaud
+		<li id="leftmenubox_tab"><a id="leftmenu_ref"
+			href="/APPManager/html/teacher/ProfileStudent_teacher.jsp">Arnaud
 				Buso</a></li>
-		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Raphael
+		<li id="leftmenubox_tab"><a id="leftmenu_ref"
+			href="/APPManager/html/teacher/ProfileStudent_teacher.jsp">Raphael
 				Luo</a></li>
-		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Justin
+		<li id="leftmenubox_tab"><a id="leftmenu_ref"
+			href="/APPManager/html/teacher/ProfileStudent_teacher.jsp">Justin
 				Kwan</a></li>
 		<li id="leftmenubox_title"><a id="leftmenu_title" href="#">Team
 				Blue Water</a></li>
 		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Manceny</a></li>
 		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Chiky</a></li>
 		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Zkazi</a></li>
+		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Sellami</a></li>
+		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Levebre</a></li>
 		<li id="leftmenubox_title"><a id="leftmenu_title" href="#">Team
 				Green Grass</a></li>
 		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Manceny</a></li>
 		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Chiky</a></li>
 		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Zkazi</a></li>
+		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Sellami</a></li>
+		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Levebre</a></li>
+		<li id="leftmenubox_title"><a id="leftmenu_title" href="#">Team
+				Yellow Sun</a></li>
+		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Manceny</a></li>
+		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Chiky</a></li>
+		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Zkazi</a></li>
+		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Sellami</a></li>
+		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Levebre</a></li>
 	</ul>
 </div>
 
