@@ -58,6 +58,7 @@ public class SControllerCompetencies extends HttpServlet {
 		else  if(RequestString.equals("addcompetencies"))
 		{
 			doAddCompetencies(request,response);
+			request.setAttribute("message", "Skill added");
 		}
 		else if(RequestString.equals("deleteCompetencie"))
 		{
@@ -67,6 +68,7 @@ public class SControllerCompetencies extends HttpServlet {
 			if(value == null)
 				value ="";
 				Competencies.deleteCompetencies(value);
+				request.setAttribute("message", "Skill deleted");
 				doDisplayPageCompetenciesManagment(request,response);
 			
 		}

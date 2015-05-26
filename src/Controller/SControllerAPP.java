@@ -56,7 +56,7 @@ public class SControllerAPP extends HttpServlet {
 			String Edate= (String)request.getParameterValues(StringProvider.getAppEnddate())[0];
 			System.out.println(type+Sdate+Edate);
 			APP.InsertAAPP(type, Sdate, Edate);
-			
+			request.setAttribute("message", "APP inserted");
 		}
 		doShowSettings(request,response);
 	}

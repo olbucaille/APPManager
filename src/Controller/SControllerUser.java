@@ -84,9 +84,12 @@ public class SControllerUser extends HttpServlet {
 			
 		//	System.out.println(array[2]);
 		//	System.out.println(request.getParameter("liste2"));
+			request.setAttribute("message", "Association done");
+			redirectAdmin(request,response);
 		}
 		else
 		{
+			
 			doStuffAuth(request,response);
 
 		}
