@@ -48,13 +48,7 @@ textarea {
 
 }
 
-.left{
-	margin: auto;
 
-	width: 18%;	
-	display: inline-block;    
-    vertical-align: top;
-}
 
 .centerAndRight{
 
@@ -127,62 +121,6 @@ textarea {
 	box-shadow:4px 4px 6px #AAA; 	
 }	
 
-#tabs ul
-{
-    font: normal 14px arial, sans, sans-serif;
-    -list-style-type: none;
-    border-bottom: 1px solid gray;
-    margin: 0;
-    padding-left:0;
-    padding-right:0;
-    padding-bottom: 26px;
-}
-
-#tabs ul li 
-{
-    display: inline;
-    float: left;
-    height: 24px;
-    min-width:80px;
-    text-align:center;
-    padding:0;
-    margin: 1px 0px 0px 0px;
-    border: 1px solid gray;
-}
-
-#tabs ul li.selected 
-{
-    border-bottom: 1px solid #fff;
-    background-color: #fff;
-}
-
-
-#tabs ul li a 
-{
-    float: left;
-    color: #666;
-    text-decoration: none;
-    padding: 4px;
-    text-align:center;
-    background-color:#eee;
-    min-width:80px;
-    border-bottom: 1px solid gray;
-}
-
-#tabs ul li a.selected
-{
-    color: #000;
-    font-weight:bold;
-    background-color: #fff;
-    border-bottom: 1px solid #fff;
-}
-
-#tabs ul li a:hover
-{
-    color: #000;
-    font-weight:bold;
-    background-color: #fff;
-}
 
 /*---statistique radar styles start here ----- */
 #container 
@@ -231,65 +169,5 @@ table tr.bg2 td {
 
 /*---table files styles end here ----- */
 
-
-
-
-#popup {
-    background-color: #fff;
-    border-radius: 10px 10px 10px 10px;
-    box-shadow: 0 0 25px 5px #999;
-    color: #111;
-    display: none;
-    min-width: 450px;
-    padding: 25px
-}
-
-#popup .logo {
-    color: #2b91af;
-    font: bold 325% 'Petrona', sans
-}
-
-#popup{
-    min-height: 250px
-}
-
-
-
-.button {
-    background-color: #2b91af;
-    border-radius: 10px;
-    color: #fff;
-    cursor: pointer;
-    display: inline-block;
-    padding: 10px 20px;
-    text-align: center;
-    box-shadow: none; 
-    text-decoration: none
-}
-
-.button.small {
-    border-radius: 15px;
-    float: right;
-    margin: 22px 5px 0;
-    padding: 6px 15px
-}
-
-.button:hover {
-    background-color: #1e1e1e
-}
-
-.button>span {
-    font-size: 84%
-}
-
-.button.b-close {
-    border-radius: 7px 7px 7px 7px;
-    box-shadow: none;
-    font: bold 131% sans-serif;
-    padding: 0 6px 2px;
-    position: absolute;
-    right: -7px;
-    top: -7px
-}
 
 
