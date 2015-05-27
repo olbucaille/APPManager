@@ -7,12 +7,12 @@
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
     "http://www.w3.org/TR/html4/strict.dtd">
+<jsp:include page="/html/Layout.jsp"></jsp:include>
 <html>
-<link rel="stylesheet" type="text/css" href="../../css/css_student/style_student.css">
-<link rel="stylesheet" type="text/css" href="../../css/css_student/evaltype.css">
-<link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script type="text/javascript" src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+<link rel="stylesheet" type="text/css" href="../../css/evaltype.css">
+<script type="text/javascript"
+		src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+
 <head>
 </head>
 	<body>	
@@ -20,9 +20,9 @@
 			<h1>Evaluation Liste</h1>
 			<div id="evaluation_list">
 				<ul class="list-side">
-					<li onclick="cross_evaluation()">cross evaluation</li>
-					<li onclick="auto_evaluation()">auto evaluation</li>
-					<li onclick="evaluation()">evaluation</li>
+					<li onclick="cross_evaluation()" style="display:block;">cross evaluation</li>
+					<li onclick="auto_evaluation()" style="display:block;">auto evaluation</li>
+					
 
 				</ul>
 			</div>
@@ -34,11 +34,12 @@
 			<div id="auto_evaluation" style="display:none;">
 				<jsp:include page="/html/student/Auto_Evaluation.jsp"></jsp:include>
 			</div>
-			<div id="evaluation" style="display:none;">
-				<jsp:include page="/html/student/Evaluation.jsp"></jsp:include>
-			</div>
+			
 		</div>	
 		<script src="../../js/Evaluation.js" type="text/javascript"></script>
+		
+	
 	</body>
 	
 </html>
+<jsp:include page="/html/Layout_foot.jsp"></jsp:include>

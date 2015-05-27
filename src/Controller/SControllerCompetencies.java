@@ -48,7 +48,7 @@ public class SControllerCompetencies extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	//System.out.println("enter control cmp");
-		
+	
 		String RequestString =(String) request.getParameter("action");
 		System.out.println(RequestString);
 		if(RequestString.equals("CompetenciesManagmentPage"))
@@ -58,6 +58,17 @@ public class SControllerCompetencies extends HttpServlet {
 		else  if(RequestString.equals("addcompetencies"))
 		{
 			doAddCompetencies(request,response);
+		}
+		else if(RequestString.equals("deleteCompetencie"))
+		{
+		
+			String value = (String) request.getParameter("value");
+			
+			if(value == null)
+				value ="";
+				Competencies.deleteCompetencies(value);
+				doDisplayPageCompetenciesManagment(request,response);
+			
 		}
 	}
 	//ajoute une compétence

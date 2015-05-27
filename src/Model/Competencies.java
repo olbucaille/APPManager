@@ -172,7 +172,19 @@ public class Competencies implements Serializable{
 	}
 
 	
-
+	public static void deleteCompetencies(String value) {
+		
+		try {
+			String req = "delete from competencies where idComp= "+value+"";
+			System.out.println(req);
+			AccesBD.getInstance().executeUpdate(req);
+			req = "delete from competencies where idMother= "+value;
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 
 
 	@Override
@@ -181,6 +193,11 @@ public class Competencies implements Serializable{
 				+ Desc + ", Isnecessary=" + Isnecessary + ", IdMother="
 				+ IdMother + "]";
 	}
+
+
+
+
+	
 
 
 
