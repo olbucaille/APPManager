@@ -76,6 +76,3 @@
     				</ul>
   			</div>
   			<div class="content isOpen">
-    			<a class="button"></a>
-    			
- 

@@ -3,7 +3,7 @@
     vertical-align: top;
 	position: relative;
 	float: left;
-	top: -30px;
+	top: -15px;
 }
 
 .leftmenu {
@@ -16,16 +16,14 @@
 	-webkit-background-size: 100% 100%;
 }
 
-
-
 ul.leftmenu #leftmenubox_tab #leftmenu_ref{
 	-webkit-transition: all 0.3s ease-out;
 	background: #cbcbcb url(../images/border.png) no-repeat;
 	color: #174867;
-	padding: 5px 15px 5px 15px;
+	padding: 7px 15px 7px 15px;
 	-webkit-border-top-right-radius: 5px;
  	-webkit-border-bottom-right-radius: 5px;
-	width: 140px;
+	width: 160px;
 	display: block;    
 	text-decoration: none;
 	-webkit-box-shadow: 2px 2px 4px #888;
@@ -38,7 +36,7 @@ ul.leftmenu #leftmenubox_title {
 	padding: 10px 15px 10px 30px;
 	-webkit-border-top-right-radius: 5px;
  	-webkit-border-bottom-right-radius: 5px;
-	width: 160px;
+	width: 180px;
 	display: block;    
     vertical-align: top;
 	text-decoration: none;
@@ -54,5 +52,5 @@ ul.leftmenu #leftmenubox_title #leftmenu_title {
 ul.leftmenu #leftmenubox_tab #leftmenu_ref:hover {
 	background: #fecd66 url(../images/border.png) no-repeat;
 	color: #67a5cd;
-	padding: 7px 15px 7px 30px;
+	padding: 9px 15px 9px 30px;
 }

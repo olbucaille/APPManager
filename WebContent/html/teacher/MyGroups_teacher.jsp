@@ -8,10 +8,13 @@
 
 <h1>My Groups</h1>
 
+<button id="access1">Accès texte 1</button>
+	<button id="access2">Accès texte 2</button>
+
 <div class="leftmenubox">
 	<ul class="leftmenu">
-		<li id="leftmenubox_title"><a id="leftmenu_title" href="#">Team
-				Red Fire</a></li>
+		<li id="leftmenubox_title"><a id="leftmenu_title access1">
+				Team Red Fire</a></li>
 		<li id="leftmenubox_tab"><a id="leftmenu_ref"
 			href="/APPManager/html/teacher/ProfileStudent_teacher.jsp">Thibault
 				Larour</a></li>
@@ -27,28 +30,35 @@
 		<li id="leftmenubox_tab"><a id="leftmenu_ref"
 			href="/APPManager/html/teacher/ProfileStudent_teacher.jsp">Justin
 				Kwan</a></li>
-		<li id="leftmenubox_title"><a id="leftmenu_title" href="#">Team
+		<li id="leftmenubox_title"><a id="leftmenu_title access2">Team
 				Blue Water</a></li>
 		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Manceny</a></li>
 		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Chiky</a></li>
 		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Zkazi</a></li>
 		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Sellami</a></li>
 		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Levebre</a></li>
-		<li id="leftmenubox_title"><a id="leftmenu_title" href="#">Team
-				Green Grass</a></li>
+		<li id="leftmenubox_title"><a id="leftmenu_title access3"
+			href="#">Team Green Grass</a></li>
 		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Manceny</a></li>
 		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Chiky</a></li>
 		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Zkazi</a></li>
 		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Sellami</a></li>
 		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Levebre</a></li>
-		<li id="leftmenubox_title"><a id="leftmenu_title" href="#">Team
-				Yellow Sun</a></li>
+		<li id="leftmenubox_title"><a id="leftmenu_title access4"
+			href="#">Team Yellow Sun</a></li>
 		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Manceny</a></li>
 		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Chiky</a></li>
 		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Zkazi</a></li>
 		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Sellami</a></li>
 		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Levebre</a></li>
 	</ul>
+</div>
+
+<div id="block-general">
+	<div id="block-access1">a</div>
+	<div id="block-access2">b</div>
+	<div id="block-access3">c</div>
+	<div id="block-access4">d</div>
 </div>
 
 <nav class="work">
@@ -125,5 +135,8 @@
 		</ul>
 	</div>
 </nav>
+
+<script type="text/javascript"
+	src="/APPManager/js/multi-table_groups.js"></script>
 
 <jsp:include page="/html/Layout_foot.jsp"></jsp:include>

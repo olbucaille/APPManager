@@ -2,8 +2,8 @@
   font-size: 10x;
   line-height: 2;
   position: absolute;               
-  top: 20%;
-  left : 85%;
+  top: 10%;
+  left : 73%;
   width: 250px;
   -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
      -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
@@ -79,3 +79,19 @@
 .work-item li:hover {
   background: #fecd66;
 }
+
+#block-access2, #block-access3, #block-access4 {
+	display: none;
+}
+
+#block-access1, #block-access2, #block-access3, #block-access4 {
+	width: 50%;
+	padding: 10px;
+	margin: 10px 0 0 10px;
+}
+
+#block-general {
+	border: solid red 2px;
+	height: 150px;
+	margin-top: 10px;
+	
