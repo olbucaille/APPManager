@@ -9,11 +9,18 @@
 <%
 List<Competencies> listWM = (List) request.getAttribute("compToDisplay");
 List<Competencies> list = (List) request.getAttribute("compToListChoice");
+String message = (String)  request.getAttribute("message"); 
+if (message ==null )
+	message = "";
 %>
  
  
  <h1>Skills Managment</h1>
  
+ 
+ <p>
+<%=message %>
+</p>
 
 <ol>
 <%if(list!=null)
