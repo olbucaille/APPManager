@@ -22,12 +22,14 @@
 			
 			<%
 				List<Evaluation> evalList= Evaluation.GetEvaluation();
+			    List<Competencies> compList= Competencies.GetCompetenciesWithoutMother();
 			   	if (evalList !=null){
 			   		System.out.println("probleme BDD");
 			   		for (Evaluation eval : evalList) {
 			   			if (eval.getType().equals("cross")){
 			   				%>
 			   				<li onclick="cross_evaluation()" style="display:block;"><%=eval.getDate() +" - "+eval.getName()   %></li>
+			   				<li onclick="cross_evaluation()" style="display:block;"><%=Competencies.GetAllCompetencies()      %></li>
 			   				<% 
 			   			}else if (eval.getType().equals("auto")){
 			   				%>
@@ -41,11 +43,11 @@
 			%>	
    	   	
 				
-				<% 
-				
-				%>
 			</div>
 		</div>  	
+		
+		
+		
 		<div class="centerAndRight">	
 			<div id="cross_evaluation" style="display:none;">
 				<jsp:include page="/html/student/Cross_Evaluation.jsp"></jsp:include>

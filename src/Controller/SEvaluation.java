@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import Model.Competencies;
-import Model.Evaluation;
+import Model.EvaluationForm;
 
 
 /**
@@ -44,7 +44,7 @@ public class SEvaluation extends HttpServlet {
 		response.setContentType("text/html");
 		PrintWriter out = response.getWriter();
 		String evaluationId = request.getParameter("evaluationId");
-		Evaluation myEval = (Evaluation) request.getSession().getAttribute(evaluationId);
+		EvaluationForm myEval = (EvaluationForm) request.getSession().getAttribute(evaluationId);
 		request.getSession().removeAttribute(evaluationId);
 
 		for (Competencies comp : myEval.getCompetenciesInEvaluation()){

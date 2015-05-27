@@ -88,7 +88,7 @@ public class SControllerCompetencies extends HttpServlet {
 		{
 			isneeded = null;
 		}
-		String mothercomp = (String)request.getParameterValues(StringProvider.getCompMothercomp())[0];
+		//String mothercomp = (String)request.getParameterValues(StringProvider.getCompMothercomp())[0];
 		String category = (String)request.getParameterValues(StringProvider.getCompCategory())[0];
 		
 		if(isneeded == null)
@@ -96,10 +96,22 @@ public class SControllerCompetencies extends HttpServlet {
 			else
 				isneeded = "true";
 		
-		System.out.println(name+isneeded+mothercomp);
-		Competencies c = new Competencies(null,name,null,Boolean.parseBoolean(isneeded),category,mothercomp);
+		//System.out.println(name+isneeded+mothercomp);
+		Competencies c = new Competencies(null,name,null,Boolean.parseBoolean(isneeded),category,"none");
 		System.out.println(c.toString());
 		Competencies.AddCompetency(c);
+		int idMother = Competencies.getACompetencies(name);
+		Competencies c1 = new Competencies(null,(String)request.getParameterValues("level1")[0],null,false,category,String.valueOf(idMother));
+		Competencies c2 = new Competencies(null,(String)request.getParameterValues("level2")[0],null,false,category,String.valueOf(idMother));
+		Competencies c3 = new Competencies(null,(String)request.getParameterValues("level3")[0],null,false,category,String.valueOf(idMother));
+		Competencies c4 = new Competencies(null,(String)request.getParameterValues("level4")[0],null,false,category,String.valueOf(idMother));
+		Competencies c5 = new Competencies(null,(String)request.getParameterValues("level5")[0],null,false,category,String.valueOf(idMother));
+		
+		Competencies.AddCompetency(c1);
+		Competencies.AddCompetency(c2);
+		Competencies.AddCompetency(c3);
+		Competencies.AddCompetency(c4);
+		Competencies.AddCompetency(c5);
 		doDisplayPageCompetenciesManagment(request, response);
 		
 	}

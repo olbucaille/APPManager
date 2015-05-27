@@ -92,7 +92,7 @@ public class Competencies implements Serializable{
 	}
 	
 
-	//ressort toutes comp�tence de "niveau 1" cad sans mere
+	//ressort toutes comp�tence 
 	public static List<Competencies> GetAllCompetencies()
 	{
 		ArrayList<Competencies> array= new ArrayList<Competencies>();
@@ -125,7 +125,7 @@ public class Competencies implements Serializable{
 		ArrayList<Competencies> array= new ArrayList<Competencies>();
 		ResultSet rs = null ;
 		try {
-			String req = "SELECT idComp,Name FROM competencies WHERE idMother = \"none\" OR idMother = null; ";
+			String req = "SELECT idComp,Name,Category FROM competencies WHERE idMother = \"none\" OR idMother = null; ";
 			System.out.println(req);
 			rs = AccesBD.getInstance().executeQuery(req);
 		
@@ -133,7 +133,7 @@ public class Competencies implements Serializable{
 		if(rs!= null)
 		{
 			while(rs.next()){
-				array.add( new Competencies(String.valueOf(rs.getInt("idComp")), rs.getString("Name"), null, null, null, null));
+				array.add( new Competencies(String.valueOf(rs.getInt("idComp")), rs.getString("Name"), null, null, String.valueOf(rs.getString("Category")), null));
 				
 			}
 		}
@@ -151,7 +151,7 @@ public class Competencies implements Serializable{
 		ResultSet rs = null ;
 		try {
 			
-			String req = "SELECT idComp,Name,idMother FROM competencies WHERE idMother != \"none\" OR idMother != null; ";
+			String req = "SELECT idComp,Name,idMother,Category FROM competencies WHERE idMother != \"none\" OR idMother != null; ";
 			System.out.println(req);
 			rs = AccesBD.getInstance().executeQuery(req);
 		
@@ -159,8 +159,8 @@ public class Competencies implements Serializable{
 		if(rs!= null)
 		{
 			while(rs.next()){
-				array.add( new Competencies(String.valueOf(rs.getInt("idComp")), rs.getString("Name"), null, null,null,rs.getString("idMother") ));
-				System.out.println(new Competencies(String.valueOf(rs.getInt("idComp")), rs.getString("Name"), null, null,null,rs.getString("idMother")).toString());
+				array.add( new Competencies(String.valueOf(rs.getInt("idComp")), rs.getString("Name"), null, null,String.valueOf(rs.getString("Category")),rs.getString("idMother") ));
+				//System.out.println(new Competencies(String.valueOf(rs.getInt("idComp")), rs.getString("Name"), null, null,null,rs.getString("idMother")).toString());
 			}
 		}
 		} catch (ClassNotFoundException | SQLException e) {
@@ -192,6 +192,30 @@ public class Competencies implements Serializable{
 		return "Competencies [IdComp=" + IdComp + ", Name=" + Name + ", Desc="
 				+ Desc + ", Isnecessary=" + Isnecessary + ", IdMother="
 				+ IdMother + "]";
+	}
+
+
+
+
+	public static int getACompetencies(String name) {
+		ResultSet rs = null;
+		String req = "SELECT idComp FROM competencies WHERE name=\""+name+"\" ; ";
+		System.out.println(req);
+		try {
+			 rs = AccesBD.getInstance().executeQuery(req);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			rs.next();
+			return rs.getInt("idComp");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return 0;
+	
 	}
 
 
