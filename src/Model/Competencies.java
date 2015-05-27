@@ -92,7 +92,7 @@ public class Competencies implements Serializable{
 	}
 	
 
-	//ressort toutes comp�tence de "niveau 1" cad sans mere
+	//ressort toutes comp�tence 
 	public static List<Competencies> GetAllCompetencies()
 	{
 		ArrayList<Competencies> array= new ArrayList<Competencies>();
