@@ -3,8 +3,8 @@
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Model.Competencies"%>
+<%@page import="Model.EvaluationForm"%>
 <%@page import="Model.Evaluation"%>
-    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
     "http://www.w3.org/TR/html4/strict.dtd">
 <jsp:include page="/html/Layout.jsp"></jsp:include>
@@ -19,12 +19,31 @@
 		<div class="left">
 			<h1>Evaluation Liste</h1>
 			<div id="evaluation_list">
-				<ul class="list-side">
-					<li onclick="cross_evaluation()" style="display:block;">cross evaluation</li>
-					<li onclick="auto_evaluation()" style="display:block;">auto evaluation</li>
-					
-
-				</ul>
+			
+			<%
+				List<Evaluation> evalList= Evaluation.GetEvaluation();
+			   	if (evalList !=null){
+			   		System.out.println("probleme BDD");
+			   		for (Evaluation eval : evalList) {
+			   			if (eval.getType().equals("cross")){
+			   				%>
+			   				<li onclick="cross_evaluation()" style="display:block;"><%=eval.getDate() +" - "+eval.getName()   %></li>
+			   				<% 
+			   			}else if (eval.getType().equals("auto")){
+			   				%>
+			   				<li onclick="auto_evaluation()" style="display:block;"><%= eval.getDate() + " - "+eval.getName()  %></li>
+			   				<% 
+			   			}
+			   		}
+			   	}
+			   
+			   		
+			%>	
+   	   	
+				
+				<% 
+				
+				%>
 			</div>
 		</div>  	
 		<div class="centerAndRight">	

@@ -4,22 +4,22 @@
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="Model.Competencies"%>
-<%@page import="Model.Evaluation"%>
+<%@page import="Model.EvaluationForm"%>
 
 <form id="form" name ="form_evaluation" method="post" action="/APPManager/SEvaluation">
 
-	<% 
-   	List<Competencies> compList= Competencies.GetAllCompetencies();
-	List<String> studentList= new ArrayList<String>();
-	studentList.add("olivier");
-	studentList.add("Rafael");
-	studentList.add("arnaud");
-	studentList.add("justin");
-   	Evaluation eval1 = new Evaluation(compList);	
-  	int count =0;
-   	for (String family : eval1.getFamilyListInEvaluation()) {	
-   		//afficher famille
-   		%>	<table>
+	<%
+		List<Competencies> compList= Competencies.GetAllCompetencies();
+		List<String> studentList= new ArrayList<String>();
+		studentList.add("olivier");
+		studentList.add("Rafael");
+		studentList.add("arnaud");
+		studentList.add("justin");
+	   	EvaluationForm eval1 = new EvaluationForm(compList);	
+	  	int count =0;
+	   	for (String family : eval1.getFamilyListInEvaluation()) {	
+	   		//afficher famille
+	%>	<table>
    	   			<tbody>
    	   				<tr>
    	   					<td colspan = "2"><h2><%=family %></h2></td>
