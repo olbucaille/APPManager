@@ -17,7 +17,7 @@ body {
   font: 14px/1 'Montserrat', sans-serif;
   color: #333;
   background: #006599;
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .wrapper {

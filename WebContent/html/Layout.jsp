@@ -69,7 +69,7 @@
       			}else
       			{
       			%>
-      				<li><a>Logout</a></li>
+      				<li><a href="../../index.jsp">Logout</a></li>
       			<%
       			}
       			%>
