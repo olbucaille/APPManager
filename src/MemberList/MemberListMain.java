@@ -15,6 +15,8 @@ import Model.StringProvider;
 import Model.Team;
 import Model.User;
 
+import java.sql.*;
+
 
 @WebServlet("/MemberListMain")
 public class MemberListMain extends HttpServlet {
@@ -41,17 +43,65 @@ public class MemberListMain extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		doDisplayPage(request,response);
+		String RequestString =(String) request.getParameter("action");
+		System.out.println(RequestString);
+		doShowSettings(request,response);
 		redirection(request, response, "./MemberList.jsp");
 	}
-	private void doDisplayPage(HttpServletRequest request,
-			HttpServletResponse response) {
+
+	//redirige simplement vers les settings
+	private void doShowSettings(HttpServletRequest request ,HttpServletResponse response) {
+		HttpSession s = request.getSession();
+
+		List<Team> ArrayALLTeam = Team.GetAllTeam();
+
+		request.setAttribute("ListOfAllTeam", ArrayALLTeam);
+
+		List<User> ArrayALLuser = User.GetAllUser();
+
+		request.setAttribute("ListOfAllUser", ArrayALLuser);
+		
+		
+		String query = "SELECT * FROM 'team_user'";
+
+		try {
+			String myUrl = "jdbc:mysql://APPManager/src/BDDManager";
+			Connection conn = DriverManager.getConnection(myUrl, "root", "");
+			Statement stmt = conn.createStatement();
+			ResultSet rs = stmt.executeQuery(query);
+			while (rs.next()) {
+				String item = rs.getString("COF_NAME");}
+			    } catch (SQLException e ) {} 
+			
+
+		
+		try {
+
+				
+			//		init();
+			getServletContext().getRequestDispatcher("/WEB-INF/MemberList.jsp").forward(request, response);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ServletException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+	
 		
 	}
 	
+
+	
+	public List findWithName(String name) {
+		return em.createQuery("SELECT * FROM 'team_user'").getResultList();
+		}
+
 	
 	protected void redirection(HttpServletRequest request, HttpServletResponse response, String page) 
 	{
+		
 	}
 	
 

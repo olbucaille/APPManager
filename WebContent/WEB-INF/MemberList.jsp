@@ -1,5 +1,18 @@
-<%@ page language="java" contentType="text/html; charset=US-ASCII"
-    pageEncoding="US-ASCII"%>
+<%@page import="java.util.List"%>
+<%@page import="Model.APP"%>
+<%@page import="Model.Team"%>
+<%@page import="Model.User"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+    
+<jsp:include page="/html/Layout.jsp"></jsp:include>
+
+<%
+List<Team> listTeam = (List) request.getAttribute("ListOfAllTeam");
+List<User> listUser = (List) request.getAttribute("ListOfAllUser");
+
+
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -8,8 +21,27 @@
 </head>
 <body>
 <h1 class= "header">APP Manager</h1>
-<form method="post" action="/APPManager/MemberListMain"></form>
 
+<form method="post" action="/APPManager/MemberListMain"></form>
+		<%
+	   
+				
+		if(listUser!=null)
+		{
+			int i = 0;
+			for( i=0; i<listUser.size();i++)	
+				out.println("<option value=\""+listUser.get(i).getNumber()+"\">"+listUser.get(i).getNomFamille()+" "+listUser.get(i).getPrenom()+" "+listUser.get(i).getNumber()+" "+listUser.get(i).getType() );		    
+		}
+		
+		if(listTeam!=null)
+		{
+			int i = 0;
+			for( i=0; i<listTeam.size();i++)	
+				out.println("<option value=\""+listTeam.get(i).getIdTeam()+"\">"+listTeam.get(i).getName());		    
+		}
+		%>
+
+<%-- 
 <nav class="mm">    
 		    <div class="mm-item">
 		      <h4><a href="#">Module Manager</a></h4>
@@ -85,7 +117,7 @@
 		      </ul>
 		    </div>
 		</nav>
-
+--%>
 
 
 </body>
