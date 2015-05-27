@@ -84,9 +84,12 @@ public class SControllerUser extends HttpServlet {
 			
 		//	System.out.println(array[2]);
 		//	System.out.println(request.getParameter("liste2"));
+			request.setAttribute("message", "Association done");
+			redirectAdmin(request,response);
 		}
 		else
 		{
+			
 			doStuffAuth(request,response);
 
 		}
@@ -127,7 +130,7 @@ public class SControllerUser extends HttpServlet {
 		else if(map.get("IsModuleManager"))
 			response.sendRedirect("/APPManager/SControllerCompetencies?action=CompetenciesManagmentPage");
 		else if(map.get("IsTutor"))
-			response.sendRedirect("/APPManager/html/teacher/Profile_teacher.jsp");
+			response.sendRedirect("/APPManager/html/teacher/MyGroups_teacher.jsp");
 		else if(map.get("IsStudent"))
 			response.sendRedirect("/APPManager/html/student/Profile.html");
 		else

@@ -11,10 +11,14 @@
 List<APP> list = (List) request.getAttribute("ListOfAllAPP");
 List<Team> listTeam = (List) request.getAttribute("ListOfAllTeam");
 List<User> listUser = (List) request.getAttribute("ListOfAllUser");
+String message = (String)  request.getAttribute("message"); 
+if (message ==null )
+	message = "";
 
 %>
-
-
+<p>
+<%=message %>
+</p> 
 <div style=" height: 200px;   width: 47.2%;  float:right; margin: 1% 0 1% 1.6%; display: table;">
 <form action="/APPManager/SControllerAPP" method="POST" >
 
@@ -35,7 +39,7 @@ List<User> listUser = (List) request.getAttribute("ListOfAllUser");
 	
     <input type="submit" name="action" value="add APP session" name="submit" />
    
-
+	
 
 </form> 
 </div>

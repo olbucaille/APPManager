@@ -49,7 +49,7 @@ public class SControllerTeam extends HttpServlet {
 			String TeamName = (String)request.getParameterValues(StringProvider.getTeamTeamname())[0];
 			String IdAPP = (String)request.getParameterValues(StringProvider.getTeamAppofteam())[0];
 			Team.InsertATeam(IdAPP,TeamName);
-			
+			request.setAttribute("message", "Team Added");
 		
 		doShowSettings(request,response);
 	}
