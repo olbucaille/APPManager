@@ -28,16 +28,14 @@ List<User> listUser = (List) request.getAttribute("ListOfAllUser");
 				
 		if(listUser!=null)
 		{
-			int i = 0;
-			for( i=0; i<listUser.size();i++)	
-				out.println("<option value=\""+listUser.get(i).getNumber()+"\">"+listUser.get(i).getNomFamille()+" "+listUser.get(i).getPrenom()+" "+listUser.get(i).getNumber()+" "+listUser.get(i).getType() );		    
+			for(int i=0; i<listUser.size();i++){	
+				out.println("<option value=\""+listUser.get(i).getNumber()+"\">"+listUser.get(i).getNomFamille()+" "+listUser.get(i).getPrenom()+" "+listUser.get(i).getNumber()+" "+listUser.get(i).getType() );}		    
 		}
 		
 		if(listTeam!=null)
 		{
-			int i = 0;
-			for( i=0; i<listTeam.size();i++)	
-				out.println("<option value=\""+listTeam.get(i).getIdTeam()+"\">"+listTeam.get(i).getName());		    
+			for(int i=0; i<listTeam.size();i++){	
+				out.println("<option value=\""+listTeam.get(i).getIdTeam()+"\">"+listTeam.get(i).getName());}		    
 		}
 		%>
 
