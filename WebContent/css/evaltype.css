@@ -1,0 +1,82 @@
+
+@import url(http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+
+.rating {
+  float:left;
+}
+
+.rating:not(:checked) > input {
+  position:absolute;
+  top:-9999px;
+  clip:rect(0,0,0,0);
+}
+
+.rating:not(:checked) > label {
+  float:right;
+  width:1em;
+  padding:0 .1em;
+  overflow:hidden;
+  white-space:nowrap;
+  cursor:pointer;
+  font-size:200%;
+  line-height:1.2;
+  color:#ddd;
+  text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating:not(:checked) > label:before {
+  font-family: FontAwesome;
+  display: inline-block;
+  content: "\f0c8";
+}
+
+#star1:checked ~ label, 
+#star1-1:checked ~ label,
+#star1-2:checked ~ label,
+#star1-3:checked ~ label,
+#star1-4:checked ~ label{
+  color: #FF0000;
+  text-shadow:1px 1px #FF0000, 2px 2px #FF0000, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+#star2:checked ~ label, 
+#star2-1:checked ~ label,
+#star2-2:checked ~ label,
+#star2-3:checked ~ label,
+#star2-4:checked ~ label{
+  color: #FF8C00;
+  text-shadow:1px 1px #FF8C00, 2px 2px #FF8C00, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+#star3:checked ~ label, 
+#star3-1:checked ~ label,
+#star3-2:checked ~ label,
+#star3-3:checked ~ label,
+#star3-4:checked ~ label{
+  color: #00FF00;
+  text-shadow:1px 1px #00FF00, 2px 2px #00FF00, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+#star4:checked ~ label, 
+#star4-1:checked ~ label,
+#star4-2:checked ~ label,
+#star4-3:checked ~ label,
+#star4-4:checked ~ label{
+  color: #008000;
+  text-shadow:1px 1px #008000, 2px 2px #008000, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+#star5:checked ~ label, 
+#star5-1:checked ~ label,
+#star5-2:checked ~ label,
+#star5-3:checked ~ label,
+#star5-4:checked ~ label{
+  color: #6495ED;
+  text-shadow:1px 1px #6495ED, 2px 2px #6495ED, .1em .1em .2em rgba(0,0,0,.5);
+}
+
+.rating > label:active {
+  position:relative;
+  top:1px;
+  left:1px;
+}
