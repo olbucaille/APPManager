@@ -69,13 +69,10 @@
       			}else
       			{
       			%>
-      				<li><a>Logout</a></li>
+      				<li><a href="../../index.jsp">Logout</a></li>
       			<%
       			}
       			%>
     				</ul>
   			</div>
   			<div class="content isOpen">
-    			<a class="button"></a>
-    			
- 
