@@ -28,8 +28,8 @@
 			   		for (Evaluation eval : evalList) {
 			   			if (eval.getType().equals("cross")){
 			   				%>
-			   				<li onclick="cross_evaluation()" style="display:block;"><%=eval.getDate() +" - "+eval.getName()   %></li>
-			   				<li onclick="cross_evaluation()" style="display:block;"><%=Competencies.GetAllCompetencies()      %></li>
+			   				<li onclick="cross_evaluation()" style="display:block;"><%=eval.getDate() +" - "+eval.getName() +" - "+ Competencies.getACompetenciesName("titi") %></li>
+			   				
 			   				<% 
 			   			}else if (eval.getType().equals("auto")){
 			   				%>
@@ -41,9 +41,71 @@
 			   
 			   		
 			%>	
+			
+			
    	   	
 				
 			</div>
+			
+						<div id="evaluation_list">
+			
+			<%
+				List<Evaluation> evalList1= Evaluation.GetEvaluation();
+			    List<Competencies> compList1= Competencies.GetCompetenciesWithoutMother();
+			   	if (evalList !=null){
+			   		System.out.println("probleme BDD");
+			   		for (Evaluation eval : evalList) {
+			   			if (eval.getType().equals("cross")){
+			   				%>
+			   				<li onclick="cross_evaluation()" style="display:block;"><%=eval.getDate() +" - "+eval.getName() +" - "+ Competencies.getACompetencies("esy") %></li>
+			   				
+			   				<% 
+			   			}else if (eval.getType().equals("auto")){
+			   				%>
+			   				<li onclick="auto_evaluation()" style="display:block;"><%= eval.getDate() + " - "+eval.getName()  %></li>
+			   				<% 
+			   			}
+			   		}
+			   	}
+			   
+			   		
+			%>	
+			
+			
+   	   	
+				
+			</div>
+			
+						<div id="evaluation_list">
+			
+			<%
+				List<Evaluation> evalList2= Evaluation.GetEvaluation();
+			    List<Competencies> compList2= Competencies.GetCompetenciesWithoutMother();
+			   	if (evalList !=null){
+			   		System.out.println("probleme BDD");
+			   		for (Evaluation eval : evalList) {
+			   			if (eval.getType().equals("cross")){
+			   				%>
+			   				<li onclick="cross_evaluation()" style="display:block;"><%=eval.getDate() +" - "+eval.getName() +" - "+ Competencies.getACompetencies("test45") %></li>
+			   				
+			   				<% 
+			   			}else if (eval.getType().equals("auto")){
+			   				%>
+			   				<li onclick="auto_evaluation()" style="display:block;"><%= eval.getDate() + " - "+eval.getName()  %></li>
+			   				<% 
+			   			}
+			   		}
+			   	}
+			   
+			   		
+			%>	
+			
+			
+   	   	
+				
+			</div>
+			
+			
 		</div>  	
 		
 		

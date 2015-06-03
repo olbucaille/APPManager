@@ -76,8 +76,8 @@
   line-height: 2;
   position: absolute;               
   top: 15%;
-  left : 90%;
-  width: 150px;
+  left : 87%;
+  width: 80px;
   -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
      -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
           box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
@@ -236,10 +236,10 @@ button.active {
 section.At button{
 	position: absolute;               
 	  top: 8%;
-	  left : 72%;
+	  left : 25%;
 }
 section.Re button{
 	position: absolute;               
 	  top: 8%;
-	  left : 80%;
+	  left : 32%;
 }

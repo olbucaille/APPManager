@@ -1,6 +1,6 @@
 @CHARSET "US-ASCII";
 
-/*For nav bar*/
+/* ----------------------------------------------Navigation bar------------------------------------- */
 * {
   margin: 0px;
 }
@@ -12,7 +12,7 @@
   line-height: 2;
   position: absolute;               
   top: 15%;
-  left : 90%;
+  left : 80%;
   width: 200px;
   -webkit-box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
      -moz-box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
@@ -148,7 +148,7 @@
 
 
 
-
+/* ----------------------------------------------Evaluation box------------------------------------- */
 
 
 
@@ -186,20 +186,7 @@ ol, ul {
   list-style: none;
 }
 
-blockquote, q {
-  quotes: none;
-}
 
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
-}
-
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
 
 
 body {
@@ -219,7 +206,7 @@ input, textarea, select, label {
 .contact {
   position: absolute;
   top: 15%;
-  left : 40%;
+  left : 35%;
   width: 320px;
   background: #eef5f7;
   border: 1px solid #cfd5da;
@@ -243,7 +230,6 @@ input, textarea, select, label {
   margin-left: -6px;
   width: 1px;
   height: 1px;
-  
   border-width: 12px 14px 0;
   border-top-style: solid;
   -webkit-transform: rotate(360deg);
