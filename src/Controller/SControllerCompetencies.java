@@ -72,6 +72,13 @@ public class SControllerCompetencies extends HttpServlet {
 				doDisplayPageCompetenciesManagment(request,response);
 			
 		}
+		else if (RequestString.contains("affectskills"))
+				{
+			//user[2] et skill[0]
+			//String[] user = RequestString.split(":");
+			//String[] skill = user[1].split(";");
+			//System.out.println("res : "+skill[0]);
+				}
 	}
 	//ajoute une compétence
 	//existe une verifiavtion des champs
