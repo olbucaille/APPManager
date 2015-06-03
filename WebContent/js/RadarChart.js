@@ -8,6 +8,18 @@
 //For a bit of extra information check the blog about it:
 //http://nbremer.blogspot.nl/2013/09/making-d3-radar-chart-look-bit-better.html
 
+function setChartValue(categoryTab,group)
+{
+	Category cat = new category; 
+	var tab[group.lenght()][categoryTab.lenght()];
+	for (var i =0; i<group.lenght();i++){
+		for (var j =0; j<categoryTab.lenght();j++){
+			tab[i][j]={axis:categoryTab[i],value:0.56};
+		}
+	}
+	return tab;
+}
+
 var RadarChart = {
   draw: function(id, d, options){
   var cfg = {
