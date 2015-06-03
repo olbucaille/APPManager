@@ -217,6 +217,31 @@ public class Competencies implements Serializable{
 		return 0;
 	
 	}
+	
+	
+	
+	
+	
+	public static int getACompetenciesName(String name) {
+		ResultSet rs = null;
+		String req = "SELECT Name FROM competencies WHERE name=\""+name+"\" ; ";
+		System.out.println(req);
+		try {
+			 rs = AccesBD.getInstance().executeQuery(req);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			rs.next();
+			return rs.getInt("Name");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return 0;
+	
+	}
 
 
 
