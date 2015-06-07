@@ -124,10 +124,10 @@ $(".addToAPP").click(function(){
        url : "SControllerCompetencies",
        type : "GET",
        data : {
-		   action: "affectskills"
-    	   //idcomp:this.value,
-    	   //app: session.getValue("NUMBER"),
-    	   //checked: this.checked
+		   action: "affectskills",
+    	   idcomp: this.value,
+    	 //  app: ,
+    	   checked: this.checked
     	   }, 
        
        success : function(code_html, statut){
