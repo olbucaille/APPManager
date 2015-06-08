@@ -49,10 +49,11 @@ Iterator it = listCategory.iterator();
 			{
 				if(list.get(i).getCategory().trim().equals(valueCat.trim()))
 				{
-				out.println("<li class=\"liste\"><span>"+list.get(i).getName()+"</span> <a href=\"/APPManager/SControllerCompetencies?action=deleteCompetencie&value="+list.get(i).getIdComp()+"\"><img src=\"/APPManager/images/RedCross.svg\" width=\"10\" height=\"10\"></img></a></li> ");
+				out.println("<li class=\"liste\"><span>"+list.get(i).getName()+"</span> <a href=\"/APPManager/SControllerCompetencies?action=deleteCompetencie&value="+list.get(i).getIdComp()+"\"><img src=\"/APPManager/images/RedCross.svg\" width=\"10\" height=\"10\"></img></a> <input type=\"checkbox\"  value=\""+list.get(i).getIdComp()+"\" class=\"addToAPP\" /></li> ");
 				out.println("<ol class=\"liste\">");
 				if(listWM!=null)
 				{
+					
 					for( int j=0; j<listWM.size();j++)	
 					{		
 						if(listWM.get(j).getIdMother().trim().equals(String.valueOf(list.get(i).getIdComp())))
@@ -71,7 +72,7 @@ Iterator it = listCategory.iterator();
 </ol>
 
 <br />
-<form action="/APPManager/SControllerCompetencies" method="POST">
+<form  action="/APPManager/SControllerCompetencies" method="POST">
 
 
 	<label for="Category">Under the category</label> <select
@@ -109,5 +110,37 @@ Iterator it = listCategory.iterator();
 		name="submit" />
 
 
+    
+    
 </form>
 <jsp:include page="/html/Layout_foot.jsp"></jsp:include>
+
+<script>
+// On reprend le même id que dans le précédent chapitre
+
+$(".addToAPP").click(function(){
+     
+    $.ajax({
+       url : "SControllerCompetencies",
+       type : "GET",
+       data : {
+		   action: "affectskills",
+    	   idcomp: this.value,
+    	 //  app: ,
+    	   checked: this.checked
+    	   }, 
+       
+       success : function(code_html, statut){
+       },
+
+       error : function(resultat, statut, erreur){
+         
+       },
+
+       complete : function(resultat, statut){
+
+       }
+
+    });
+   
+});</script>

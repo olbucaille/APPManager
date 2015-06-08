@@ -72,6 +72,30 @@ public class SControllerCompetencies extends HttpServlet {
 				doDisplayPageCompetenciesManagment(request,response);
 			
 		}
+		else if (RequestString.contains("affectskills"))
+				{
+			
+			String idcomp = (String) request.getParameter("idcomp");
+			String app = (String) request.getParameter("app");
+			String checked = (String) request.getParameter("checked");
+			HttpSession session = request.getSession();
+			
+			System.out.println("idcomp :"+ idcomp);
+			System.out.println("app :"+ session.getValue("NUMBER"));
+			System.out.println("checked:"+ checked);
+			
+			//recup l'app du mec via son number puis team puis app
+			//verif check/uncked pour enlever ou ajouter
+			//remplir la table appcompetencies
+			//preremplir les pages avec check unchecked
+			
+			
+			
+			//user[2] et skill[0]
+			//String[] user = RequestString.split(":");
+			//String[] skill = user[1].split(";");
+			//System.out.println("res : "+skill[0]);
+				}
 	}
 	//ajoute une compétence
 	//existe une verifiavtion des champs
