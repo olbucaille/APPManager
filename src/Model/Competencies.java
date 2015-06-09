@@ -246,6 +246,33 @@ public class Competencies implements Serializable{
 
 
 
+	public static void addOrRemoveAPPCompetencies(String idcomp,
+		
+			String appTomanage, String checked) {
+		
+		String req = null;
+		if (checked.equals("true"))
+		{
+			 req = "INSERT INTO app_competencies(IdAPP, idCompetencies) VALUES (\""+appTomanage+"\", \""+idcomp+"\")";
+		}
+		else 
+		{
+			req = "delete from app_competencies where IdAPP=\""+appTomanage+"\" AND idCompetencies = \""+idcomp+"\";";
+		}
+		
+		System.out.println(req);
+		try {
+			AccesBD.getInstance().executeUpdate(req);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+
+
+
+
 	
 
 

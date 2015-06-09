@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 
+import Model.APP;
 import Model.Competencies;
 import Model.StringProvider;
 import Model.User;
@@ -84,7 +85,8 @@ public class SControllerCompetencies extends HttpServlet {
 			System.out.println("app :"+ session.getValue("NUMBER"));
 			System.out.println("checked:"+ checked);
 			
-			//recup l'app du mec via son number puis team puis app
+			String appTomanage = APP.getApp((String)session.getValue("NUMBER"));
+			Competencies.addOrRemoveAPPCompetencies(idcomp,appTomanage,checked);
 			//verif check/uncked pour enlever ou ajouter
 			//remplir la table appcompetencies
 			//preremplir les pages avec check unchecked

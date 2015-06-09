@@ -65,6 +65,7 @@ public class SControllerUser extends HttpServlet {
 					Team  t= new Team("","");
 					if(Role.equals("Module Manager")) 
 					{
+						
 						APP a = new APP("", "", "", "");
 						a.addOrReplaceAPPUser(arrayUser[i],APP); //pas utile dans les autres cas, on connais par rapport au TEAM
 						User.updatePriviledge(arrayUser[i],false,false,true,false);//si Module manager, alors on update que Module manager, sinon, c'est autres valeures sont écrasées...
