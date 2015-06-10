@@ -7,16 +7,23 @@
 //
 //For a bit of extra information check the blog about it:
 //http://nbremer.blogspot.nl/2013/09/making-d3-radar-chart-look-bit-better.html
-
+function chartVal(axis, value) {
+             this.axis = axis;
+             this.value = value;
+         }
+      
 function setChartValue(categoryTab,group)
 {
-	Category cat = new category; 
-	var tab[group.lenght()][categoryTab.lenght()];
-	for (var i =0; i<group.lenght();i++){
-		for (var j =0; j<categoryTab.lenght();j++){
-			tab[i][j]={axis:categoryTab[i],value:0.56};
+	var tab = new Array(group.length,categoryTab.length);
+	for (var k =0; k<group.length;k++){
+		for (var j =0; j<categoryTab.length;j++){
+			var chartVal1= new chartVal(categoryTab[j], 0.4);
+			tab[k,j]=JSON.stringify(chartVal1, null,1);
+			alert(k); 
+			alert(tab[k,j]); 
 		}
 	}
+	alert(tab); 
 	return tab;
 }
 

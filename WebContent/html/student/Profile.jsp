@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
     "http://www.w3.org/TR/html4/strict.dtd">
  <jsp:include page="/html/Layout.jsp"></jsp:include>   
@@ -34,6 +36,44 @@
 		<div class="center">
 			<div id="body">
 			  	<div id="chart">
+			  	<script >
+			  //Legend titles
+			  	
+
+			  	//Data
+			  	
+			  	var LegendOptions = ['larour','bucaille','buso'];			  	
+			  	var category = ['teamWork','aefefef','aefefef','dfefefefezf','ezfef'];
+			  	<%
+			  	List<String> catList= new ArrayList<String>();
+			  	List<String> groupList= new ArrayList<String>();
+			  	
+			  	
+			  	catList.add("teamWork");
+			  	catList.add("aefefef");
+			  	catList.add("aefefef");
+			  	catList.add("dfefefefezf");
+			  	catList.add("ezfef");
+			  	
+			  	groupList.add("larour");
+			  	groupList.add("bucaille");
+			  	groupList.add("buso");
+			  	
+			  	float l= 0;
+			  	%>
+				var d = [
+				         <% for(String group : groupList){%>
+						  [ 
+						   <% for(String cat : catList){
+							   l=l+(float)0.1;
+						   %>
+							{axis:"<%=cat%>",value:<%=l%>},
+							<% }%>
+						  ],
+						  <% }%>
+						];
+					</script>
+ 
 			    	<script type="text/javascript" src="../../js/RadarScript.js"></script>
 			    </div>
 		    </div>
@@ -56,8 +96,7 @@
 		</div>
 	</div>
 				
-	<div >
-
+	<div>
 	</div>
 	</div>
 	</body>
