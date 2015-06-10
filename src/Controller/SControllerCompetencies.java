@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.websocket.Session;
 
+import Model.APP;
 import Model.Competencies;
 import Model.StringProvider;
 import Model.User;
@@ -72,6 +73,31 @@ public class SControllerCompetencies extends HttpServlet {
 				doDisplayPageCompetenciesManagment(request,response);
 			
 		}
+		else if (RequestString.contains("affectskills"))
+				{
+			
+			String idcomp = (String) request.getParameter("idcomp");
+			String app = (String) request.getParameter("app");
+			String checked = (String) request.getParameter("checked");
+			HttpSession session = request.getSession();
+			
+			System.out.println("idcomp :"+ idcomp);
+			System.out.println("app :"+ session.getValue("NUMBER"));
+			System.out.println("checked:"+ checked);
+			
+			String appTomanage = APP.getApp((String)session.getValue("NUMBER"));
+			Competencies.addOrRemoveAPPCompetencies(idcomp,appTomanage,checked);
+			//verif check/uncked pour enlever ou ajouter
+			//remplir la table appcompetencies
+			//preremplir les pages avec check unchecked
+			
+			
+			
+			//user[2] et skill[0]
+			//String[] user = RequestString.split(":");
+			//String[] skill = user[1].split(";");
+			//System.out.println("res : "+skill[0]);
+				}
 	}
 	//ajoute une compétence
 	//existe une verifiavtion des champs

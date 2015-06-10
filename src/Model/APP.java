@@ -43,8 +43,12 @@ public class APP {
 
 	public static void addOrReplaceAPPUser(String IdUser, String IdAPP)
 	{
-		String req = "INSERT INTO user_appsession(idapp,idutilisateur) VALUES(\""+IdAPP+"\", \""+IdUser+"\")";
+		String req = "DELETE FROM user_appsession WHERE idutilisateur = \""+IdUser+"\";";
+		 req = "INSERT INTO user_appsession(idapp,idutilisateur) VALUES(\""+IdAPP+"\", \""+IdUser+"\")";
 		try {
+			AccesBD.getInstance().executeUpdate(req);
+			 req = "INSERT INTO user_appsession(idapp,idutilisateur) VALUES(\""+IdAPP+"\", \""+IdUser+"\")";
+						
 			AccesBD.getInstance().executeUpdate(req);
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
@@ -52,7 +56,26 @@ public class APP {
 		}
 	}
 
-
+	public static String getApp(String iduser) {
+	
+		System.out.println("GET APP : ");
+	//	System.out.println(iduser);
+		ArrayList<APP> array= new ArrayList<APP>();
+		ResultSet rs = null ;
+		try {
+			String req = "SELECT idAPP FROM user_appsession WHERE IdUtilisateur = \""+iduser+"\"; ";
+			System.out.println(req);
+			rs = AccesBD.getInstance().executeQuery(req);
+			rs.next();
+			return rs.getString("idAPP");
+	
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+		return null;
+	}
 	public static List<APP> GetAllAPP()
 	{
 		ArrayList<APP> array= new ArrayList<APP>();
@@ -110,6 +133,10 @@ public class APP {
 	public void setIdAPP(String idAPP) {
 		IdAPP = idAPP;
 	}
+
+
+
+	
 
 
 }

@@ -217,6 +217,58 @@ public class Competencies implements Serializable{
 		return 0;
 	
 	}
+	
+	
+	
+	
+	
+	public static int getACompetenciesName(String name) {
+		ResultSet rs = null;
+		String req = "SELECT Name FROM competencies WHERE name=\""+name+"\" ; ";
+		System.out.println(req);
+		try {
+			 rs = AccesBD.getInstance().executeQuery(req);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			rs.next();
+			return rs.getInt("Name");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return 0;
+	
+	}
+
+
+
+
+	public static void addOrRemoveAPPCompetencies(String idcomp,
+		
+			String appTomanage, String checked) {
+		
+		String req = null;
+		if (checked.equals("true"))
+		{
+			 req = "INSERT INTO app_competencies(IdAPP, idCompetencies) VALUES (\""+appTomanage+"\", \""+idcomp+"\")";
+		}
+		else 
+		{
+			req = "delete from app_competencies where IdAPP=\""+appTomanage+"\" AND idCompetencies = \""+idcomp+"\";";
+		}
+		
+		System.out.println(req);
+		try {
+			AccesBD.getInstance().executeUpdate(req);
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
 
 
 
