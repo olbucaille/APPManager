@@ -161,8 +161,13 @@ public class SControllerCompetencies extends HttpServlet {
 			List<Competencies> arrayCompWithoutMother = Competencies.GetCompetenciesWithoutMother();
 			List<Competencies> arrayCompWithMother = Competencies.GetCompetenciesWithMother();
 			
+			//ajout competences de l'APP 
+			HttpSession session = request.getSession();
+			List<String> arrayCompOfApp = Competencies.GetCompetenciesOfAPP(APP.getApp((String)session.getValue("NUMBER")));
+			
 			request.setAttribute("compToListChoice", arrayCompWithoutMother);
 			request.setAttribute("compToDisplay", arrayCompWithMother);
+			request.setAttribute("arrayCompOfApp", arrayCompOfApp);
 			
 			
 			try {
