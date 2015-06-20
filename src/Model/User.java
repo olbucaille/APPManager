@@ -66,17 +66,23 @@ public class User extends LDAPObject {
 	//ask to LDAP if user is connected if yes, it return the user, otherwise it return NULL
 	public static User isGranted(String id, String pass)
 	{
-		//POUR REAL // LDAPObject obj= new LDAPObject();
-		//POUR REAL //LDAPaccess acc = new LDAPaccess();
-		/*try {
-			obj = acc.LDAPget(id, pass);
-		} catch (Exception e) {
-			return null;
-		}*///POUR REAL
+		//DECOMMENTER JUSQUA FIN COMMENT LES LIGNES SUIVANTES POUR UTILISER LE LDAP
 		
-	//POUR REAL //User user = new User(obj.login,obj.password,obj.nom,obj.nomFamille,obj.prenom,obj.getType(),obj.getNumber(),obj.getMail());
-		//POUR TEST
+		// LDAPObject obj= new LDAPObject();
+		//LDAPaccess acc = new LDAPaccess();
+		//try {
+		//	obj = acc.LDAPget(id, pass);
+		//} catch (Exception e) {
+		//	return null;
+		//}
+		
+		//User user = new User(obj.login,obj.password,obj.nom,obj.nomFamille,obj.prenom,obj.getType(),obj.getNumber(),obj.getMail());
+		
+		//FIN COMMENT
+		
+		//COMMENTER JUSQU A FIN COMMENT LES LIGNES SUIVANTES POUR SE CONNECTER AUTOMATIQUEMENT AVEC UN ADMINISTRATEUR
 		User user = new User("tototest","toto","tata","titi","tutu","professeur","4240","toto.tutu@isep.fr");
+		//FIN COMMENT
 		
 		System.out.println(user.toString());
 		return user;
