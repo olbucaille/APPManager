@@ -10,6 +10,8 @@
 <%
 List<Competencies> listWM = (List) request.getAttribute("compToDisplay");
 List<Competencies> list = (List) request.getAttribute("compToListChoice");
+List<String> arrayCompOfApp = (List) request.getAttribute("arrayCompOfApp");
+
 String message = (String)  request.getAttribute("message"); 
 if (message ==null )
 	message = "";
@@ -49,8 +51,20 @@ Iterator it = listCategory.iterator();
 			{
 				if(list.get(i).getCategory().trim().equals(valueCat.trim()))
 				{
-				out.println("<li class=\"liste\"><span>"+list.get(i).getName()+"</span> <a href=\"/APPManager/SControllerCompetencies?action=deleteCompetencie&value="+list.get(i).getIdComp()+"\"><img src=\"/APPManager/images/RedCross.svg\" width=\"10\" height=\"10\"></img></a> <input type=\"checkbox\"  value=\""+list.get(i).getIdComp()+"\" class=\"addToAPP\" /></li> ");
-				out.println("<ol class=\"liste\">");
+
+					System.out.println("test select zone : "+arrayCompOfApp.size());
+
+					if(arrayCompOfApp.contains(list.get(i).getIdComp()))
+					{
+
+						System.out.println("ENTER SELECT ZONE");
+
+				out.println("<li class=\"liste\"><span>"+list.get(i).getName()+"</span> <a href=\"/APPManager/SControllerCompetencies?action=deleteCompetencie&value="+list.get(i).getIdComp()+"\"><img src=\"/APPManager/images/RedCross.svg\" width=\"10\" height=\"10\"></img></a> <input type=\"checkbox\"  value=\""+list.get(i).getIdComp()+"\" class=\"addToAPP\" checked></li> ");
+					
+					}else
+				out.println("<li class=\"liste\"><span>"+list.get(i).getName()+"</span> <a href=\"/APPManager/SControllerCompetencies?action=deleteCompetencie&value="+list.get(i).getIdComp()+"\"><img src=\"/APPManager/images/RedCross.svg\" width=\"10\" height=\"10\"></img></a> <input type=\"checkbox\"  value=\""+list.get(i).getIdComp()+"\" class=\"addToAPP\" ></li> ");
+					
+					out.println("<ol class=\"liste\">");
 				if(listWM!=null)
 				{
 					

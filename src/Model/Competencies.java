@@ -273,6 +273,34 @@ public class Competencies implements Serializable{
 
 
 
+	public static List<String> GetCompetenciesOfAPP(String APP) {
+		ArrayList<String> array= new ArrayList<String>();
+		ResultSet rs = null ;
+		try {
+			
+			String req = "SELECT idCompetencies  FROM app_competencies WHERE IdAPP = \""+APP+"\"; ";
+			System.out.println(req);
+			rs = AccesBD.getInstance().executeQuery(req);
+		
+		
+		if(rs!= null)
+		{
+			while(rs.next()){
+				array.add( String.valueOf(rs.getInt("idCompetencies")));
+				//System.out.println(new Competencies(String.valueOf(rs.getInt("idComp")), rs.getString("Name"), null, null,null,rs.getString("idMother")).toString());
+			}
+		}
+		} catch (ClassNotFoundException | SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return array;
+	}
+
+
+
+
 	
 
 
