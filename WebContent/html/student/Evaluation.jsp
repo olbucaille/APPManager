@@ -7,7 +7,6 @@
 <%@page import="Model.EvaluationForm"%>
 <link rel="stylesheet" type="text/css" href="../../css/css_student/evaltype.css">
 <form id="form" name ="form_evaluation" method="post" action="/APPManager/SEvaluation">
-
 	<%
 		List<Competencies> compList= Competencies.GetAllCompetencies();
 	   	EvaluationForm eval1 = new EvaluationForm(compList);	
@@ -17,17 +16,12 @@
 	%>	<table>
    	   			<tbody>
    	   				<tr>
-   	   					<td colspan = "2"><h2><%=family %></h2></td>
-   	   					
+   	   					<td colspan = "2"><h2><%=family %></h2></td>  					
    	   				</tr>
-   	   <% 
-   		for (Competencies comp_lvl1 : eval1.getCompetenciesInFamily(family)) {
-   			
+   	   <% for (Competencies comp_lvl1 : eval1.getCompetenciesInFamily(family)) {			
    			//afficher compétence
-   			%>		<tr>
-   						
-						</br>
-						
+   			%>		<tr>					
+						</br>						
 						<td><h3>  <%=comp_lvl1.getName() %></h3></td>
 						<td>
 						<strong class="choice<%=count%>">Choose a rating</strong>

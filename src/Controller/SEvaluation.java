@@ -41,20 +41,18 @@ public class SEvaluation extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.setContentType("text/html");
-		PrintWriter out = response.getWriter();
-		String evaluationId = request.getParameter("evaluationId");
-		EvaluationForm myEval = (EvaluationForm) request.getSession().getAttribute(evaluationId);
-		request.getSession().removeAttribute(evaluationId);
 
-		for (Competencies comp : myEval.getCompetenciesInEvaluation()){
-			String idComp = comp.getIdComp();
-			myEval.setMarkToCompetencies(idComp, Integer.parseInt(request.getParameter(idComp)));;
-			out.println(myEval.getMarkOfCompetencies(idComp));
-			
-		}	
+		response.setContentType("text/html");	
+		PrintWriter out = response.getWriter();
+		out.println("<HTML>");
+		out.println("<BODY>");
+		out.println("<H1>évaluation validée</H1>");	
 		
+		out.println("<H1>récapitulatif :</H1>");	
 		
+		out.println("sexe :"+request.getParameter("sexe"));
+		out.println("</BODY></HTML>");
+		out.close();
 		
 
 	}
