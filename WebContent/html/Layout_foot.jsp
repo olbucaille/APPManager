@@ -1,6 +1,6 @@
 
 <div id="footer" style="bottom: 0px;">
-	<div style="float: right">
+	<div style="float: left">
 		<i class='fa fa-copyright'></i> Team Rouge Feu
 	</div>
 </div>

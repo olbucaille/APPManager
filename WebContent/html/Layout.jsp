@@ -47,7 +47,7 @@
 		<div id="buttn-7" class="buttn">
 			<i class="fa fa-question fa-2x"></i>
 		</div>
-		<diV id="buttn-8" class="buttn">
+		<div id="buttn-8" class="buttn">
 			<i class="fa fa-power-off fa-2x"></i>
 		</div>
 	</div>
@@ -94,7 +94,7 @@
 		<div id="buttn-7" class="buttn">
 			<i class="fa fa-question fa-2x"></i>
 		</div>
-		<diV id="buttn-8" class="buttn">
+		<div id="buttn-8" class="buttn">
 			<i class="fa fa-power-off fa-2x"></i>
 		</div>
 	</div>
@@ -141,8 +141,8 @@
 		<div id="buttn-7" class="buttn">
 			<i class="fa fa-question fa-2x"></i>
 		</div>
-		<diV id="buttn-8" class="buttn">
-			<i class="fa fa-power-off fa-2x"></i>
+		<div id="buttn-8" class="buttn"><a href="../../index.jsp">
+			<i class="fa fa-power-off fa-2x"></i></a>
 		</div>
 	</div>
 
