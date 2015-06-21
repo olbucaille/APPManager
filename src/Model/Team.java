@@ -4,6 +4,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import BDDManager.AccesBD;
 
@@ -91,50 +92,56 @@ public class Team {
 			return array;
 
 		}
+		
+		//récupert la liste des utlisateurs pour une équipe donnée
+		public static List<User> GetTeamUsers(Team team)
+		{
+			
+			ArrayList<User> array= new ArrayList<User>();
+			ResultSet rs = null ;
+			try {
+				String req = "SELECT Nom,Prenom,IdUtilisateur FROM user WHERE IdUtilisateur IN"
+						+ " (SELECT iduser FROM team_user WHERE idteam= \""+team.getIdTeam()+"\"); ";
+				System.out.println(req);
+				rs = AccesBD.getInstance().executeQuery(req);
+			
+			
+			if(rs!= null)
+			{
+				while(rs.next()){
+					
+					array.add( new User(rs.getString("Nom"),rs.getString("Prenom"),rs.getString("idUtilisateur"),"Student"));			
+				}
+			}
+			} catch (ClassNotFoundException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		//	System.out.println(array.get(0).getName());
+			return array;
 
-
-
-
-
+		}
+		
+		
 		public String getIdTeam() {
 			return IdTeam;
 		}
-
-
-
-
 
 		public void setIdTeam(String idTeam) {
 			IdTeam = idTeam;
 		}
 
-
-
-
-
 		public String getIdAPP() {
 			return IdAPP;
 		}
-
-
-
-
 
 		public void setIdAPP(String idAPP) {
 			IdAPP = idAPP;
 		}
 
-
-
-
-
 		public String getName() {
 			return name;
 		}
-
-
-
-
 
 		public void setName(String name) {
 			this.name = name;

@@ -34,7 +34,7 @@
 
 <div class="container">
     <!-- The file upload form used as target for the file upload widget -->
-    <form id="fileupload" action="//jquery-file-upload.appspot.com/" method="POST" enctype="multipart/form-data" data-ng-app="demo" data-ng-controller="DemoFileUploadController" data-file-upload="options" data-ng-class="{'fileupload-processing': processing() || loadingFiles}">
+    <form id="fileupload" action="/APPManager/SUpload" method="POST" enctype="multipart/form-data" data-ng-app="demo"  data-file-upload="options" data-ng-class="{'fileupload-processing': processing() || loadingFiles}">
         <!-- Redirect browsers with JavaScript disabled to the origin page -->
         <noscript><input type="hidden" name="redirect" value="https://blueimp.github.io/jQuery-File-Upload/"></noscript>
         <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
@@ -46,7 +46,7 @@
                     <span>Add files...</span>
                     <input type="file" name="files[]" multiple ng-disabled="disabled">
                 </span>
-                <button type="button" class="btn btn-primary start" data-ng-click="submit()">
+                <button type="button" class="btn btn-primary start" type="submit" value="Upload">
                     <i class="glyphicon glyphicon-upload"></i>
                     <span>Start upload</span>
                 </button>
