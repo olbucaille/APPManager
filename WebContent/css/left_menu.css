@@ -1,9 +1,10 @@
 .leftmenubox {
 	display: inline-block;    
     vertical-align: top;
-	position: relative;
+	position: fixed;
 	float: left;
-	top: -15px;
+	top: 110px;
+	font: 15px/1 'Montserrat', sans-serif;
 }
 
 .leftmenu {
@@ -20,10 +21,10 @@ ul.leftmenu #leftmenubox_tab #leftmenu_ref{
 	-webkit-transition: all 0.3s ease-out;
 	background: #cbcbcb url(../images/border.png) no-repeat;
 	color: #174867;
-	padding: 7px 15px 7px 15px;
+	padding: 3px 10px 3px 10px;
 	-webkit-border-top-right-radius: 5px;
  	-webkit-border-bottom-right-radius: 5px;
-	width: 160px;
+	width: 140px;
 	display: block;    
 	text-decoration: none;
 	-webkit-box-shadow: 2px 2px 4px #888;
@@ -33,10 +34,10 @@ ul.leftmenu #leftmenubox_tab #leftmenu_ref{
 ul.leftmenu #leftmenubox_title {
 	background: #006599 url(../images/border.png) no-repeat;
 	color: #eee;
-	padding: 10px 15px 10px 30px;
+	padding: 7px 15px 7px 20px;
 	-webkit-border-top-right-radius: 5px;
  	-webkit-border-bottom-right-radius: 5px;
-	width: 180px;
+	width: 150px;
 	display: block;    
     vertical-align: top;
 	text-decoration: none;
@@ -52,5 +53,5 @@ ul.leftmenu #leftmenubox_title #leftmenu_title {
 ul.leftmenu #leftmenubox_tab #leftmenu_ref:hover {
 	background: #fecd66 url(../images/border.png) no-repeat;
 	color: #67a5cd;
-	padding: 9px 15px 9px 30px;
+	padding: 4px 15px 4px 15px;
 }

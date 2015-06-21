@@ -33,6 +33,11 @@ body {
 	z-index: 19;
 }
 
+.buttn > a{
+	text-decoration: none;
+	color: white;
+}
+
 #buttn-1 {
 	transition: all 500ms cubic-bezier(0.680, -0.550, 0.265, 1.550);
 }
@@ -86,7 +91,7 @@ body {
 }
 
 #menu-text {
-	position: absolute;
+	position: fixed;
 	height: 40px;
 	width: 350px;
 	left: 50%;
@@ -103,29 +108,11 @@ body {
 	display: none;
 	font: 20px/1 'Montserrat', sans-serif;
 }
-/* Chrome, Safari, Opera */
-@
--webkit-keyframes movetexton {from { left:-75px;
-	
-}
 
-to {
-	left: 0px;
-}
-
-}
-@
-keyframes movetexton {from { left:-50px;
-	
-}
-
-to {
-	left: 0px;
-}
-
-}
 #title {
-	position: absolute;
+	display: inline-block;    
+    vertical-align: top;
+	position: fixed;
 	height: 40px;
 	width: 350px;
 	left: 50%;
@@ -139,8 +126,10 @@ to {
 
 #block-central {
 	border: solid 1px red;
-	height: 500px;
-	margin: 0 25px 0 25px;
+	height: auto;
+	margin: 0 25px 0 250px;
+	position: relative;
+	top: 60px;
 }
 
 #footer {

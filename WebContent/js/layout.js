@@ -99,11 +99,7 @@ $(document).ready(function() {
 			var selected = "#text-" + $(this).attr('id');
 			$(selected).css({
 				'display': 'block',
-				'position': 'relative',
-				'-webkit-animation': 'movetexton 0.5s',
-				'-webkit-animation-timing-function': 'linear',
-				'animation': 'movetexton 0.5s',
-				'animation-timing-function': 'linear'
+				'position': 'relative'
 			});
 			$('#title').css('display', 'none');
 		}, function() {
