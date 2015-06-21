@@ -18,7 +18,7 @@
 
 
 <nav class="STD">
-     <h1>My teams</h1>    
+     <h1> Teams</h1>    
      <%
      
 		List<Team> teamList= Team.GetAllTeam();
@@ -50,30 +50,29 @@
     </nav>
 
 
-
-
-
-
-
-  <form action="index.html" class="contact">
-    <h1>Evaluation of 05/12/2015</h1>
+  <form class="contact" method="post" action="/APPManager/SNewEvaluation">
+    <h1> New evaluation</h1>
     <fieldset class="contact-inner">
       <p class="contact-input">
-        <input type="text" name="comment" placeholder="Comment" autofocus>
+        <input type="text" name="name" placeholder="Name" autofocus>
       </p>
 
       <p class="contact-input">
         <label for="select" class="select">
-          <select name="subject" id="select">
-            <option value="" selected>Choose Type…</option>
-            <option value="1">cross</option>
-            <option value="1">auto</option>
+          <select name="type" id="select">
+            <option value="cross" selected>cross evaluation</option>
+            <option value="auto">auto evaluation</option>
+
           </select>
         </label>
       </p>
+      
+      <p class="contact-input">
+        <input type="date" name="date" placeholder="Date" autofocus>
+      </p>
 
       <p class="contact-input">
-        <textarea rows="10" cols="50" name="freecomment" placeholder="Free Comments"></textarea>
+        <textarea rows="10" cols="50" name="comment" placeholder="Free Comments"></textarea>
       </p>
 
       <p class="contact-submit">
@@ -81,8 +80,6 @@
       </p>
     </fieldset>
   </form>
-
-
 
 
 

@@ -10,57 +10,60 @@ import BDDManager.AccesBD;
 public class Evaluation {
 	
 	//identifiant de l'evalaution
-	private String ID_evaluation;
+	private String iD_evaluation;
 	//nom de l'évalaution (court)
-	private String Name;
+	private String name;
 	//desciption de l'évalaution
-	private String Type;
+	private String type;
 	//date de l'évalaution
-	private String Date;
+	private String date;
+	//commentaire
+	private String comment;
 
 	
 	
 	//contructeur
-	public Evaluation(String ID_evaluation, String Name, String Type,String Date) {
+	public Evaluation(String iD_evaluation, String name, String type,String date, String comment) {
 
 
-		this.setID_evaluation(ID_evaluation);
-		this.setName(Name);
-		this.setType(Type);
-		this.setDate(Date);
+		this.iD_evaluation=iD_evaluation;
+		this.name=name;
+		this.type=type;
+		this.date=date;
+		this.comment=comment;
 	}
 	
 
 	public String getDate() {
-		return Date;
+		return date;
 	}
 
 	public void setDate(String date) {
-		Date = date;
+		date = date;
 	}
 
 	public String getType() {
-		return Type;
+		return type;
 	}
 
 	public void setType(String type) {
-		Type = type;
+		type = type;
 	}
 
 	public String getName() {
-		return Name;
+		return name;
 	}
 
 	public void setName(String name) {
-		Name = name;
+		name = name;
 	}
 
 	public String getID_evaluation() {
-		return ID_evaluation;
+		return iD_evaluation;
 	}
 
 	public void setID_evaluation(String iD_evaluation) {
-		ID_evaluation = iD_evaluation;
+		iD_evaluation = iD_evaluation;
 	}
 	
 
@@ -68,7 +71,7 @@ public class Evaluation {
 		public static  void AddEvaluation(Evaluation cp)
 		{
 			try {
-				String req = "INSERT INTO evaluation(Name, Type, Date) VALUES (\""+cp.Name+"\", \""+cp.Type+"\", \""+cp.Date+"\")";
+				String req = "INSERT INTO evaluation(Name, Type, Date,Comment) VALUES (\""+cp.name+"\", \""+cp.type+"\", \""+cp.date+"\", \""+cp.comment+"\")";
 				System.out.println(req);
 				AccesBD.getInstance().executeUpdate(req);
 			} catch (ClassNotFoundException | SQLException e) {
@@ -85,7 +88,7 @@ public class Evaluation {
 		List<Evaluation> evalList= new ArrayList<Evaluation>();
 		ResultSet rs = null ;
 		try {
-			String req = "SELECT ID_evaluation,Name,Type,Date FROM evaluation ; ";
+			String req = "SELECT ID_evaluation,Name,Type,Date,Comment FROM evaluation ; ";
 			System.out.println(req);
 			rs = AccesBD.getInstance().executeQuery(req);
 		
@@ -93,9 +96,9 @@ public class Evaluation {
 		if(rs!= null)
 		{
 			while(rs.next()){
-				evalList.add( new Evaluation(String.valueOf(rs.getString("ID_evaluation")), rs.getString("Name"), rs.getString("Type"), rs.getString("Date")));				
+				evalList.add( new Evaluation(String.valueOf(rs.getString("ID_evaluation")), rs.getString("Name"), rs.getString("Type"), rs.getString("Date"), rs.getString("Comment")));				
 			
-				System.out.println(new Evaluation(String.valueOf(rs.getString("ID_evaluation")), rs.getString("Name"), rs.getString("Type"), rs.getString("Date")).toString());			}
+				System.out.println(new Evaluation(String.valueOf(rs.getString("ID_evaluation")), rs.getString("Name"), rs.getString("Type"), rs.getString("Date"), rs.getString("Comment")).toString());			}
 		}
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
@@ -108,8 +111,8 @@ public class Evaluation {
 	
 	@Override
 	public String toString() {
-		return "Evaluation [ID_evaluation=" + ID_evaluation + ", Name=" + Name + ", Type="
-				+ Type + ", Date=" + Date + "]";
+		return "Evaluation [ID_evaluation=" + iD_evaluation + ", Name=" + name + ", Type="
+				+ type + ", Date=" + date + ", Comment=" + comment + "]";
 	}
 
 
