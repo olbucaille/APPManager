@@ -74,7 +74,7 @@ Select File to Upload:<input type="file" name="fileName">
 <%
 List <Media> mediaList = Media.getMediaOfTeam(team.getIdTeam());
 for(Media med :mediaList){
-	%><li ><a href=\"UploadDownloadFileServlet?fileName=<%=med.getName()%>\">Download <%=med.getName()%></a></li><% 
+	%><li ><a href="/APPManager/UploadDownloadFileServlet?fileName=<%=med.getName()%>">Download <%=med.getName()%></a></li><% 
 }
 
 %>
