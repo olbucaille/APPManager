@@ -4,7 +4,7 @@
 <jsp:include page="/html/Layout.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css" href="../../css/left_menu.css">
 
-<h1>Profile</h1>
+<div id="title">PROFILE</div>
 
 <div class="leftmenubox">
 	<ul class="leftmenu">

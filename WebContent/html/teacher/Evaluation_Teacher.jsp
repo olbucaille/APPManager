@@ -5,15 +5,11 @@
 <%@page import="Model.Evaluation"%>
 <%@page import="Model.User"%>
 <%@page import="Model.Team"%>
-<!DOCTYPE html>
-<html>
- <jsp:include page="/html/Layout.jsp"></jsp:include>  
-<head>
-<meta charset="UTF-8">
-<title>Evaluation</title>
+
+<jsp:include page="/html/Layout.jsp"></jsp:include>  
 <link rel="stylesheet" type="text/css" href="../../css/css_teacher/evaluation_teacher.css">
-</head>
-<body>
+
+<div id="title">EVALUATIONS</div>
 
 
 

@@ -6,8 +6,10 @@
 
 <jsp:include page="/html/Layout.jsp"></jsp:include>
 
+<div id="title">SETTINGS</div>
 
-<%
+<div id="block-central">
+	<%
 List<Competencies> listWM = (List) request.getAttribute("compToDisplay");
 List<Competencies> list = (List) request.getAttribute("compToListChoice");
 List<String> arrayCompOfApp = (List) request.getAttribute("arrayCompOfApp");
@@ -28,25 +30,27 @@ Iterator it = listCategory.iterator();
 %>
 
 
-<h1>Skills Managment</h1>
+	<h1>Skills Managment</h1>
 
 
-<p>
-	<%=message %>
-</p>
+	<p>
+		<%=message %>
+	</p>
 
-<ol>
-	<%if(list!=null)
+	<ol>
+		<%if(list!=null)
 	{
 		int i = 0;
 		while (it.hasNext())
 			{
 			String valueCat =(String) it.next();
 			//if(x.getCategory().trim().equals(valueCat))
-			%><br /><big><p style="color:red;">
-			<%=valueCat %>
-			</big></p><br />
-			<%
+			%><br />
+		<big><p style="color: red;">
+				<%=valueCat %></big>
+		</p>
+		<br />
+		<%
 			for( i=0; i<list.size();i++)	
 			{
 				if(list.get(i).getCategory().trim().equals(valueCat.trim()))
@@ -83,50 +87,46 @@ Iterator it = listCategory.iterator();
 	}
 	else 
 	out.print("problem");%>
-</ol>
+	</ol>
 
-<br />
-<form  action="/APPManager/SControllerCompetencies" method="POST">
-
-
-	<label for="Category">Under the category</label> <select
-		name="Category" size="1">
-		<option selected>Team Work
-		<option>Communication
-		<option>Project managment
-		<option>Design/Implementation
-		<option>Profesionnal skills
-	</select> <br />
-	
-		
-	</select> <br /> <br /> <label for="Name">Name</label> <input type="text"
-		name="Name"> <br /> <br /> 
-		
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label for="level1">level1</label> <input type="text"
-		name="level1"> <br /> <br /> 
-		
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label for="level2">level2</label> <input type="text"
-		name="level2"> <br /> <br />
-		 
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label for="level3">level3</label> <input type="text"
-		name="level3"> <br /> <br /> 
-		
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label for="level4">level4</label> <input type="text"
-		name="level4"> <br /> <br /> 
-		
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label for="level5">level5</label> <input type="text"
-		name="level5"> <br /> <br /> 
-		
-		<label for="IsNeeded">Is
-		needed to validate any module</label> <input type="checkbox" name="IsNeeded"
-		value="yes" /> yes <br>
-	<br /> <input type="submit" name="action" value="addcompetencies"
-		name="submit" />
+	<br />
+	<form action="/APPManager/SControllerCompetencies" method="POST">
 
 
-    
-    
-</form>
+		<label for="Category">Under the category</label> <select
+			name="Category" size="1">
+			<option selected>Team Work
+			<option>Communication
+			<option>Project managment
+			<option>Design/Implementation
+			<option>Profesionnal skills
+		</select> <br /> </select> <br /> <br /> <label for="Name">Name</label> <input
+			type="text" name="Name"> <br /> <br />
+
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label for="level1">level1</label>
+		<input type="text" name="level1"> <br /> <br />
+
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label for="level2">level2</label>
+		<input type="text" name="level2"> <br /> <br />
+
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label for="level3">level3</label>
+		<input type="text" name="level3"> <br /> <br />
+
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label for="level4">level4</label>
+		<input type="text" name="level4"> <br /> <br />
+
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <label for="level5">level5</label>
+		<input type="text" name="level5"> <br /> <br /> <label
+			for="IsNeeded">Is needed to validate any module</label> <input
+			type="checkbox" name="IsNeeded" value="yes" /> yes <br> <br />
+		<input type="submit" name="action" value="addcompetencies"
+			name="submit" />
+
+
+
+
+	</form>
+</div>
 <jsp:include page="/html/Layout_foot.jsp"></jsp:include>
 
 <script>

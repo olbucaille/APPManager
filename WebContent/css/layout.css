@@ -87,7 +87,7 @@ body {
 }
 
 .active {
-	color: #fecd66;
+	color: #fecd66; !important
 }
 
 #menu-text {

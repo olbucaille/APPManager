@@ -133,7 +133,7 @@ public class SControllerUser extends HttpServlet {
 		else if(map.get("IsTutor"))
 			response.sendRedirect("/APPManager/html/teacher/MyGroups_teacher.jsp");
 		else if(map.get("IsStudent"))
-			response.sendRedirect("/APPManager/html/student/Profile.html");
+			response.sendRedirect("/APPManager/html/student/Profile.jsp");
 		else
 			response.sendRedirect("/APPManager/index.jsp");
 		
