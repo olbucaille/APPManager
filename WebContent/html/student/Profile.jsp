@@ -70,7 +70,6 @@
 			  	//Data
 			  	
 			  	var LegendOptions = ['larour','bucaille','buso'];			  	
-			  	var category = ['teamWork','Communication','aefefef','dfefefefezf','ezfef'];
 			  	<%
 			  	List<String> catList= new ArrayList<String>();
 			  	List<String> groupList= new ArrayList<String>();

@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.4
+-- version 4.4.3
 -- http://www.phpmyadmin.net
 --
--- Client: localhost
--- GÈnÈrÈ le: Mar 23 Juin 2015 ‡ 13:53
--- Version du serveur: 5.6.12-log
--- Version de PHP: 5.4.16
+-- Client :  localhost
+-- G√©n√©r√© le :  Mar 23 Juin 2015 √† 19:15
+-- Version du serveur :  5.6.24
+-- Version de PHP :  5.6.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,10 +17,8 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Base de donnÈes: `bddgapp`
+-- Base de donn√©es :  `bddgapp`
 --
-CREATE DATABASE IF NOT EXISTS `bddgapp` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `bddgapp`;
 
 -- --------------------------------------------------------
 
@@ -29,13 +27,11 @@ USE `bddgapp`;
 --
 
 CREATE TABLE IF NOT EXISTS `appsession` (
-  `IdAPP` int(15) NOT NULL AUTO_INCREMENT,
+  `IdAPP` int(15) NOT NULL,
   `Type` varchar(50) NOT NULL,
   `StartDate` varchar(20) NOT NULL,
-  `EndDate` varchar(20) NOT NULL,
-  PRIMARY KEY (`IdAPP`),
-  UNIQUE KEY `IdAPP` (`IdAPP`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `EndDate` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -55,10 +51,23 @@ CREATE TABLE IF NOT EXISTS `app_competencies` (
 --
 
 CREATE TABLE IF NOT EXISTS `auto_evaluation` (
+  `iD_autoEvaluation` int(11) NOT NULL,
   `ID_evaluation` varchar(15) NOT NULL,
-  `ID_competence` varchar(50) NOT NULL,
-  `Mark` int(11) NOT NULL,
-  `ID_user_evaluator` int(11) NOT NULL
+  `Id_User` int(11) NOT NULL,
+  `Date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `auto_evaluation_mark`
+--
+
+CREATE TABLE IF NOT EXISTS `auto_evaluation_mark` (
+  `Id_auto_evaluation` varchar(15) NOT NULL,
+  `ID_competence` varchar(15) NOT NULL,
+  `Mark` varchar(15) NOT NULL,
+  `ID_user_evaluator` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -70,7 +79,18 @@ CREATE TABLE IF NOT EXISTS `auto_evaluation` (
 CREATE TABLE IF NOT EXISTS `category` (
   `ID_category` int(11) NOT NULL,
   `Name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+
+--
+-- Contenu de la table `category`
+--
+
+INSERT INTO `category` (`ID_category`, `Name`) VALUES
+(1, 'TeamWork'),
+(2, 'Communication'),
+(3, 'Project Management'),
+(4, 'Design'),
+(5, 'Profesionnal Skills');
 
 -- --------------------------------------------------------
 
@@ -79,14 +99,13 @@ CREATE TABLE IF NOT EXISTS `category` (
 --
 
 CREATE TABLE IF NOT EXISTS `competencies` (
-  `IdComp` int(15) NOT NULL AUTO_INCREMENT,
+  `IdComp` int(15) NOT NULL,
   `Name` varchar(50) NOT NULL,
   `Description` varchar(500) NOT NULL,
   `IsNecessary` varchar(5) NOT NULL,
   `Category` varchar(25) NOT NULL,
-  `idMother` varchar(15) DEFAULT NULL,
-  PRIMARY KEY (`IdComp`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `idMother` varchar(15) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -95,10 +114,10 @@ CREATE TABLE IF NOT EXISTS `competencies` (
 --
 
 CREATE TABLE IF NOT EXISTS `cross_evaluation` (
-  `ID` varchar(15) DEFAULT NULL,
-  `Name` varchar(50) NOT NULL,
-  `Reference` varchar(50) NOT NULL,
-  `ID_team` int(11) NOT NULL,
+  `ID` int(15) NOT NULL,
+  `id_evaluation` varchar(50) NOT NULL,
+  `id_User` int(11) NOT NULL,
+  `ID_team` varchar(11) NOT NULL,
   `Date` date NOT NULL,
   `Comment` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -137,9 +156,9 @@ CREATE TABLE IF NOT EXISTS `evaluation` (
 --
 
 CREATE TABLE IF NOT EXISTS `media` (
-  `IdMedia` varchar(15) NOT NULL,
+  `IdMedia` int(15) NOT NULL,
   `name` varchar(50) NOT NULL,
-  `url` int(100) NOT NULL
+  `url` varchar(250) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -149,12 +168,11 @@ CREATE TABLE IF NOT EXISTS `media` (
 --
 
 CREATE TABLE IF NOT EXISTS `team` (
-  `IdTeam` int(11) NOT NULL AUTO_INCREMENT,
+  `IdTeam` int(11) NOT NULL,
   `IdAPP` varchar(15) NOT NULL,
   `Name` varchar(50) NOT NULL,
-  `CreationDate` varchar(20) DEFAULT NULL,
-  PRIMARY KEY (`IdTeam`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+  `CreationDate` varchar(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -165,7 +183,7 @@ CREATE TABLE IF NOT EXISTS `team` (
 CREATE TABLE IF NOT EXISTS `team_media` (
   `IdTeam` varchar(15) NOT NULL,
   `idMedia` varchar(15) NOT NULL,
-  `for` varchar(50) NOT NULL
+  `type` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -194,9 +212,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `IsStudent` tinyint(1) NOT NULL,
   `IsTutor` tinyint(1) NOT NULL,
   `IsModuleManager` tinyint(1) NOT NULL,
-  `IsAdmin` tinyint(1) NOT NULL,
-  PRIMARY KEY (`IdUtilisateur`),
-  UNIQUE KEY `IdUtilisateur` (`IdUtilisateur`)
+  `IsAdmin` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -205,10 +221,10 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 INSERT INTO `user` (`IdUtilisateur`, `Nom`, `Prenom`, `Email`, `Actif`, `IsStudent`, `IsTutor`, `IsModuleManager`, `IsAdmin`) VALUES
 ('4240', 'Admin', 'tutu', 'toto.tutu@isep.fr', 1, 0, 1, 0, 1),
-('4241', 'Module Manager', 'tutu', 'toto.tutu@isep.fr', 1, 1, 0, 1, 0),
+('4241', 'Module Manager', 'tutu', 'toto.tutu@isep.fr', 1, 0, 0, 1, 0),
 ('4242', 'Tutor', 'tutu', 'toto.tutu@isep.fr', 1, 0, 1, 0, 0),
 ('4243', 'Student', 'tutu', 'toto.tutu@isep.fr', 1, 1, 0, 0, 0),
-('4244', 'TestAffect', 'tutu', 'toto.tutu@isep.fr', 1, 0, 0, 0, 0);
+('4244', 'TestAffect', 'tutu', 'toto.tutu@isep.fr', 1, 1, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -233,6 +249,88 @@ CREATE TABLE IF NOT EXISTS `user_media` (
   `for` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Index pour les tables export√©es
+--
+
+--
+-- Index pour la table `appsession`
+--
+ALTER TABLE `appsession`
+  ADD PRIMARY KEY (`IdAPP`),
+  ADD UNIQUE KEY `IdAPP` (`IdAPP`);
+
+--
+-- Index pour la table `category`
+--
+ALTER TABLE `category`
+  ADD PRIMARY KEY (`ID_category`);
+
+--
+-- Index pour la table `competencies`
+--
+ALTER TABLE `competencies`
+  ADD PRIMARY KEY (`IdComp`);
+
+--
+-- Index pour la table `cross_evaluation`
+--
+ALTER TABLE `cross_evaluation`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Index pour la table `media`
+--
+ALTER TABLE `media`
+  ADD PRIMARY KEY (`IdMedia`);
+
+--
+-- Index pour la table `team`
+--
+ALTER TABLE `team`
+  ADD PRIMARY KEY (`IdTeam`);
+
+--
+-- Index pour la table `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`IdUtilisateur`),
+  ADD UNIQUE KEY `IdUtilisateur` (`IdUtilisateur`);
+
+--
+-- AUTO_INCREMENT pour les tables export√©es
+--
+
+--
+-- AUTO_INCREMENT pour la table `appsession`
+--
+ALTER TABLE `appsession`
+  MODIFY `IdAPP` int(15) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `category`
+--
+ALTER TABLE `category`
+  MODIFY `ID_category` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT pour la table `competencies`
+--
+ALTER TABLE `competencies`
+  MODIFY `IdComp` int(15) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `cross_evaluation`
+--
+ALTER TABLE `cross_evaluation`
+  MODIFY `ID` int(15) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `media`
+--
+ALTER TABLE `media`
+  MODIFY `IdMedia` int(15) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `team`
+--
+ALTER TABLE `team`
+  MODIFY `IdTeam` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
