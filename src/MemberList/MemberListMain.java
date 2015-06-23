@@ -78,7 +78,7 @@ public class MemberListMain extends HttpServlet {
 
 				
 			//		init();
-			getServletContext().getRequestDispatcher("/WEB-INF/MemberList.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/html/student/MemberList.jsp").forward(request, response);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
