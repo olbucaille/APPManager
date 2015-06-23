@@ -20,6 +20,7 @@
  String idUser=(String)session.getValue("NUMBER"); 
  String idTeam = Team.GetIdTeamOfUser(idUser);
  Team team = Team.GetTeamWithId(idTeam);
+ if (team!=null){
  List <User> userList=Team.GetTeamUsers(team);
 
  %> 
@@ -58,6 +59,7 @@
 	</ul>
 </div>
 
+<%	} //si l'utilisateur n'a pas de groupe%>
 
 <div id="block-central">
 	<div class="centerAndRight">
@@ -73,8 +75,7 @@
 			  	<%
 			  	List<String> catList= new ArrayList<String>();
 			  	List<String> groupList= new ArrayList<String>();
-			  	
-			  	
+			  				  	
 			  	catList.add("TeamWork");
 			  	catList.add("Communication");
 			  	catList.add("Project Management");

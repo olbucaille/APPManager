@@ -19,7 +19,8 @@
  
  String idUser=(String)session.getValue("NUMBER"); 
  String idTeam = Team.GetIdTeamOfUser(idUser);
- Team team = Team.GetTeamWithId(idTeam);
+ Team team = Team.GetTeamWithId(idTeam); 
+ if (team!=null){
  List <User> userList=Team.GetTeamUsers(team);
 
  %> 
@@ -59,6 +60,7 @@
 </div>
 
 
+
 <div id="block-central">
 	<form action="/APPManager/UploadDownloadFileServlet" method="POST"
 		enctype="multipart/form-data">
@@ -76,6 +78,6 @@ for(Media med :mediaList){
 	<% 
 }
 %>
-
+<%	} //si l'utilisateur n'a pas de groupe%>
 </div>
 <jsp:include page="/html/Layout_foot.jsp"></jsp:include>

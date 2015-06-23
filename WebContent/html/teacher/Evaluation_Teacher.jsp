@@ -7,7 +7,7 @@
 <%@page import="Model.Team"%>
 
 <jsp:include page="/html/Layout.jsp"></jsp:include>  
-<link rel="stylesheet" type="text/css" href="../../css/css_teacher/evaluation_teacher.css">
+<link rel="stylesheet" type="text/css" href="/APPManager/css/css_teacher/evaluation_teacher.css">
 
 <div id="title">EVALUATIONS</div>
 
