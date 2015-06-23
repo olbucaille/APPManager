@@ -7,23 +7,24 @@
 <%@page import="Model.Team"%>
 
 <jsp:include page="/html/Layout.jsp"></jsp:include>
-<link rel="stylesheet" type="text/css" href="/APPManager/css/left_menu.css">
-<link rel="stylesheet" type="text/css" href="/APPManager/css/css_student/style_student.css">
+<link rel="stylesheet" type="text/css"
+	href="/APPManager/css/left_menu.css">
+<link rel="stylesheet" type="text/css"
+	href="/APPManager/css/css_student/style_student.css">
 
 <div id="title">MY GROUP</div>
 
 
-	
-	System.out.println("app :"+ session.getValue("NUMBER"));
-	String idUser =session.getValue("NUMBER"); %>
-	
-	<div class="leftmenubox">
-		<ul class="leftmenu">
-			<%  List <User> userList;	
+<%-- <% --%>
+<%-- System.out.println("app :"+ session.getValue("NUMBER")); String idUser=session.getValue("NUMBER"); %> --%>
+
+<div class="leftmenubox">
+	<ul class="leftmenu">
+		<%  List <User> userList;	
     Team team = new Team("1",null ,null );
 		%>
-			<li id="leftmenubox_title"><a id="leftmenu_title" href="#"><%=team.getName() %></a></li>
-			<% 
+		<li id="leftmenubox_title"><a id="leftmenu_title" href="#"><%=team.getName() %></a></li>
+		<% 
 			userList=null;
 			// récuperer la team en fonction de l'utilisateur
 			userList= Team.GetTeamUsers(team);
@@ -32,24 +33,24 @@
 			}else{
 				 for (User user : userList) {	
 				 if (user.getType()=="Student")%>
-			<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#"><%=user.getNom()%>
-					<%=user.getPrenom()%></a></li>
-			<%}	
+		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#"><%=user.getNom()%>
+				<%=user.getPrenom()%></a></li>
+		<%}	
 			}
 			
 			if (userList.isEmpty()){
 				System.out.println("user empty");
 			}else{
 				%>
-			<li id="leftmenubox_title"><a id="leftmenu_title" href="#">Tutors</a></li>
-			<%for (User user : userList) {	
+		<li id="leftmenubox_title"><a id="leftmenu_title" href="#">Tutors</a></li>
+		<%for (User user : userList) {	
 				 if (user.getType()=="Tutor")%>
-			<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#"><%=user.getNom()%>
-					<%=user.getPrenom()%></a></li>
-			<%}	
+		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#"><%=user.getNom()%>
+				<%=user.getPrenom()%></a></li>
+		<%}	
 			}%>
-		</ul>
-	</div>
+	</ul>
+</div>
 
 
 <div id="block-central">
