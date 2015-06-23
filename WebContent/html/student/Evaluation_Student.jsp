@@ -11,16 +11,17 @@
 
 <jsp:include page="/html/Layout.jsp"></jsp:include>
 
-<link rel="stylesheet" type="text/css" href="../../css/evaltype.css">
+<link rel="stylesheet" type="text/css" href="/APPManager/css/evaltype.css">
+<link rel="stylesheet" type="text/css" href="/APPManager/css/left_menu.css">
 <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 
-<div id="title">MY GROUPS</div>
+<div id="title">EVALUATIONS</div>
 
-<div id="block-central">
-	<div class="left">
-		<h1>Evaluation Liste</h1>
-		<div id="evaluation_list">
+<div class="leftmenubox">
+		<ul class="leftmenu">
+			<li id="leftmenubox_title"><a id="leftmenu_title" href="#">Evaluation Liste</a></li>
+		
 
 			<%
 				List<Evaluation> evalList= Evaluation.GetEvaluation();
@@ -29,30 +30,34 @@
 			   		System.out.println("probleme BDD");
 			   		for (Evaluation eval : evalList) {
 			   			if (eval.getType().equals("cross")){
-			   				if (CrossEvaluation.crossEvaluationIsAlreadyDone(eval.getID_evaluation() ,idUser )){//pour vérifier si l'élève a deja fait l'evaluation
+			   				if (CrossEvaluation.crossEvaluationIsAlreadyDone(eval.getID_evaluation() ,idUser )){//pour vï¿½rifier si l'ï¿½lï¿½ve a deja fait l'evaluation
 			   					%>
-			<li style="display: block;"><%=eval.getName() %> (DONE)</li>
+			   				
+			<li id="leftmenubox_tab" ><a id="leftmenu_ref" href="#"><%=eval.getName() %> (DONE)</a></li>
 			<% }else{%>
-			<li onclick="cross_evaluation(<%=eval.getID_evaluation()%>)"
-				style="display: block;"><%=eval.getDate() +" - "+eval.getName()   %></li>
+			<li  id="leftmenubox_tab" onclick="cross_evaluation(<%=eval.getID_evaluation()%>)"
+				><a id="leftmenu_ref" href="#"><%=eval.getDate() +" - "+eval.getName()   %></a></li>
 			<% 
 			   				}
 			   			}else if (eval.getType().equals("auto")){
-			   				if (AutoEvaluation.autoEvaluationIsAlreadyDone(eval.getID_evaluation() ,idUser )){//pour vérifier si l'élève a deja fait l'evaluation
+			   				if (AutoEvaluation.autoEvaluationIsAlreadyDone(eval.getID_evaluation() ,idUser )){//pour vï¿½rifier si l'ï¿½lï¿½ve a deja fait l'evaluation
 			   					%>
-			<li style="display: block;"><%=eval.getName() %> (DONE)</li>
+			<li id="leftmenubox_tab" ><a id="leftmenu_ref" href="#"><%=eval.getName() %> (DONE)</a></li>
 			<% }else{%>
 
-			<li onclick="auto_evaluation(<%=eval.getID_evaluation()%>)"
-				style="display: block;"><%= eval.getDate() + " - "+eval.getName()  %></li>
+			<li id="leftmenubox_tab" onclick="auto_evaluation(<%=eval.getID_evaluation()%>)"><a id="leftmenu_ref" href="#"><%= eval.getDate() + " - "+eval.getName()  %></a></li>
 			<% 
 			   				}
 			   			}
 			   		}
 			   	}	
 			%>
+			</ul>
 		</div>
-	</div>
+
+<div id="block-central">
+	
+
 	<div class="centerAndRight">
 		<div id="cross_evaluation" style="display: none;">
 			<jsp:include page="/html/student/Cross_Evaluation.jsp"></jsp:include>
@@ -63,7 +68,7 @@
 
 	</div>
 </div>
-<script src="../../js/Evaluation.js" type="text/javascript"></script>
+<script src="/APPManager/js/Evaluation.js" type="text/javascript"></script>
 
 
 
