@@ -1,10 +1,5 @@
 @CHARSET "US-ASCII";
 
-/* ----------------------------------------------Navigation bar------------------------------------- */
-* {
-  margin: 0px;
-}
-
 /* For Evaluation */
 .EV {
   font-family: Helvetica, Arial, "Lucida Grande", sans-serif;

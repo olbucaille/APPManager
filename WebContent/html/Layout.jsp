@@ -32,14 +32,14 @@
 		<div id="buttn-2" class="buttn">
 			<i class="fa fa-users fa-2x"></i>
 		</div>
-		<div id="buttn-3" class="buttn active">
+		<div id="buttn-3" class="buttn">
 			<i class="fa fa-star fa-2x"></i>
 		</div>
 		<div id="buttn-4" class="buttn">
 			<i class="fa fa-list fa-2x"></i>
 		</div>
-		<div id="buttn-5" class="buttn">
-			<i class="fa fa-cog fa-2x"></i>
+		<div id="buttn-5" class="buttn active"><a href="\Admin\Settings.jsp">
+			<i class="fa fa-cog fa-2x"></i></a>
 		</div>
 		<div id="buttn-6" class="buttn">
 			<i class="fa fa-user fa-2x"></i>
@@ -47,8 +47,8 @@
 		<div id="buttn-7" class="buttn">
 			<i class="fa fa-question fa-2x"></i>
 		</div>
-		<div id="buttn-8" class="buttn">
-			<i class="fa fa-power-off fa-2x"></i>
+		<div id="buttn-8" class="buttn"><a href="index.jsp">
+			<i class="fa fa-power-off fa-2x"></i></a>
 		</div>
 	</div>
 
@@ -79,14 +79,14 @@
 		<div id="buttn-2" class="buttn">
 			<i class="fa fa-users fa-2x"></i>
 		</div>
-		<div id="buttn-3" class="buttn active">
+		<div id="buttn-3" class="buttn">
 			<i class="fa fa-star fa-2x"></i>
 		</div>
 		<div id="buttn-4" class="buttn">
 			<i class="fa fa-list fa-2x"></i>
 		</div>
-		<div id="buttn-5" class="buttn">
-			<i class="fa fa-cog fa-2x"></i>
+		<div id="buttn-5" class="buttn active"><a href="http://localhost:8081/APPManager/SControllerCompetencies?action=CompetenciesManagmentPage">
+			<i class="fa fa-cog fa-2x"></i></a>
 		</div>
 		<div id="buttn-6" class="buttn">
 			<i class="fa fa-user fa-2x"></i>
@@ -94,8 +94,8 @@
 		<div id="buttn-7" class="buttn">
 			<i class="fa fa-question fa-2x"></i>
 		</div>
-		<div id="buttn-8" class="buttn">
-			<i class="fa fa-power-off fa-2x"></i>
+		<div id="buttn-8" class="buttn"><a href="http://localhost:8081/APPManager/">
+			<i class="fa fa-power-off fa-2x"></i></a>
 		</div>
 	</div>
 
@@ -123,11 +123,11 @@
 		<div id="buttn-1" class="buttn">
 			<i class="fa fa-home fa-2x"></i>
 		</div>
-		<div id="buttn-2" class="buttn">
-			<i class="fa fa-users fa-2x"></i>
+		<div id="buttn-2" class="buttn active"><a href="MyGroups_teacher.jsp">
+			<i class="fa fa-users fa-2x"></i></a>
 		</div>
-		<div id="buttn-3" class="buttn active">
-			<i class="fa fa-star fa-2x"></i>
+		<div id="buttn-3" class="buttn"><a href="Evaluation_Teacher.jsp">
+			<i class="fa fa-star fa-2x"></i></a>
 		</div>
 		<div id="buttn-4" class="buttn">
 			<i class="fa fa-list fa-2x"></i>
@@ -135,13 +135,13 @@
 		<div id="buttn-5" class="buttn">
 			<i class="fa fa-cog fa-2x"></i>
 		</div>
-		<div id="buttn-6" class="buttn">
-			<i class="fa fa-user fa-2x"></i>
+		<div id="buttn-6" class="buttn"><a href="Profile_teacher.jsp">
+			<i class="fa fa-user fa-2x"></i></a>
 		</div>
 		<div id="buttn-7" class="buttn">
 			<i class="fa fa-question fa-2x"></i>
 		</div>
-		<div id="buttn-8" class="buttn"><a href="../../index.jsp">
+		<div id="buttn-8" class="buttn"><a href="..\..\index.jsp">
 			<i class="fa fa-power-off fa-2x"></i></a>
 		</div>
 	</div>
@@ -173,14 +173,14 @@
 		<div id="buttn-2" class="buttn">
 			<i class="fa fa-users fa-2x"></i>
 		</div>
-		<div id="buttn-3" class="buttn active">
+		<div id="buttn-3" class="buttn">
 			<i class="fa fa-star fa-2x"></i>
 		</div>
 		<div id="buttn-4" class="buttn">
 			<i class="fa fa-list fa-2x"></i>
 		</div>
-		<div id="buttn-6" class="buttn">
-			<i class="fa fa-user fa-2x"></i>
+		<div id="buttn-6" class="buttn active"><a href="/APPManager/html/student/Profile.jsp">
+			<i class="fa fa-user fa-2x"></i></a>
 		</div>
 		<div id="buttn-7" class="buttn">
 			<i class="fa fa-question fa-2x"></i>

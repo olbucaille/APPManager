@@ -8,8 +8,6 @@
 
 <div id="title">MY GROUPS</div>
 
-
-
 	<div class="leftmenubox">
 		<ul class="leftmenu">
 			<li id="leftmenubox_title"><a href="javascript:access1()"
