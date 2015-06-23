@@ -15,14 +15,17 @@
 <div id="title">MY GROUP</div>
 
 
-<%-- <% --%>
-<%-- System.out.println("app :"+ session.getValue("NUMBER")); String idUser=session.getValue("NUMBER"); %> --%>
+ <% 
+ 
+ String idUser=(String)session.getValue("NUMBER"); 
+ String idTeam = Team.GetIdTeamOfUser(idUser);
+ Team team = Team.GetTeamWithId(idTeam);
+ List <User> userList=Team.GetTeamUsers(team);
+
+ %> 
 
 <div class="leftmenubox">
 	<ul class="leftmenu">
-		<%  List <User> userList;	
-    Team team = new Team("1",null ,null );
-		%>
 		<li id="leftmenubox_title"><a id="leftmenu_title" href="#"><%=team.getName() %></a></li>
 		<% 
 			userList=null;
@@ -32,10 +35,12 @@
 				System.out.println("user empty");
 			}else{
 				 for (User user : userList) {	
-				 if (user.getType()=="Student")%>
+				 if (user.getType().equalsIgnoreCase("Student")){%>
 		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#"><%=user.getNom()%>
 				<%=user.getPrenom()%></a></li>
-		<%}	
+				
+		<%			}
+				}
 			}
 			
 			if (userList.isEmpty()){
@@ -43,12 +48,13 @@
 			}else{
 				%>
 		<li id="leftmenubox_title"><a id="leftmenu_title" href="#">Tutors</a></li>
-		<%for (User user : userList) {	
-				 if (user.getType()=="Tutor")%>
+		<%for (User user : userList) {
+				 if (user.getType().equalsIgnoreCase("Tutor")){%>
 		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#"><%=user.getNom()%>
 				<%=user.getPrenom()%></a></li>
-		<%}	
-			}%>
+			<%	}
+			}
+		}%>
 	</ul>
 </div>
 

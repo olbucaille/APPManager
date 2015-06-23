@@ -92,7 +92,60 @@ public class Team {
 			return array;
 
 		}
+
+		// récupere la Idteam de l'utilisateur
+				public static Team GetTeamWithId(String idTeam)
+				{
+					Team team = null;
+					ResultSet rs = null ;
+					try {
+						String req = "SELECT * FROM team where IdTeam = \""+idTeam+"\"; ";
+						System.out.println(req);
+						rs = AccesBD.getInstance().executeQuery(req);
+					
+					
+					if(rs!= null)
+					{
+						while(rs.next()){
+							team= new Team(rs.getString("idTeam"),rs.getString("idAPP"), rs.getString("Name"));
+							
+						}
+					}
+					} catch (ClassNotFoundException | SQLException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+				//	System.out.println(array.get(0).getName());
+					return team;
+
+				}
 		
+// récupere la Idteam de l'utilisateur
+		public static String GetIdTeamOfUser(String idUser)
+		{
+			String Idteam = null;
+			ResultSet rs = null ;
+			try {
+				String req = "SELECT idteam,iduser FROM team_user where iduser = \""+idUser+"\"; ";
+				System.out.println(req);
+				rs = AccesBD.getInstance().executeQuery(req);
+			
+			
+			if(rs!= null)
+			{
+				while(rs.next()){
+					Idteam= rs.getString("idTeam");
+					
+				}
+			}
+			} catch (ClassNotFoundException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		//	System.out.println(array.get(0).getName());
+			return Idteam;
+
+		}
 		//récupert la liste des utlisateurs pour une équipe donnée
 		public static List<User> GetTeamUsers(Team team)
 		{
@@ -109,8 +162,14 @@ public class Team {
 			if(rs!= null)
 			{
 				while(rs.next()){
-					
-					array.add( new User(rs.getString("Nom"),rs.getString("Prenom"),rs.getString("idUtilisateur"),"Student"));			
+					String type=null;
+					Map<String,Boolean> m =User.checkPrivileges(rs.getString("idUtilisateur"));
+					if(m.get("IsStudent")){
+						 type ="Student";
+					}else if(m.get("IsTutor")){
+						type ="Tutor";
+					}else type="Student";
+					array.add( new User(rs.getString("Nom"),rs.getString("Prenom"),rs.getString("idUtilisateur"),type));			
 				}
 			}
 			} catch (ClassNotFoundException | SQLException e) {
