@@ -2,9 +2,9 @@
 	pageEncoding="ISO-8859-1"%>
 
 <jsp:include page="/html/Layout.jsp"></jsp:include>
-<link rel="stylesheet" type="text/css" href="../../css/left_menu.css">
+<link rel="stylesheet" type="text/css" href="/APPManager/css/left_menu.css">
 <link rel="stylesheet" type="text/css"
-	href="../../css/css_teacher/groups_teacher.css">
+	href="/APPManager/css/css_teacher/groups_teacher.css">
 
 <div id="title">MY GROUPS</div>
 
@@ -379,82 +379,7 @@
 		</div>
 	</div>
 
-	<nav class="work">
-		<div class="work-item">
-			<h4>
-				<a href="#">Deliverable 28/05/2015</a>
-			</h4>
-			<ul>
-				<li><a href="#">Item 1</a></li>
-				<li><a href="#">Item 2</a></li>
-				<li><a href="#">Item 3</a></li>
-				<li><a href="#">Item 4</a></li>
-				<li><a href="#">All items</a></li>
-			</ul>
-		</div>
-		<div class="work-item">
-			<h4>
-				<a href="#">Deliverable 02/05/2015</a>
-			</h4>
-			<ul>
-				<li><a href="#">Item 1</a></li>
-				<li><a href="#">Item 2</a></li>
-				<li><a href="#">Item 3</a></li>
-				<li><a href="#">Item 4</a></li>
-				<li><a href="#">All items</a></li>
-			</ul>
-		</div>
-		<div class="work-item">
-			<h4>
-				<a href="#">Deliverable 13/06/2015</a>
-			</h4>
-			<ul>
-				<li><a href="#">Item 1</a></li>
-				<li><a href="#">Item 2</a></li>
-				<li><a href="#">Item 3</a></li>
-				<li><a href="#">Item 4</a></li>
-				<li><a href="#">All items</a></li>
-			</ul>
-		</div>
-		<div class="work-item">
-			<h4>
-				<a href="#">Deliverable 23/06/2015</a>
-			</h4>
-			<ul>
-				<li><a href="#">Item 1</a></li>
-				<li><a href="#">Item 2</a></li>
-				<li><a href="#">Item 3</a></li>
-				<li><a href="#">Item 4</a></li>
-				<li><a href="#">All items</a></li>
-			</ul>
-		</div>
-		<div class="work-item">
-			<h4>
-				<a href="#">Deliverable 27/06/2015</a>
-			</h4>
-			<ul>
-				<li><a href="#">Item 1</a></li>
-				<li><a href="#">Item 2</a></li>
-				<li><a href="#">Item 3</a></li>
-				<li><a href="#">Item 4</a></li>
-				<li><a href="#">All items</a></li>
-			</ul>
-		</div>
-		<div class="work-item">
-			<h4>
-				<a href="#">Deliverable 04/07/2015</a>
-			</h4>
-			<ul>
-				<li><a href="#">Item 1</a></li>
-				<li><a href="#">Item 2</a></li>
-				<li><a href="#">Item 3</a></li>
-				<li><a href="#">Item 4</a></li>
-				<li><a href="#">All items</a></li>
-			</ul>
-		</div>
-	</nav>
 
-</div>
 
 <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>

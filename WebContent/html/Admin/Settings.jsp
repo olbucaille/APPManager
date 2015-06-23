@@ -47,9 +47,9 @@
 
 				<br /> <label for="APPType">APP Type : </label> <input type="text"
 					name="APPType"> <br /> <br /> <label for="StartDate">Start
-					Date : </label> <input type="text" name="StartDate" class="datepicker">
+					Date : </label> <input type="date" name="StartDate" class="datepicker">
 				<br /> <br /> <label for="EndDate">End Date : </label> <input
-					type="text" name="EndDate" class="datepicker"> <br /> <br />
+					type="date" name="EndDate" class="datepicker"> <br /> <br />
 				<input type="submit" name="action" value="add APP session"
 					name="submit" />
 

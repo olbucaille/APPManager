@@ -2,7 +2,7 @@
     pageEncoding="ISO-8859-1"%>
 
 <jsp:include page="/html/Layout.jsp"></jsp:include>
-<link rel="stylesheet" type="text/css" href="../../css/left_menu.css">
+<link rel="stylesheet" type="text/css" href="/APPManager/css/left_menu.css">
 
 <h1>Student's Profile</h1>
 
