@@ -13,13 +13,10 @@
 <div id="title">MY GROUP</div>
 
 
-	<% 
-	if (session==null){
-		
-	}
+	
 	System.out.println("app :"+ session.getValue("NUMBER"));
-	session.getValue("NUMBER"); %>
-
+	String idUser =session.getValue("NUMBER"); %>
+	
 	<div class="leftmenubox">
 		<ul class="leftmenu">
 			<%  List <User> userList;	

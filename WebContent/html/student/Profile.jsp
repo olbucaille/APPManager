@@ -5,7 +5,7 @@
 
 <jsp:include page="/html/Layout.jsp"></jsp:include>
 
-<link rel="stylesheet" type="text/css" href="../../css/left_menu.css">
+<link rel="stylesheet" type="text/css" href="/APPManager/css/left_menu.css">
 <link rel="stylesheet" type="text/css"
 	href="../../css/css_student/style_student.css">
 <script src="../../js/d3.v3.min.js"></script>
