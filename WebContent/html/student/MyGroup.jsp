@@ -6,14 +6,14 @@
 <%@page import="Model.User"%>
 <%@page import="Model.Team"%>
 
-
+<jsp:include page="/html/Layout.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css" href="../../css/left_menu.css">
 <link rel="stylesheet" type="text/css"
 	href="../../css/css_student/style_student.css">
 
 <div id="title">MY GROUP</div>
 
-<div id="block-central">
+
 	<% 
 System.out.println("app :"+ session.getValue("NUMBER"));
 session.getValue("NUMBER"); %>
@@ -53,7 +53,7 @@ session.getValue("NUMBER"); %>
 	</div>
 
 
-
+<div id="block-central">
 	<form action="/APPManager/UploadDownloadFileServlet" method="POST"
 		enctype="multipart/form-data">
 		Select File to Upload:<input type="file" name="fileName"> <br>
