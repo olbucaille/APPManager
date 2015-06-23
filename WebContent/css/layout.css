@@ -86,8 +86,8 @@ body {
 	position: fixed;
 }
 
-.active {
-	color: #fecd66; !important
+.active a {
+	color: #fecd66;
 }
 
 #menu-text {
