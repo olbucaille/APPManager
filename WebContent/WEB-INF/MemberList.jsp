@@ -6,35 +6,30 @@
 	pageEncoding="ISO-8859-1"%>
 
 <jsp:include page="/html/Layout.jsp"></jsp:include>
+<link rel="stylesheet" type="text/css" href="/APPManager/css/left_menu.css">
 
 <div id="title">MODULE'S MEMBERS</div>
 
 <div id="block-central">
+<ul class="leftmenu">
 	<%
-		List<Team> listTeam = (List) request.getAttribute("ListOfAllTeam");
-		List<User> listUser = (List) request.getAttribute("ListOfAllUser");
+		List<Team> listTeam = Team.GetAllTeam();	
+
+	for (Team team : listTeam){
 	%>
-
-	<form method="post" action="/APPManager/MemberListMain"></form>
-	<%
-		if (listUser != null) {
-			for (int i = 0; i < listUser.size(); i++) {
-				out.println("<option value=\""
-						+ listUser.get(i).getNumber() + "\">"
-						+ listUser.get(i).getNomFamille() + " "
-						+ listUser.get(i).getPrenom() + " "
-						+ listUser.get(i).getNumber() + " "
-						+ listUser.get(i).getType());
-			}
+		 <li id="leftmenubox_title"><a id="leftmenu_title" href="#"><%=team.getName() %></a></li>
+		 
+		 <% 
+		for(User user : Team.GetTeamUsers(team)){
+			%>
+		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#"><%=user.getPrenom()%>   <%=user.getNomFamille()%></a></li>
+		
+		<% 
 		}
-
-		if (listTeam != null) {
-			for (int i = 0; i < listTeam.size(); i++) {
-				out.println("<option value=\""
-						+ listTeam.get(i).getIdTeam() + "\">"
-						+ listTeam.get(i).getName());
-			}
-		}
+		
+	}
+		
+		
 	%>
 
 	<%-- 
