@@ -6,15 +6,15 @@
 <%@page import="Model.User"%>
 <%@page import="Model.Team"%>
 
-<jsp:include page="/html/Layout.jsp"></jsp:include>
+
+<link rel="stylesheet" type="text/css" href="../../css/left_menu.css">
+<link rel="stylesheet" type="text/css"
+	href="../../css/css_student/style_student.css">
 
 <div id="title">MY GROUP</div>
 
 <div id="block-central">
-
 	<% 
-
-
 System.out.println("app :"+ session.getValue("NUMBER"));
 session.getValue("NUMBER"); %>
 
@@ -27,7 +27,6 @@ session.getValue("NUMBER"); %>
 			<% 
 			userList=null;
 			// récuperer la team en fonction de l'utilisateur
-			
 			userList= Team.GetTeamUsers(team);
 			if (userList.isEmpty()){
 				System.out.println("user empty");
@@ -36,7 +35,6 @@ session.getValue("NUMBER"); %>
 				 if (user.getType()=="Student")%>
 			<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#"><%=user.getNom()%>
 					<%=user.getPrenom()%></a></li>
-
 			<%}	
 			}
 			
@@ -71,9 +69,7 @@ for(Media med :mediaList){
 			<%=med.getName()%></a></li>
 	<% 
 }
-
 %>
 
 </div>
-
 <jsp:include page="/html/Layout_foot.jsp"></jsp:include>

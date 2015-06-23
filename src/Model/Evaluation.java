@@ -82,6 +82,34 @@ public class Evaluation {
 			//System.out.println("finadd");
 		}
 		
+		
+
+
+		public static Evaluation GetEvaluationWithID(String idEval)
+		{
+			Evaluation eval=null;
+			ResultSet rs = null ;
+			try {
+				String req = "SELECT ID_evaluation,Name,Type,Date,Comment FROM evaluation WHERE ID_evaluation = \""+idEval+"\" ; ";
+				System.out.println(req);
+				rs = AccesBD.getInstance().executeQuery(req);
+			
+			
+			if(rs!= null)
+			{
+				while(rs.next()){
+					eval = new Evaluation(String.valueOf(rs.getString("ID_evaluation")), rs.getString("Name"), rs.getString("Type"), rs.getString("Date"), rs.getString("Comment"));				
+				
+					System.out.println(new Evaluation(String.valueOf(rs.getString("ID_evaluation")), rs.getString("Name"), rs.getString("Type"), rs.getString("Date"), rs.getString("Comment")).toString());			}
+			}
+			} catch (ClassNotFoundException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			return eval;
+
+		}
+	
 	
 	public static List<Evaluation> GetEvaluation()
 	{

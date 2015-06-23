@@ -5,6 +5,8 @@
 <%@page import="Model.Competencies"%>
 <%@page import="Model.EvaluationForm"%>
 <%@page import="Model.Evaluation"%>
+<%@page import="Model.CrossEvaluation"%>
+<%@page import="Model.AutoEvaluation"%>
 
 
 <jsp:include page="/html/Layout.jsp"></jsp:include>
@@ -13,34 +15,42 @@
 <script type="text/javascript"
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 
-<div id="title">EVALUATIONS</div>
+<div id="title">MY GROUPS</div>
 
 <div id="block-central">
-
 	<div class="left">
 		<h1>Evaluation Liste</h1>
 		<div id="evaluation_list">
 
 			<%
 				List<Evaluation> evalList= Evaluation.GetEvaluation();
+				String idUser = "4242";
 			   	if (evalList !=null){
 			   		System.out.println("probleme BDD");
 			   		for (Evaluation eval : evalList) {
 			   			if (eval.getType().equals("cross")){
-			   				%>
-			<li onclick="cross_evaluation()" style="display: block;"><%=eval.getDate() +" - "+eval.getName()   %></li>
+			   				if (CrossEvaluation.crossEvaluationIsAlreadyDone(eval.getID_evaluation() ,idUser )){//pour vérifier si l'élève a deja fait l'evaluation
+			   					%>
+			<li style="display: block;"><%=eval.getName() %> (DONE)</li>
+			<% }else{%>
+			<li onclick="cross_evaluation(<%=eval.getID_evaluation()%>)"
+				style="display: block;"><%=eval.getDate() +" - "+eval.getName()   %></li>
 			<% 
+			   				}
 			   			}else if (eval.getType().equals("auto")){
-			   				%>
-			<li onclick="auto_evaluation()" style="display: block;"><%= eval.getDate() + " - "+eval.getName()  %></li>
+			   				if (AutoEvaluation.autoEvaluationIsAlreadyDone(eval.getID_evaluation() ,idUser )){//pour vérifier si l'élève a deja fait l'evaluation
+			   					%>
+			<li style="display: block;"><%=eval.getName() %> (DONE)</li>
+			<% }else{%>
+
+			<li onclick="auto_evaluation(<%=eval.getID_evaluation()%>)"
+				style="display: block;"><%= eval.getDate() + " - "+eval.getName()  %></li>
 			<% 
+			   				}
 			   			}
 			   		}
 			   	}	
 			%>
-			<% 
-				
-				%>
 		</div>
 	</div>
 	<div class="centerAndRight">
@@ -52,9 +62,9 @@
 		</div>
 
 	</div>
-
-
-
 </div>
 <script src="../../js/Evaluation.js" type="text/javascript"></script>
+
+
+
 <jsp:include page="/html/Layout_foot.jsp"></jsp:include>

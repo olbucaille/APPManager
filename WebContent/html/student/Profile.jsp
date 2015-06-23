@@ -39,7 +39,6 @@
 					<script>
 			  //Legend titles
 			  	
-
 			  	//Data
 			  	
 			  	var LegendOptions = ['larour','bucaille','buso'];			  	
