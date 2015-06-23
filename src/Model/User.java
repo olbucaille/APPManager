@@ -11,7 +11,7 @@ import com.sun.crypto.provider.RSACipher;
 import BDDManager.AccesBD;
 import BDDManager.LDAPObject;
 import BDDManager.LDAPaccess;
-//model de user, héritage de LDAP avec un media (phto) et des methodes) 
+//model de user, hï¿½ritage de LDAP avec un media (phto) et des methodes) 
 public class User extends LDAPObject {
 
 	
@@ -81,14 +81,25 @@ public class User extends LDAPObject {
 		//FIN COMMENT
 		
 		//COMMENTER JUSQU A FIN COMMENT LES LIGNES SUIVANTES POUR SE CONNECTER AUTOMATIQUEMENT AVEC UN ADMINISTRATEUR
-		User user = new User("tototest","toto","tata","titi","tutu","professeur","4241","toto.tutu@isep.fr");
+
+		User user;
+		if(id.equals("Admin"))
+			user = new User("Admin","toto","tata","titi","tutu","professeur","4240","toto.tutu@isep.fr");
+		else if(id.equals("MM"))
+			user = new User("Module_Manager","toto","tata","titi","tutu","professeur","4241","toto.tutu@isep.fr");
+		else if(id.equals("Tutor"))
+			user = new User("Tutor","toto","tata","titi","tutu","professeur","4242","toto.tutu@isep.fr");
+		else
+			user = new User("Student","toto","tata","titi","tutu","professeur","4243","toto.tutu@isep.fr");
+		
+
 		//FIN COMMENT
 		
 		System.out.println(user.toString());
 		return user;
 	}
 	
-	// exeptions non testé
+	// exeptions non testï¿½
 	public static Map<String,Boolean> checkPrivileges(String id)
 	{
 		ResultSet rs = null;
@@ -119,7 +130,7 @@ return map;
 
 	}
 	
-	//Get list All user ACTIF pour liste "nom, prenom, n°, role"
+	//Get list All user ACTIF pour liste "nom, prenom, nï¿½, role"
 		public static ArrayList<User> GetAllUser()
 		{
 			ArrayList<User> array= new ArrayList<User>();

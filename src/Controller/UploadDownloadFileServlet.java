@@ -108,7 +108,8 @@ public class UploadDownloadFileServlet extends HttpServlet {
             mediatemp.AddMediaOfTeam(mediatemp, idTeam);
         }
         
-       redirection(request,response,"/html/student/MyGroup.jsp");
+       //redirection(request,response,"http://localhost:8081/APPManager/SControllerStudentGroup");
+       response.sendRedirect("http://localhost:8081/APPManager/SControllerStudentGroup");
     }
  
     

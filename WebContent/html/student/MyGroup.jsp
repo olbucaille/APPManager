@@ -7,17 +7,16 @@
 <%@page import="Model.Team"%>
 
 <jsp:include page="/html/Layout.jsp"></jsp:include>
-<link rel="stylesheet" type="text/css" href="../../css/left_menu.css">
-<link rel="stylesheet" type="text/css"
-	href="../../css/css_student/style_student.css">
+<link rel="stylesheet" type="text/css" href="/APPManager/css/left_menu.css">
+<link rel="stylesheet" type="text/css" href="/APPManager/css/css_student/style_student.css">
 
 <div id="title">MY GROUP</div>
 
 
-	<% 
-System.out.println("app :"+ session.getValue("NUMBER"));
-session.getValue("NUMBER"); %>
-
+	
+	System.out.println("app :"+ session.getValue("NUMBER"));
+	String idUser =session.getValue("NUMBER"); %>
+	
 	<div class="leftmenubox">
 		<ul class="leftmenu">
 			<%  List <User> userList;	
