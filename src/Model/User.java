@@ -81,6 +81,7 @@ public class User extends LDAPObject {
 		//FIN COMMENT
 		
 		//COMMENTER JUSQU A FIN COMMENT LES LIGNES SUIVANTES POUR SE CONNECTER AUTOMATIQUEMENT AVEC UN ADMINISTRATEUR
+
 		User user;
 		if(id.equals("Admin"))
 			user = new User("Admin","toto","tata","titi","tutu","professeur","4240","toto.tutu@isep.fr");
@@ -91,6 +92,7 @@ public class User extends LDAPObject {
 		else
 			user = new User("Student","toto","tata","titi","tutu","professeur","4243","toto.tutu@isep.fr");
 		
+
 		//FIN COMMENT
 		
 		System.out.println(user.toString());

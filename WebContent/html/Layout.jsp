@@ -208,8 +208,8 @@
 		<div id="mask-menu">
 			<i class="fa fa-home fa-3x"></i>
 		</div>
-		<div id="buttn-8" class="buttn">
-			<i class="fa fa-power-off fa-2x"></i>
+		<div id="buttn-8" class="buttn"><a href="http://localhost:8081/APPManager/">
+			<i class="fa fa-power-off fa-2x"></i></a>
 		</div>
 	</div>
 
