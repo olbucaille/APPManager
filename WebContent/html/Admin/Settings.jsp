@@ -16,13 +16,13 @@
 
 <div class="leftmenubox">
 	<ul class="leftmenu">
-		<li id="leftmenubox_title"><a id="leftmenu_title">Module Création</li>
+		<li id="leftmenubox_title"><a id="leftmenu_title">Module Creator</li>
 		<li id="leftmenubox_tab"><a id="leftmenu_ref"
-			href="javascript:accessAPP()">Création APP</a></li>
+			href="javascript:accessAPP()">APP Creator</a></li>
 		<li id="leftmenubox_tab"><a id="leftmenu_ref"
-			href="javascript:accessTeam()">Création Team</a></li>
+			href="javascript:accessTeam()">Team Creator</a></li>
 		<li id="leftmenubox_tab"><a id="leftmenu_ref"
-			href="javascript:accessAffect()">Affectation</a></li>
+			href="javascript:accessAffect()">Linker</a></li>
 	</ul>
 </div>
 
