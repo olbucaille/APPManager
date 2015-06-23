@@ -8,9 +8,17 @@ import java.util.List;
 import BDDManager.AccesBD;
 
 public class Category {
-	public static List<String> GetAllCategory()
+	private String name;
+	private String idcategory;
+	
+	public Category (String name , String idCategory){
+		this.name=name;
+		this.idcategory=idCategory;
+	}
+	
+	public static List<Category> GetAllCategory()
 	{
-		List<String> categoryList= new ArrayList<String>();
+		List<Category> categoryList= new ArrayList<Category>();
 		ResultSet rs = null ;
 		try {
 			String req = "SELECT ID_category,Name FROM category ; ";
@@ -21,7 +29,7 @@ public class Category {
 		if(rs!= null)
 		{
 			while(rs.next()){
-				categoryList.add( new String(rs.getString("Name")));
+				categoryList.add( new Category(rs.getString("Name"),rs.getString("ID_category")));
 			}
 		}
 		} catch (ClassNotFoundException | SQLException e) {
@@ -30,6 +38,22 @@ public class Category {
 		}
 		return categoryList;
 
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public String getIdcategory() {
+		return idcategory;
+	}
+
+	public void setIdcategory(String idcategory) {
+		this.idcategory = idcategory;
 	}
 
 

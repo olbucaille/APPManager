@@ -5,6 +5,10 @@
 <%@page import="Model.Competencies"%>
 <%@page import="Model.EvaluationForm"%>
 <%@page import="Model.Evaluation"%>
+<%@page import="Model.CrossEvaluation"%>
+<%@page import="Model.AutoEvaluation"%>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
     "http://www.w3.org/TR/html4/strict.dtd">
 <jsp:include page="/html/Layout.jsp"></jsp:include>
@@ -22,24 +26,31 @@
 			
 			<%
 				List<Evaluation> evalList= Evaluation.GetEvaluation();
+				String idUser = "4242";
 			   	if (evalList !=null){
 			   		System.out.println("probleme BDD");
 			   		for (Evaluation eval : evalList) {
 			   			if (eval.getType().equals("cross")){
-			   				%>
-			   				<li onclick="cross_evaluation()" style="display:block;"><%=eval.getDate() +" - "+eval.getName()   %></li>
+			   				if (CrossEvaluation.crossEvaluationIsAlreadyDone(eval.getID_evaluation() ,idUser )){//pour vérifier si l'élève a deja fait l'evaluation
+			   					%>
+			   					<li style="display:block;"><%=eval.getName() %>  (DONE)</li>
+			   				<% }else{%>
+			   					<li onclick="cross_evaluation(<%=eval.getID_evaluation()%>)" style="display:block;"><%=eval.getDate() +" - "+eval.getName()   %></li>
 			   				<% 
+			   				}
 			   			}else if (eval.getType().equals("auto")){
-			   				%>
-			   				<li onclick="auto_evaluation()" style="display:block;"><%= eval.getDate() + " - "+eval.getName()  %></li>
+			   				if (AutoEvaluation.autoEvaluationIsAlreadyDone(eval.getID_evaluation() ,idUser )){//pour vérifier si l'élève a deja fait l'evaluation
+			   					%>
+			   					<li style="display:block;"><%=eval.getName() %>  (DONE)</li>
+			   				<% }else{%>
+			   			
+			   				<li onclick="auto_evaluation(<%=eval.getID_evaluation()%>)" style="display:block;"><%= eval.getDate() + " - "+eval.getName()  %></li>
 			   				<% 
+			   				}
 			   			}
 			   		}
 			   	}	
 			%>	
-				<% 
-				
-				%>
 			</div>
 		</div>  	
 		<div class="centerAndRight">	

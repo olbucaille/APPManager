@@ -2,6 +2,8 @@
     pageEncoding="UTF-8"%>
     <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
+<%@page import="Model.User"%>
+<%@page import="Model.Team"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
     "http://www.w3.org/TR/html4/strict.dtd">
  <jsp:include page="/html/Layout.jsp"></jsp:include>   
@@ -15,22 +17,42 @@
 	<body >	
 	<div class="content_body">
 	
-	<div class="leftmenubox">
+	
+System.out.println("app :"+ session.getValue("NUMBER"));
+session.getValue("NUMBER"); %>
+
+   	<div class="leftmenubox">
 	<ul class="leftmenu">
-		<li id="leftmenubox_title"><a id="leftmenu_title" href="#">Team
-				Red Fire</a></li>
-		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Thibault
-				Larour</a></li>
-		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Olivier
-				Bucaille</a></li>
-		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Arnaud
-				Buso</a></li>
-		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Raphael
-				Luo</a></li>
-		<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Justin
-				Kwan</a></li>
-				</ul>
+    <%  List <User> userList;	
+    Team team = new Team("1",null ,null );
+		%>
+		<li id="leftmenubox_title"><a id="leftmenu_title" href="#"><%=team.getName() %></a></li>
+			<% 
+			userList=null;
+			// récuperer la team en fonction de l'utilisateur
+			userList= Team.GetTeamUsers(team);
+			if (userList.isEmpty()){
+				System.out.println("user empty");
+			}else{
+				 for (User user : userList) {	
+				 if (user.getType()=="Student")%>
+				 	<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#"><%=user.getNom()%>  <%=user.getPrenom()%></a></li>
+				<%}	
+			}
+			
+			if (userList.isEmpty()){
+				System.out.println("user empty");
+			}else{
+				%>
+				<li id="leftmenubox_title"><a id="leftmenu_title" href="#">Tutors</a></li>
+				 <%for (User user : userList) {	
+				 if (user.getType()=="Tutor")%>
+				 	<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#"><%=user.getNom()%>  <%=user.getPrenom()%></a></li>
+				<%}	
+			}%>
+			</ul>
 		</div>
+
 				
 	<div class="centerAndRight">
 		<div class="center">

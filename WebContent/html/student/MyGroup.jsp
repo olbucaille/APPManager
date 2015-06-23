@@ -10,15 +10,9 @@
  <jsp:include page="/html/Layout.jsp"></jsp:include>  
 <html lang="en">
 <head>
-<!-- Force latest IE rendering engine or ChromeFrame if installed -->
-<!--[if IE]>
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<![endif]-->
-<meta charset="utf-8">
-<title>jQuery File Upload Demo - AngularJS version</title>
-<meta name="description" content="File Upload widget with multiple file selection, drag&amp;drop support, progress bars, validation and preview images, audio and video for AngularJS. Supports cross-domain, chunked and resumable file uploads and client-side image resizing. Works with any server-side platform (PHP, Python, Ruby on Rails, Java, Node.js, Go etc.) that supports standard HTML form file uploads.">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<link rel="stylesheet" type="text/css" href="../../css/left_menu.css">
+<link rel="stylesheet" type="text/css" href="../../css/css_student/style_student.css">
 
 </head>
 <body>
@@ -37,7 +31,6 @@ session.getValue("NUMBER"); %>
 			<% 
 			userList=null;
 			// récuperer la team en fonction de l'utilisateur
-			
 			userList= Team.GetTeamUsers(team);
 			if (userList.isEmpty()){
 				System.out.println("user empty");
@@ -45,7 +38,6 @@ session.getValue("NUMBER"); %>
 				 for (User user : userList) {	
 				 if (user.getType()=="Student")%>
 				 	<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#"><%=user.getNom()%>  <%=user.getPrenom()%></a></li>
-					
 				<%}	
 			}
 			

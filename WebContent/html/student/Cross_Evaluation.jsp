@@ -5,24 +5,27 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="Model.Competencies"%>
 <%@page import="Model.EvaluationForm"%>
+<%@page import="Model.Category"%>
 
-<form id="form" name ="form_evaluation" method="post" action="/APPManager/SEvaluation">
+
+
+<form id="form_eval_cross" name ="form_evaluation" method="post" action="/APPManager/SEvaluation">
+		<input id= "evaluationId_cross" type="hidden" name="evaluationId"  value=""/>	
 
 	<%
-		List<Competencies> compList= Competencies.GetAllCompetencies();
+		List <Category> categoryList = Category.GetAllCategory();
 		List<String> studentList= new ArrayList<String>();
 		studentList.add("olivier");
 		studentList.add("Rafael");
 		studentList.add("arnaud");
 		studentList.add("justin");
-	   	EvaluationForm eval1 = new EvaluationForm(compList);	
 	  	int count =0;
-	   	for (String family : eval1.getFamilyListInEvaluation()) {	
+	   	for (Category family : categoryList) {	
 	   		//afficher famille
 	%>	<table>
    	   			<tbody>
    	   				<tr>
-   	   					<td colspan = "2"><h2><%=family %></h2></td>
+   	   					<td colspan = "2"><h2><%=family.getName() %></h2></td>
    	   				</tr>
    	   <% 
    		for (String student : studentList) {
@@ -73,7 +76,7 @@
 								name="rating<%=count%>" value="En cours" /><label for="cross_star3-<%=count%>" title="Meh"></label>
 							<input type="radio" id="cross_star2-<%=count%>" name="rating<%=count%>" value="Bof bof" /><label
 								for="cross_star2-<%=count%>" title="Kinda bad"></label> <input type="radio"
-								id="cross_star1-<%=count%>" name="rating<%=count%>" value="Nul" /><label for="cross_star1-<%=count%>"
+								id="cross_star1-<%=count%>" name="rating<%=count%>" checked value="Nul" /><label for="cross_star1-<%=count%>"
 								title="Sucks big time"></label>
 						
 						</fieldset>
@@ -117,12 +120,16 @@
    	   %>	<tr>
  					<td colspan=2>
 		    	<label for ="comment"> Write a comment </label>
-				<TEXTAREA rows="2" name="comment"></TEXTAREA>	</td>
+				<TEXTAREA rows="2" name="comment<%=count%>"></TEXTAREA>	</td>
  				</tr>
  			</tbody>
    	</table>	
 	<% 
+	count++;
    	}
    	%>	
-	<br><input type="submit"  />		
+	<br><input type="submit"  />	
+	<br>
+	<br>
+	<br>	
 		</form>	

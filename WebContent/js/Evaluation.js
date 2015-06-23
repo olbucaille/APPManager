@@ -1,9 +1,11 @@
-function cross_evaluation() {
+function cross_evaluation(idEval) {
+	$("#evaluationId_cross").val(idEval);
 	$( "#cross_evaluation" ).show( "slow" );
 	$( "#auto_evaluation" ).hide();
 };
 
-function auto_evaluation() {
+function auto_evaluation(idEval) {
+	$("#evaluationId_auto").val(idEval);
 	$( "#auto_evaluation" ).show( "slow" );
 	$( "#cross_evaluation" ).hide();
 };
@@ -35,3 +37,5 @@ $(document).ready(function() {
         return false;
     });
 });
+
+
