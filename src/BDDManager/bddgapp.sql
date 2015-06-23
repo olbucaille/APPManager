@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.3
+-- version 4.0.4
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: May 27, 2015 at 09:34 AM
--- Server version: 5.6.24
--- PHP Version: 5.6.8 
+-- Client: localhost
+-- Généré le: Mar 23 Juin 2015 à 13:53
+-- Version du serveur: 5.6.12-log
+-- Version de PHP: 5.4.16
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,33 +17,30 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `bddgapp`
+-- Base de données: `bddgapp`
 --
+CREATE DATABASE IF NOT EXISTS `bddgapp` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `bddgapp`;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `appsession`
+-- Structure de la table `appsession`
 --
 
 CREATE TABLE IF NOT EXISTS `appsession` (
-  `IdAPP` int(15) NOT NULL,
+  `IdAPP` int(15) NOT NULL AUTO_INCREMENT,
   `Type` varchar(50) NOT NULL,
   `StartDate` varchar(20) NOT NULL,
-  `EndDate` varchar(20) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `appsession`
---
-
-INSERT INTO `appsession` (`IdAPP`, `Type`, `StartDate`, `EndDate`) VALUES
-(1, 'testAPP', '26/12/1993', '26/12/1015');
+  `EndDate` varchar(20) NOT NULL,
+  PRIMARY KEY (`IdAPP`),
+  UNIQUE KEY `IdAPP` (`IdAPP`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `app_competencies`
+-- Structure de la table `app_competencies`
 --
 
 CREATE TABLE IF NOT EXISTS `app_competencies` (
@@ -54,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `app_competencies` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `auto_evaluation`
+-- Structure de la table `auto_evaluation`
 --
 
 CREATE TABLE IF NOT EXISTS `auto_evaluation` (
@@ -67,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `auto_evaluation` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `category`
+-- Structure de la table `category`
 --
 
 CREATE TABLE IF NOT EXISTS `category` (
@@ -78,39 +75,23 @@ CREATE TABLE IF NOT EXISTS `category` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `competencies`
+-- Structure de la table `competencies`
 --
 
 CREATE TABLE IF NOT EXISTS `competencies` (
-  `IdComp` int(15) NOT NULL,
+  `IdComp` int(15) NOT NULL AUTO_INCREMENT,
   `Name` varchar(50) NOT NULL,
   `Description` varchar(500) NOT NULL,
   `IsNecessary` varchar(5) NOT NULL,
   `Category` varchar(25) NOT NULL,
-  `idMother` varchar(15) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `competencies`
---
-
-INSERT INTO `competencies` (`IdComp`, `Name`, `Description`, `IsNecessary`, `Category`, `idMother`) VALUES
-(32, 'test45', 'null', 'false', '', 'none'),
-(33, 'test45', 'null', 'false', '', 'none'),
-(34, 'esy', 'null', 'false', '', '33'),
-(35, 'eflkh', 'null', 'false', '', 'none'),
-(38, 'eflkh', 'null', 'false', '', 'none'),
-(39, 'trololo', 'null', 'false', '', '32'),
-(40, 'trololo2', 'null', 'false', '', '32'),
-(41, 'rty', 'null', 'false', '', 'none'),
-(42, 'titi', 'null', 'true', '', '41'),
-(43, 'testpres', 'null', 'true', '', '41'),
-(44, 'testCategory', 'null', 'true', 'Project managment', '32');
+  `idMother` varchar(15) DEFAULT NULL,
+  PRIMARY KEY (`IdComp`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cross_evaluation`
+-- Structure de la table `cross_evaluation`
 --
 
 CREATE TABLE IF NOT EXISTS `cross_evaluation` (
@@ -122,18 +103,10 @@ CREATE TABLE IF NOT EXISTS `cross_evaluation` (
   `Comment` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `cross_evaluation`
---
-
-INSERT INTO `cross_evaluation` (`ID`, `Name`, `Reference`, `ID_team`, `Date`, `Comment`) VALUES
-('0001', 'Evaluation1', '', 1, '2015-05-12', ''),
-('0002', 'Evaluation2', '', 2, '2015-05-11', '');
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cross_evaluation_mark`
+-- Structure de la table `cross_evaluation_mark`
 --
 
 CREATE TABLE IF NOT EXISTS `cross_evaluation_mark` (
@@ -144,20 +117,10 @@ CREATE TABLE IF NOT EXISTS `cross_evaluation_mark` (
   `ID_category` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `cross_evaluation_mark`
---
-
-INSERT INTO `cross_evaluation_mark` (`ID_evaluation`, `ID_user_evaluator`, `ID_user_evaluated`, `Mark`, `ID_category`) VALUES
-('0001', '4240', 0, 0, 0),
-('0001', '4241', 0, 0, 0),
-('0001', '4242', 0, 0, 0),
-('0002', '4243', 0, 0, 0);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `evaluation`
+-- Structure de la table `evaluation`
 --
 
 CREATE TABLE IF NOT EXISTS `evaluation` (
@@ -170,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `evaluation` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `media`
+-- Structure de la table `media`
 --
 
 CREATE TABLE IF NOT EXISTS `media` (
@@ -182,28 +145,21 @@ CREATE TABLE IF NOT EXISTS `media` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `team`
+-- Structure de la table `team`
 --
 
 CREATE TABLE IF NOT EXISTS `team` (
-  `IdTeam` int(11) NOT NULL,
+  `IdTeam` int(11) NOT NULL AUTO_INCREMENT,
   `IdAPP` varchar(15) NOT NULL,
   `Name` varchar(50) NOT NULL,
-  `CreationDate` varchar(20) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `team`
---
-
-INSERT INTO `team` (`IdTeam`, `IdAPP`, `Name`, `CreationDate`) VALUES
-(1, '1', 'Team1', NULL),
-(2, '2', 'Team2', NULL);
+  `CreationDate` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`IdTeam`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `team_media`
+-- Structure de la table `team_media`
 --
 
 CREATE TABLE IF NOT EXISTS `team_media` (
@@ -215,7 +171,7 @@ CREATE TABLE IF NOT EXISTS `team_media` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `team_user`
+-- Structure de la table `team_user`
 --
 
 CREATE TABLE IF NOT EXISTS `team_user` (
@@ -223,21 +179,10 @@ CREATE TABLE IF NOT EXISTS `team_user` (
   `idteam` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `team_user`
---
-
-INSERT INTO `team_user` (`iduser`, `idteam`) VALUES
-(4240, 1),
-(4241, 1),
-(4242, 1),
-(4243, 1),
-(4244, 2);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Structure de la table `user`
 --
 
 CREATE TABLE IF NOT EXISTS `user` (
@@ -249,24 +194,26 @@ CREATE TABLE IF NOT EXISTS `user` (
   `IsStudent` tinyint(1) NOT NULL,
   `IsTutor` tinyint(1) NOT NULL,
   `IsModuleManager` tinyint(1) NOT NULL,
-  `IsAdmin` tinyint(1) NOT NULL
+  `IsAdmin` tinyint(1) NOT NULL,
+  PRIMARY KEY (`IdUtilisateur`),
+  UNIQUE KEY `IdUtilisateur` (`IdUtilisateur`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `user`
+-- Contenu de la table `user`
 --
 
 INSERT INTO `user` (`IdUtilisateur`, `Nom`, `Prenom`, `Email`, `Actif`, `IsStudent`, `IsTutor`, `IsModuleManager`, `IsAdmin`) VALUES
-('4240', 'tata', 'tutu', 'toto.tutu@isep.fr', 1, 0, 1, 0, 0),
-('4241', 'tata', 'tutu', 'toto.tutu@isep.fr', 1, 0, 1, 0, 0),
-('4242', 'tata', 'tutu', 'toto.tutu@isep.fr', 1, 1, 0, 0, 0),
-('4243', 'tata', 'tutu', 'toto.tutu@isep.fr', 1, 1, 0, 0, 0),
-('4245', 'tata', 'tutu', 'toto.tutu@isep.fr', 1, 0, 1, 0, 0);
+('4240', 'Admin', 'tutu', 'toto.tutu@isep.fr', 1, 0, 1, 0, 1),
+('4241', 'Module Manager', 'tutu', 'toto.tutu@isep.fr', 1, 1, 0, 1, 0),
+('4242', 'Tutor', 'tutu', 'toto.tutu@isep.fr', 1, 0, 1, 0, 0),
+('4243', 'Student', 'tutu', 'toto.tutu@isep.fr', 1, 1, 0, 0, 0),
+('4244', 'TestAffect', 'tutu', 'toto.tutu@isep.fr', 1, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_appsession`
+-- Structure de la table `user_appsession`
 --
 
 CREATE TABLE IF NOT EXISTS `user_appsession` (
@@ -277,7 +224,7 @@ CREATE TABLE IF NOT EXISTS `user_appsession` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_media`
+-- Structure de la table `user_media`
 --
 
 CREATE TABLE IF NOT EXISTS `user_media` (
@@ -286,55 +233,6 @@ CREATE TABLE IF NOT EXISTS `user_media` (
   `for` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `appsession`
---
-ALTER TABLE `appsession`
-  ADD PRIMARY KEY (`IdAPP`),
-  ADD UNIQUE KEY `IdAPP` (`IdAPP`);
-
---
--- Indexes for table `competencies`
---
-ALTER TABLE `competencies`
-  ADD PRIMARY KEY (`IdComp`);
-
---
--- Indexes for table `team`
---
-ALTER TABLE `team`
-  ADD PRIMARY KEY (`IdTeam`);
-
---
--- Indexes for table `user`
---
-ALTER TABLE `user`
-  ADD PRIMARY KEY (`IdUtilisateur`),
-  ADD UNIQUE KEY `IdUtilisateur` (`IdUtilisateur`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `appsession`
---
-ALTER TABLE `appsession`
-  MODIFY `IdAPP` int(15) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `competencies`
---
-ALTER TABLE `competencies`
-  MODIFY `IdComp` int(15) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=45;
---
--- AUTO_INCREMENT for table `team`
---
-ALTER TABLE `team`
-  MODIFY `IdTeam` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
