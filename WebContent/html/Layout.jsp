@@ -47,7 +47,7 @@
 		<div id="buttn-7" class="buttn">
 			<i class="fa fa-question fa-2x"></i>
 		</div>
-		<div id="buttn-8" class="buttn"><a href="index.jsp">
+		<div id="buttn-8" class="buttn"><a href="http://localhost:8081/APPManager/">
 			<i class="fa fa-power-off fa-2x"></i></a>
 		</div>
 	</div>
@@ -141,7 +141,7 @@
 		<div id="buttn-7" class="buttn">
 			<i class="fa fa-question fa-2x"></i>
 		</div>
-		<div id="buttn-8" class="buttn"><a href="..\..\index.jsp">
+		<div id="buttn-8" class="buttn"><a href="http://localhost:8081/APPManager/">
 			<i class="fa fa-power-off fa-2x"></i></a>
 		</div>
 	</div>
@@ -185,7 +185,7 @@
 		<div id="buttn-7" class="buttn">
 			<i class="fa fa-question fa-2x"></i>
 		</div>
-		<div id="buttn-8" class="buttn"><a href="../../index.jsp">
+		<div id="buttn-8" class="buttn"><a href="http://localhost:8081/APPManager/">
 			<i class="fa fa-power-off fa-2x"></i></a>
 		</div>
 	</div>
