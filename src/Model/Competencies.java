@@ -178,7 +178,7 @@ public class Competencies implements Serializable{
 			String req = "delete from competencies where idComp= "+value+"";
 			System.out.println(req);
 			AccesBD.getInstance().executeUpdate(req);
-			req = "delete from competencies where idMother= "+value;
+			req = "delete from competencies where idMother= "+value+"";
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
