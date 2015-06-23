@@ -41,7 +41,7 @@ textarea {
 
 .centerAndRight{
 
-	width: 80%;	
+	width: 100%;	
 	display: inline-block;    
     vertical-align: top;
     height : 500px;
@@ -67,47 +67,39 @@ textarea {
 
 #chart {
 	margin: auto; 
-	padding:8px;
+	padding: 8px;
 	display: block;  
-	max-width:80%;   
-    border: 1px solid #AAA;
-    -moz-box-shadow: 4px 4px 10px #AAA;  
-	-webkit-box-shadow: 4px 4px 10px #AAA;  
-	box-shadow:4px 4px 6px #AAA;	
+	max-width: 80%;   
 }	
 
 
 #notification  {
-	display: block;   
+	display: inline-block; 
+	float: right;   
     vertical-align: right;	
-    border: 1px solid #AAA; 
-	background-color:white;
+    border: 1px solid #AAA;
+	background-color: #eee;
 	padding:8px;
 	font-size:100%; 
 	height:45%;
 	max-width:90%; 
 	margin:auto;
 	color:black;
-	-moz-box-shadow: 4px 4px 10px #AAA;  
-	-webkit-box-shadow: 4px 4px 10px #AAA;  
-	box-shadow:4px 4px 6px #AAA;
  	
 }
 	
 #profile {
-	display: block;   
+	display: inline-block;    
+	float: right;
     vertical-align: right;	
     border: 1px solid #AAA; 
-	background-color:white;
+	background-color: #eee;
 	padding:8px;
 	height:45%;
 	font-size:100%; 
 	max-width:90%; 
 	margin:auto;
-	color:black;
-	-moz-box-shadow: 4px 4px 10px #AAA;  
-	-webkit-box-shadow: 4px 4px 10px #AAA;  
-	box-shadow:4px 4px 6px #AAA; 	
+	color:black;	
 }	
 
 
