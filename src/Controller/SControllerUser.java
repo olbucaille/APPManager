@@ -24,7 +24,7 @@ import Model.User;
 /**
  * Servlet implementation class SControllerUser
  * 
- * sert à gerer tous ce qui à rapport à l'objet User ( voir en BDD)
+ * sert ï¿½ gerer tous ce qui ï¿½ rapport ï¿½ l'objet User ( voir en BDD)
  */
 @WebServlet("/SControllerUser")
 public class SControllerUser extends HttpServlet {
@@ -40,9 +40,9 @@ public class SControllerUser extends HttpServlet {
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 * ajoute un utilsisateur, à terme, l'enregistre dans la bdd si premiere connexion avec un statut de base modifié par la suite 
+	 * ajoute un utilsisateur, ï¿½ terme, l'enregistre dans la bdd si premiere connexion avec un statut de base modifiï¿½ par la suite 
 	 * par l'admin
-	 * est ensuite redirigé dsur la page qui lui convient ( eleve, tuteur (et bon groupe chargé si besoin),....)
+	 * est ensuite redirigï¿½ dsur la page qui lui convient ( eleve, tuteur (et bon groupe chargï¿½ si besoin),....)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
@@ -68,15 +68,15 @@ public class SControllerUser extends HttpServlet {
 						
 						APP a = new APP("", "", "", "");
 						a.addOrReplaceAPPUser(arrayUser[i],APP); //pas utile dans les autres cas, on connais par rapport au TEAM
-						User.updatePriviledge(arrayUser[i],false,false,true,false);//si Module manager, alors on update que Module manager, sinon, c'est autres valeures sont écrasées...
+						User.updatePriviledge(arrayUser[i],false,false,true,false);//si Module manager, alors on update que Module manager, sinon, c'est autres valeures sont ï¿½crasï¿½es...
 					}
 					
 						t.addOrReplaceTeamUser(arrayUser[i],Team);
 						
 						if(Role.equals("Tutor")) 
-							User.updatePriviledge(arrayUser[i],false,true,false,false);//si Module manager, alors on update que Module manager, sinon, c'est autres valeures sont écrasées...
+							User.updatePriviledge(arrayUser[i],false,true,false,false);//si Module manager, alors on update que Module manager, sinon, c'est autres valeures sont ï¿½crasï¿½es...
 						else if(Role.equals("Student")) 
-							User.updatePriviledge(arrayUser[i],true,false,false,false);//si Module manager, alors on update que Module manager, sinon, c'est autres valeures sont écrasées...
+							User.updatePriviledge(arrayUser[i],true,false,false,false);//si Module manager, alors on update que Module manager, sinon, c'est autres valeures sont ï¿½crasï¿½es...
 						
 					
 					
@@ -111,7 +111,7 @@ public class SControllerUser extends HttpServlet {
 			session.setAttribute( StringProvider.getPrenom(), user.getNom());
 		}
 
-		//!!!! il faudrai mettre en place le process qui renseigne au moins les gens étant élève comme Isstudent et gens professeur comme etant IsTutor
+		//!!!! il faudrai mettre en place le process qui renseigne au moins les gens ï¿½tant ï¿½lï¿½ve comme Isstudent et gens professeur comme etant IsTutor
 		// --->> MARCHE, a ajuster en fonction des strings de type que renvois le LDAP
 		if(user.getType().equals("eleve"))
 			User.AddUser(user, true,false);
@@ -131,9 +131,9 @@ public class SControllerUser extends HttpServlet {
 		else if(map.get("IsModuleManager"))
 			response.sendRedirect("/APPManager/SControllerCompetencies?action=CompetenciesManagmentPage");
 		else if(map.get("IsTutor"))
-			response.sendRedirect("/APPManager/html/teacher/MyGroups_teacher.jsp");
+			response.sendRedirect("/APPManager/SControllerTutorAttendance");
 		else if(map.get("IsStudent"))
-			response.sendRedirect("/APPManager/html/student/Profile.jsp");
+			response.sendRedirect("/APPManager/SControllerStudentProfile");
 		else
 			response.sendRedirect("/APPManager/index.jsp");
 		

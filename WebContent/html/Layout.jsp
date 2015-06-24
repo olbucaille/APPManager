@@ -123,10 +123,10 @@
 		<div id="buttn-1" class="buttn">
 			<i class="fa fa-home fa-2x"></i>
 		</div>
-		<div id="buttn-2" class="buttn active"><a href="MyGroups_teacher.jsp">
+		<div id="buttn-2" class="buttn active"><a href="/APPManager/SControllerTutorAttendance">
 			<i class="fa fa-users fa-2x"></i></a>
 		</div>
-		<div id="buttn-3" class="buttn"><a href="Evaluation_Teacher.jsp">
+		<div id="buttn-3" class="buttn"><a href="/APPManager/SControllerTutorEvaluation">
 			<i class="fa fa-star fa-2x"></i></a>
 		</div>
 		<div id="buttn-4" class="buttn"><a href="http://localhost:8081/APPManager/MemberListMain">
@@ -135,7 +135,7 @@
 		<div id="buttn-5" class="buttn">
 			<i class="fa fa-cog fa-2x"></i>
 		</div>
-		<div id="buttn-6" class="buttn"><a href="Profile_teacher.jsp">
+		<div id="buttn-6" class="buttn"><a href="/APPManager/SControllerTutorProfile">
 			<i class="fa fa-user fa-2x"></i></a>
 		</div>
 		<div id="buttn-7" class="buttn">

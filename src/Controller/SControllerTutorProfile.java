@@ -1,27 +1,25 @@
 package Controller;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import Model.Evaluation;
+import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class SNewEvaluation
+ * Servlet implementation class SControllerTutorProfile
  */
-@WebServlet("/SNewEvaluation")
-public class SNewEvaluation extends HttpServlet {
+@WebServlet("/SControllerTutorProfile")
+public class SControllerTutorProfile extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SNewEvaluation() {
+    public SControllerTutorProfile() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,7 +29,14 @@ public class SNewEvaluation extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+HttpSession session = request.getSession();
+
 		
+		if (session.getValue("NUMBER")==null || session.getValue("NUMBER").equals("")){
+			 redirection(request,response,"/ConnectionPage.html");
+		}else{
+			redirection(request,response,"/html/teacher/Profile_teacher.jsp");
+		}
 	}
 
 	/**
@@ -39,38 +44,7 @@ public class SNewEvaluation extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-
-		String name;
-		String type;
-		String date;
-		String comment;
-		
-		response.setContentType("text/html");	
-		PrintWriter out = response.getWriter();
-		out.println("<HTML>");
-		out.println("<BODY>");
-		out.println("<H1> new evaluation saved</H1>");	
-		name = request.getParameter("name");
-		type = request.getParameter("type");
-		date = request.getParameter("date");
-		comment = request.getParameter("comment");
-		
-		Evaluation myEval = new Evaluation("",name,type,date,comment);
-		Evaluation.AddEvaluation(myEval);
-		out.println("name :"+name);
-		out.println("<br>");
-		out.println("type :"+type);
-		out.println("<br>");
-		out.println("date :"+date);
-		out.println("<br>");
-		out.println("comment :"+comment);
-		out.println("<br>");
-		out.println("</BODY></HTML>");
-
-		response.sendRedirect("/APPManager/SControllerTutorEvaluation");
-		out.close();
 	}
-	
 	//methode g�n�rique de redirection
 	protected void redirection(HttpServletRequest request, HttpServletResponse response, String page) 
 	{
