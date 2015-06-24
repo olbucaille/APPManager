@@ -146,6 +146,33 @@ public class Team {
 			return Idteam;
 
 		}
+		
+		// récupere la Idteam de l'utilisateur
+		public static List<String> GetIdTeamsOfTutor(String idTutor)
+		{
+			List <String> Idteams = new ArrayList<String>();
+			ResultSet rs = null ;
+			try {
+				String req = "SELECT idteam,iduser FROM team_user where iduser = \""+idTutor+"\"; ";
+				System.out.println(req);
+				rs = AccesBD.getInstance().executeQuery(req);
+			
+			
+			if(rs!= null)
+			{
+				while(rs.next()){
+					Idteams.add( rs.getString("idTeam"));
+					
+				}
+			}
+			} catch (ClassNotFoundException | SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		//	System.out.println(array.get(0).getName());
+			return Idteams;
+
+		}
 		//récupert la liste des utlisateurs pour une équipe donnée
 		public static List<User> GetTeamUsers(Team team)
 		{

@@ -9,19 +9,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import Model.APP;
-
 /**
- * Servlet implementation class SControllerStudentGroup
+ * Servlet implementation class SControllerTutorAttendance
  */
-@WebServlet("/SControllerStudentGroup")
-public class SControllerStudentGroup extends HttpServlet {
+@WebServlet("/SControllerTutorAttendance")
+public class SControllerTutorAttendance extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public SControllerStudentGroup() {
+    public SControllerTutorAttendance() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,14 +30,13 @@ public class SControllerStudentGroup extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
+
 		
 		if (session.getValue("NUMBER")==null || session.getValue("NUMBER").equals("")){
 			 redirection(request,response,"/ConnectionPage.html");
 		}else{
-			redirection(request,response,"/html/student/MyGroup.jsp");
+			redirection(request,response,"/html/teacher/MyGroups_teacher.jsp");
 		}
-	
-	
 	}
 
 	/**
@@ -48,24 +45,22 @@ public class SControllerStudentGroup extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 	}
-
-
-
+	
 	//methode g�n�rique de redirection
-	protected void redirection(HttpServletRequest request, HttpServletResponse response, String page) 
-	{
-		try{
-			getServletContext().getRequestDispatcher(page).forward(request, response);
-		}
-		catch(ServletException e)
-		{
-			
-		}
-		catch(IOException e)
-		{
-			
-		}
-		
-	}
+			protected void redirection(HttpServletRequest request, HttpServletResponse response, String page) 
+			{
+				try{
+					getServletContext().getRequestDispatcher(page).forward(request, response);
+				}
+				catch(ServletException e)
+				{
+					
+				}
+				catch(IOException e)
+				{
+					
+				}
+				
+			}
 
 }

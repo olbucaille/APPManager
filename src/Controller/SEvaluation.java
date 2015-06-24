@@ -137,7 +137,7 @@ public class SEvaluation extends HttpServlet {
 		   	}
 		   	
 		}
-		response.sendRedirect("http://localhost:8081/APPManager/SControllerStudentEvaluation");	
+		response.sendRedirect("/APPManager/SControllerStudentEvaluation");	
 		out.close();
 	}
 	

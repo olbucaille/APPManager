@@ -1,6 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
+<%@page import="java.util.List"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="Model.User"%>
+<%@page import="Model.Team"%>
+<%@page import="Model.Attendance"%>
 <jsp:include page="/html/Layout.jsp"></jsp:include>
 <link rel="stylesheet" type="text/css" href="/APPManager/css/left_menu.css">
 <link rel="stylesheet" type="text/css"
@@ -8,376 +12,111 @@
 
 <div id="title">MY GROUPS</div>
 
-	<div class="leftmenubox">
-		<ul class="leftmenu">
-			<li id="leftmenubox_title"><a href="javascript:access1()"
-				id="leftmenu_title"> Team Red Fire</a></li>
-			<li id="leftmenubox_tab"><a id="leftmenu_ref"
-				href="/APPManager/html/teacher/ProfileStudent_teacher.jsp">Thibault
-					Larour</a></li>
-			<li id="leftmenubox_tab"><a id="leftmenu_ref"
-				href="/APPManager/html/teacher/ProfileStudent_teacher.jsp">Olivier
-					Bucaille</a></li>
-			<li id="leftmenubox_tab"><a id="leftmenu_ref"
-				href="/APPManager/html/teacher/ProfileStudent_teacher.jsp">Arnaud
-					Buso</a></li>
-			<li id="leftmenubox_tab"><a id="leftmenu_ref"
-				href="/APPManager/html/teacher/ProfileStudent_teacher.jsp">Raphael
-					Luo</a></li>
-			<li id="leftmenubox_tab"><a id="leftmenu_ref"
-				href="/APPManager/html/teacher/ProfileStudent_teacher.jsp">Justin
-					Kwan</a></li>
-			<li id="leftmenubox_title"><a href="javascript:access2()"
-				id="leftmenu_title">Team Blue Water</a></li>
-			<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Manceny</a></li>
-			<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Chiky</a></li>
-			<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Zkazi</a></li>
-			<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Sellami</a></li>
-			<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Levebre</a></li>
-			<li id="leftmenubox_title"><a href="javascript:access3()"
-				id="leftmenu_title" href="#">Team Green Grass</a></li>
-			<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Manceny</a></li>
-			<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Chiky</a></li>
-			<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Zkazi</a></li>
-			<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Sellami</a></li>
-			<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Levebre</a></li>
-			<li id="leftmenubox_title"><a href="javascript:access4()"
-				id="leftmenu_title" href="#">Team Yellow Sun</a></li>
-			<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Manceny</a></li>
-			<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Chiky</a></li>
-			<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Zkazi</a></li>
-			<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Sellami</a></li>
-			<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#">Levebre</a></li>
-		</ul>
-	</div>
-	
-	<div id="block-central">
 
+
+ <% 
+ int count = 0;
+ String idTutor=(String)session.getValue("NUMBER"); 
+ //l'utilisateur est un tuteur
+ List <String> idTeamList = Team.GetIdTeamsOfTutor(idTutor);
+ if (idTeamList!=null){
+	 %> 
+		
+		<div class="leftmenubox">
+			<ul class="leftmenu">
+				<%
+	 //pour chaque équipe du tuteur
+	 for (String idTeam : idTeamList){
+		 Team team = Team.GetTeamWithId(idTeam); 
+		 if (team!=null){
+		 List <User> userList=Team.GetTeamUsers(team);
+		count++;
+		%>
+		<li id="leftmenubox_title"><a href="javascript:access<%=count%>()" id="leftmenu_title" ><%=team.getName() %></a></li>
+		<% 
+				userList=null;
+				// récuperer la team en fonction de l'utilisateur
+				userList= Team.GetTeamUsers(team);
+				if (userList.isEmpty()){
+					System.out.println("user empty");
+				}else{
+					 for (User user : userList) {	
+					 if (user.getType().equalsIgnoreCase("Student")){%>
+			<li id="leftmenubox_tab"><a id="leftmenu_ref" href="#"><%=user.getNom()%>
+					<%=user.getPrenom()%></a></li>
+					
+			<%			}
+					}
+				}
+				
+		}
+	}
+%></ul>
+</div><%
+}//fin if teamList%>
+
+
+
+ <% 
+int nbSession = Attendance.getTotalSession(idTutor);
+ System.out.println(""+nbSession);
+ count = 0;
+ //l'utilisateur est un tuteur
+ if (idTeamList!=null){
+	 %> 
+		
+<div id="block-central">
+<button id="addSession" value = <%=idTutor %>>Add New Session</button>
 	<div id="block-general">
-		<div id="block-access1" style="display: block">
-			<h1 class="team_title">Team Red Fire</h1>
-			<table class="table">
-				<tbody id=Atd-tbody style="display: block">
-					<tr>
+		 
+				<%
+	 //pour chaque équipe du tuteur
+	 for (String idTeam : idTeamList){
+		 Team team = Team.GetTeamWithId(idTeam); 
+		 if (team!=null){
+			 List <User> userList=Team.GetTeamUsers(team);
+			 count++;
+			 %>
+			 <div id="block-access<%=count%>" style="display: block">
+			 <h1 class="team_title"><%=team.getName() %></h1>
+				<table class="table">
+					<tbody id=Atd-tbody style="display: block">
+						<tr>
 						<th>Nom</th>
-						<th>Session1</th>
-						<th>Session2</th>
-						<th>Session3</th>
-						<th>Session4</th>
-						<th>Session5</th>
-						<th>Session6</th>
-						<th>Session7</th>
-						<th>Session8</th>
-						<th>Session9</th>
-					</tr>
-
-					<tr>
-						<td>Carmen</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Présent</td>
-					</tr>
-					<tr>
-						<td>Michelle</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Présent</td>
-					</tr>
-					<tr>
-						<td>Michelle</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Présent</td>
-					</tr>
-					<tr>
-						<td>Michelle</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Présent</td>
-					</tr>
-					<tr>
-						<td>Carmen</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Présent</td>
-					</tr>
-			</table>
-			<div id="rmk_part">
-				<h1 class="rmk_title">Remarks</h1>
-				<button>Save</button>
-				<textarea rows="10" cols="70">
-		</textarea>
-				<button>Save</button>
+			<% for(int i = 1;i<nbSession;i++){%>				
+						<th>Session<%=i%></th>	
+			<% }%>				
+						</tr>		
+			<% 
+			userList=null;
+			// récuperer la team en fonction de l'utilisateur
+			userList= Team.GetTeamUsers(team);
+			if (userList.isEmpty()){
+				System.out.println("user empty");
+			}else{
+				 for (User user : userList) {	
+				 	if (user.getType().equalsIgnoreCase("Student")){%>
+				<tr>
+					<td><%=user.getNom()%>
+				<%=user.getPrenom()%></td>
+					
+					<% for(int i = 1;i<nbSession;i++){%>				
+						<td><input type="checkbox"  value="list.get(i).getIdComp()" checked></td>	
+					<% }%>	
+						
+				</tr>
+		<%			}
+				}
+			}//fin else	
+			%></table>
 			</div>
+			<%
+		}//fin if
+	}
+%>
 		</div>
-		<div id="block-access2">
-			<h1 class="team_title">Team Blue Water</h1>
-			<table class="table">
-				<tbody id=Atd-tbody style="display: block">
-					<tr>
-						<th>Nom</th>
-						<th>Session1</th>
-						<th>Session2</th>
-						<th>Session3</th>
-						<th>Session4</th>
-						<th>Session5</th>
-						<th>Session6</th>
-						<th>Session7</th>
-						<th>Session8</th>
-						<th>Session9</th>
-					</tr>
-
-					<tr>
-						<td>Carmen</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Présent</td>
-					</tr>
-					<tr>
-						<td>Michelle</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Présent</td>
-					</tr>
-					<tr>
-						<td>Michelle</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Présent</td>
-					</tr>
-					<tr>
-						<td>Michelle</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Présent</td>
-					</tr>
-					<tr>
-						<td>Carmen</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Présent</td>
-					</tr>
-			</table>
-		</div>
-		<div id="block-access3">
-			<h1 class="team_title">Team Green Grass</h1>
-			<table class="table">
-				<tbody id=Atd-tbody style="display: block">
-					<tr>
-						<th>Nom</th>
-						<th>Session1</th>
-						<th>Session2</th>
-						<th>Session3</th>
-						<th>Session4</th>
-						<th>Session5</th>
-						<th>Session6</th>
-						<th>Session7</th>
-						<th>Session8</th>
-						<th>Session9</th>
-					</tr>
-
-					<tr>
-						<td>Carmen</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Présent</td>
-					</tr>
-					<tr>
-						<td>Michelle</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Présent</td>
-					</tr>
-					<tr>
-						<td>Michelle</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Présent</td>
-					</tr>
-					<tr>
-						<td>Michelle</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Présent</td>
-					</tr>
-					<tr>
-						<td>Carmen</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Présent</td>
-					</tr>
-			</table>
-		</div>
-		<div id="block-access4">
-			<h1 class="team_title">Team Yellow Sun</h1>
-			<table class="table">
-				<tbody id=Atd-tbody style="display: block">
-					<tr>
-						<th>Nom</th>
-						<th>Session1</th>
-						<th>Session2</th>
-						<th>Session3</th>
-						<th>Session4</th>
-						<th>Session5</th>
-						<th>Session6</th>
-						<th>Session7</th>
-						<th>Session8</th>
-						<th>Session9</th>
-					</tr>
-
-					<tr>
-						<td>Carmen</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Présent</td>
-					</tr>
-					<tr>
-						<td>Michelle</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Présent</td>
-					</tr>
-					<tr>
-						<td>Michelle</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Présent</td>
-					</tr>
-					<tr>
-						<td>Michelle</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Présent</td>
-					</tr>
-					<tr>
-						<td>Carmen</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Absent</td>
-						<td>Présent</td>
-						<td>Présent</td>
-					</tr>
-			</table>
-		</div>
-	</div>
+		</div><%
+}//fin if teamList%>
 
 
 
@@ -385,5 +124,35 @@
 	src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
 <script type="text/javascript"
 	src="/APPManager/js/multi-table_groups.js"></script>
+<script>
+		// On reprend le même id que dans le précédent chapitre
 
+		$("#addSession").click(function() {
+
+			$.ajax({
+				url : "SControllerAttendance",
+				type : "GET",
+				data : {
+					action : "addSession",
+					idTutor : this.value,
+					//  app: ,
+					
+				},
+
+				success : function(code_html, statut) {
+				},
+
+				error : function(resultat, statut, erreur) {
+
+				},
+
+				complete : function(resultat, statut) {
+
+				}
+
+			});
+
+		});
+	</script>
+	
 <jsp:include page="/html/Layout_foot.jsp"></jsp:include>
